@@ -4,7 +4,7 @@ import { Button } from '@mantine/core'
 
 import type { Work } from '../../../graphql/types'
 
-const AnnictClearButton: React.FC<{
+export const AnnictClearButton: React.FC<{
   isFetching: boolean
   setWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
 }> = ({ isFetching, setWorks }) => {
@@ -18,5 +18,3 @@ const AnnictClearButton: React.FC<{
     </Button>
   )
 }
-
-export default AnnictClearButton

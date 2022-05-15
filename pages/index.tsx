@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Container } from '@mantine/core'
 
-import UserSession from '../components/session/UserSession'
+import { UserSession } from '../components/session/UserSession'
 import packageJson from '../package.json'
 
 const Home: NextPage = () => {

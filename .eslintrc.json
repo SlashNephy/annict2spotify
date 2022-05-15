@@ -16,7 +16,7 @@
   },
   "plugins": ["@typescript-eslint", "promise", "unused-imports"],
   "rules": {
-    "indent": ["error", 2, {"SwitchCase": 1 }],
+    "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
@@ -43,17 +43,21 @@
         ]
       }
     ],
-    "no-unused-vars": "off",
-    "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
-      "warn",
-      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
-    ],
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       {
         "prefer": "type-imports"
       }
-    ]
-  }
+    ],
+    "import/no-default-export": "error"
+  },
+  "overrides": [
+    {
+      "files": ["pages/**/*.{ts,tsx}"],
+      "rules": {
+        "import/no-default-export": "off"
+      }
+    }
+  ],
+  "reportUnusedDisableDirectives": true
 }

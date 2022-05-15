@@ -4,13 +4,13 @@ import { Button } from '@mantine/core'
 import { cancelable } from 'cancelable-promise'
 
 import { fetchAllWorks } from '../../../lib/annict'
-import { statusState2Label } from './labels'
+import { statusState2Label } from './ui'
 
 import type { StatusState, Work } from '../../../graphql/types'
 import type CancelablePromise from 'cancelable-promise'
 import type { ServiceJwt } from 'next-auth/jwt'
 
-const AnnictFetchButton: React.FC<{
+export const AnnictFetchButton: React.FC<{
   state: StatusState
   token: ServiceJwt
   isFetching: boolean
@@ -64,5 +64,3 @@ const AnnictFetchButton: React.FC<{
     </>
   )
 }
-
-export default AnnictFetchButton

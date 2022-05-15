@@ -3,13 +3,13 @@ import React from 'react'
 import { Grid } from '@mantine/core'
 
 import { StatusState } from '../../../graphql/types'
-import AnnictClearButton from './AnnictClearButton'
-import AnnictFetchButton from './AnnictFetchButton'
+import { AnnictClearButton } from './AnnictClearButton'
+import { AnnictFetchButton } from './AnnictFetchButton'
 
 import type { Work } from '../../../graphql/types'
 import type { ServiceJwt } from 'next-auth/jwt'
 
-const AnnictFetchButtons: React.FC<{
+export const AnnictFetchButtons: React.FC<{
   token: ServiceJwt
   setWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
 }> = ({ token, setWorks }) => {
@@ -35,5 +35,3 @@ const AnnictFetchButtons: React.FC<{
     </Grid>
   )
 }
-
-export default AnnictFetchButtons

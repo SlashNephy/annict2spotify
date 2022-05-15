@@ -7,8 +7,9 @@ import { signOut, useSession } from 'next-auth/react'
 import DebugView from '../DebugView'
 import { AnnictSession } from './annict/AnnictSession'
 import { AnnictSignInButton, SignOutButton, SpotifySignInButton } from './buttons'
+import { SpotifySession } from './spotify/SpotifySession'
 
-const UserSession: React.FC = () => {
+export const UserSession: React.FC = () => {
   const { data: session, status } = useSession()
 
   React.useEffect(() => {
@@ -51,9 +52,10 @@ const UserSession: React.FC = () => {
 
       <Space h="xl" />
 
-      <SimpleGrid>{session?.annict && <AnnictSession token={session.annict} />}</SimpleGrid>
+      <SimpleGrid>
+        {session?.annict && <AnnictSession token={session.annict} />}
+        {session?.spotify && <SpotifySession token={session.spotify} />}
+      </SimpleGrid>
     </>
   )
 }
-
-export default UserSession
