@@ -5,6 +5,7 @@ import { Table } from '@mantine/core'
 import { AnnictWorkCheckbox } from './table/AnnictWorkCheckbox'
 import { AnnictWorkRating } from './table/AnnictWorkRating'
 import { AnnictWorkSeason } from './table/AnnictWorkSeason'
+import { AnnictWorkSelectAllCheckbox } from './table/AnnictWorkSelectAllCheckbox'
 import { AnnictWorkStatus } from './table/AnnictWorkStatus'
 import { AnnictWorkSyobocalWrapper } from './table/AnnictWorkSyobocalWrapper'
 import { AnnictWorkTitle } from './table/AnnictWorkTitle'
@@ -21,7 +22,14 @@ export const AnnictWorkTable: React.FC<{
       <Table striped={true} highlightOnHover={true}>
         <thead>
           <tr>
-            <th>Include?</th>
+            <th>
+              <AnnictWorkSelectAllCheckbox
+                works={works}
+                selectedWorks={selectedWorks}
+                setSelectedWorks={setSelectedWorks}
+              />
+              Include?
+            </th>
             <th>Title</th>
             <th>Season</th>
             <th>Rating</th>

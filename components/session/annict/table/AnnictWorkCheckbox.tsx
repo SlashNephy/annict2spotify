@@ -11,6 +11,7 @@ export const AnnictWorkCheckbox: React.FC<{
 }> = ({ work, selectedWorks, setSelectedWorks }) => {
   const handleCheck = (workId: number) => {
     const isChecked = selectedWorks.has(workId)
+
     setSelectedWorks((current) => {
       const copiedIds = new Set(current)
       if (isChecked) {
