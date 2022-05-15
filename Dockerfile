@@ -1,11 +1,11 @@
-FROM node:18.1.0-bullseye-slim AS cache
+FROM --platform=$BUILDPLATFORM node:18.1.0-bullseye-slim AS cache
 WORKDIR /app
 
 COPY ./.yarn/ /app/.yarn/
 COPY ./package.json ./.yarnrc.yml ./yarn.lock /app/
 RUN yarn
 
-FROM node:18.1.0-bullseye-slim AS build
+FROM --platform=$BUILDPLATFORM node:18.1.0-bullseye-slim AS build
 WORKDIR /app
 
 RUN apt update \
@@ -18,7 +18,7 @@ COPY --from=cache /app/node_modules/ /app/node_modules/
 COPY ./ /app/
 RUN yarn prebuild && yarn build
 
-FROM node:18.1.0-bullseye-slim as runtime
+FROM --platform=$TARGETPLATFORM node:18.1.0-bullseye-slim as runtime
 WORKDIR /app
 
 RUN npm install -g next
