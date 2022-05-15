@@ -50,7 +50,8 @@
       }
     ],
     "import/no-default-export": "error",
-    "prefer-arrow-callback": "error"
+    "prefer-arrow-callback": "error",
+    "curly": "error"
   },
   "overrides": [
     {
