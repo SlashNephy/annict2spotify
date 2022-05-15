@@ -52,7 +52,7 @@
     "@types/spotify-web-api-node": "5.0.7",
     "@typescript-eslint/eslint-plugin": "5.23.0",
     "@typescript-eslint/parser": "5.23.0",
-    "concurrently": "7.1.0",
+    "concurrently": "7.2.0",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
     "eslint-config-prettier": "8.5.0",
