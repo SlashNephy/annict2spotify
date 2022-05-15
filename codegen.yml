@@ -1,0 +1,24 @@
+overwrite: true
+schema: graphql/schema.graphql
+documents: graphql/documents/*.graphql
+generates:
+  graphql/types.ts:
+    plugins:
+      - typescript
+    config:
+      scalars:
+        DateTime: Date
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+
+  graphql/operations.ts:
+    plugins:
+      - typescript-operations
+      - typescript-graphql-request
+    preset: import-types
+    presetConfig:
+      typesPath: ./types
+    hooks:
+      afterOneFileWrite:
+        - prettier --write

@@ -1,0 +1,59 @@
+{
+  "env": {
+    "es2022": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "next/core-web-vitals",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": ["@typescript-eslint", "promise", "unused-imports"],
+  "rules": {
+    "indent": ["error", 2, {"SwitchCase": 1 }],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", ["parent", "sibling", "index"], "object", "type"],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        },
+        "pathGroups": [
+          {
+            "pattern": "{react*,react/**,next*,next/**}",
+            "group": "builtin"
+          },
+          {
+            "pattern": "**.module.css",
+            "group": "type",
+            "position": "after"
+          }
+        ]
+      }
+    ],
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "warn",
+      {
+        "prefer": "type-imports"
+      }
+    ]
+  }
+}
