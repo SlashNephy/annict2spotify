@@ -17,7 +17,7 @@
     "graphql:generate": "graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@kawaiioverflow/arm": "0.86.0",
+    "@kawaiioverflow/arm": "0.89.0",
     "@mantine/core": "4.2.4",
     "@mantine/hooks": "4.2.4",
     "@mantine/next": "4.2.4",
