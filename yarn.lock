@@ -1403,17 +1403,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/notifications@npm:4.2.4":
-  version: 4.2.4
-  resolution: "@mantine/notifications@npm:4.2.4"
+"@mantine/notifications@npm:4.2.5":
+  version: 4.2.5
+  resolution: "@mantine/notifications@npm:4.2.5"
   dependencies:
     react-transition-group: ^4.4.2
   peerDependencies:
-    "@mantine/core": 4.2.4
-    "@mantine/hooks": 4.2.4
+    "@mantine/core": 4.2.5
+    "@mantine/hooks": 4.2.5
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 0ce2376add8120c7cadd4b4303458532cb1ed5479861f02443b6668e75e1e6688057fe715f9be930a1d4a0b58d4eccf4a56343494066f1b492fabd255c4af772
+  checksum: 9fea32267bb46e245723556dc1b2963d383a1162f8a95f7119f48dacca78433bc59d9cdac6b24f8bdda38e61add49dc597e21ecfe33884a50d028b943940685d
   languageName: node
   linkType: hard
 
@@ -2160,7 +2160,7 @@ __metadata:
     "@mantine/core": 4.2.4
     "@mantine/hooks": 4.2.4
     "@mantine/next": 4.2.4
-    "@mantine/notifications": 4.2.4
+    "@mantine/notifications": 4.2.5
     "@mantine/prism": 4.2.4
     "@types/node": 17.0.31
     "@types/prettier": 2.6.1
