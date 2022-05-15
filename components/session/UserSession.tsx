@@ -4,7 +4,7 @@ import { Avatar, Grid, SimpleGrid, Space } from '@mantine/core'
 import { Prism } from '@mantine/prism'
 import { signOut, useSession } from 'next-auth/react'
 
-import DebugView from '../DebugView'
+import { DebugView } from '../DebugView'
 import { AnnictSession } from './annict/AnnictSession'
 import { AnnictSignInButton, SignOutButton, SpotifySignInButton } from './buttons'
 import { SpotifySession } from './spotify/SpotifySession'
