@@ -2,19 +2,30 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 
-import { Anchor, AppShell, Container, Footer, Header, Text, Title } from '@mantine/core'
+import { Anchor, AppShell, Container, Footer, Grid, Header, Text, Title } from '@mantine/core'
+import { useSession } from 'next-auth/react'
 import { Heart } from 'tabler-icons-react'
 
+import { UserInfo } from '../components/session/UserInfo'
 import { UserSession } from '../components/session/UserSession'
 import packageJson from '../package.json'
 
 const Home: NextPage = () => {
+  const { data: session, status } = useSession()
+
   return (
     <AppShell
       header={
         <Header height={80} p="md">
           <Container>
-            <Title>{packageJson.name}</Title>
+            <Grid>
+              <Grid.Col span={8}>
+                <Title>{packageJson.name}</Title>
+              </Grid.Col>
+              <Grid.Col>
+                <UserInfo session={session} status={status} />
+              </Grid.Col>
+            </Grid>
           </Container>
         </Header>
       }
@@ -37,7 +48,7 @@ const Home: NextPage = () => {
       </Head>
 
       <Container>
-        <UserSession />
+        <UserSession session={session} />
       </Container>
     </AppShell>
   )

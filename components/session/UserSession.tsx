@@ -2,20 +2,19 @@ import React from 'react'
 
 import { Alert, Space, Stepper } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
-import { signOut, useSession } from 'next-auth/react'
+import { signOut } from 'next-auth/react'
 import { AlertCircle, ListCheck, Login, PlaylistAdd } from 'tabler-icons-react'
 
 import { AnnictSession } from './annict/AnnictSession'
 import { AnnictSignInButton, SignOutButton, SpotifySignInButton } from './buttons'
 import { SpotifySession } from './spotify/SpotifySession'
-import { UserInfo } from './UserInfo'
 
 import type { Work } from '../../graphql/types'
+import type { Session } from 'next-auth'
 import type { ServiceJwt } from 'next-auth/jwt'
 
-export const UserSession: React.FC = () => {
+export const UserSession: React.FC<{ session: Session | null }> = ({ session }) => {
   const [step, setStep] = React.useState(0)
-  const { data: session, status } = useSession()
   const [annictToken, setAnnictToken] = useLocalStorage<ServiceJwt | undefined>({ key: 'annict-token' })
   const [spotifyToken, setSpotifyToken] = useLocalStorage<ServiceJwt | undefined>({ key: 'spotify-token' })
   const [selectedWorks, setSelectedWorks] = React.useState(() => new Map<number, Work>())
@@ -78,8 +77,6 @@ export const UserSession: React.FC = () => {
 
         <Stepper.Step icon={<ListCheck />} label="3. Fetch Annict works" allowStepSelect={false}>
           <Space h="xl" />
-          <UserInfo session={session} status={status} />
-          <Space h="xl" />
           {annictToken && (
             <AnnictSession
               token={annictToken.accessToken}
@@ -90,8 +87,6 @@ export const UserSession: React.FC = () => {
         </Stepper.Step>
 
         <Stepper.Step icon={<PlaylistAdd />} label="4. Sync Spotify playlist" allowStepSelect={false}>
-          <Space h="xl" />
-          <UserInfo session={session} status={status} />
           <Space h="xl" />
           {spotifyToken && <SpotifySession token={spotifyToken.accessToken} />}
         </Stepper.Step>
