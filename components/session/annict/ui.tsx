@@ -1,3 +1,7 @@
+import React from 'react'
+
+import { Check, PlayerPause, PlayerPlay, PlayerRecord, PlayerStop } from 'tabler-icons-react'
+
 import { StatusState } from '../../../graphql/types'
 
 import type { SeasonName } from '../../../graphql/types'
@@ -26,16 +30,35 @@ export const statusState2Color = (state?: StatusState | null): MantineColor | un
   }
 
   switch (state) {
-    case StatusState.WannaWatch:
-      return 'orange'
     case StatusState.Watching:
       return 'indigo'
+    case StatusState.WannaWatch:
+      return 'orange'
     case StatusState.Watched:
       return 'green'
     case StatusState.OnHold:
       return 'red'
     case StatusState.StopWatching:
       return 'gray'
+  }
+}
+
+export const statusState2Icon = (state?: StatusState | null): React.ReactNode | undefined => {
+  if (!state) {
+    return
+  }
+
+  switch (state) {
+    case StatusState.Watching:
+      return <PlayerPlay />
+    case StatusState.WannaWatch:
+      return <PlayerRecord />
+    case StatusState.Watched:
+      return <Check />
+    case StatusState.OnHold:
+      return <PlayerPause />
+    case StatusState.StopWatching:
+      return <PlayerStop />
   }
 }
 

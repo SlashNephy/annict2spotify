@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 
-import { Anchor, AppShell, Container, Footer, Grid, Header, Text, Title } from '@mantine/core'
+import { Anchor, AppShell, Center, Container, Footer, Grid, Header, Text, Title } from '@mantine/core'
 import { useSession } from 'next-auth/react'
 import { Heart } from 'tabler-icons-react'
 
@@ -17,16 +17,16 @@ const Home: NextPage = () => {
     <AppShell
       header={
         <Header height={80} p="md">
-          <Container>
-            <Grid>
-              <Grid.Col span={8}>
+          <Center>
+            <Grid align="center" justify="space-between">
+              <Grid.Col span={2}>
                 <Title>{packageJson.name}</Title>
               </Grid.Col>
-              <Grid.Col>
+              <Grid.Col span={2} offset={8}>
                 <UserInfo session={session} status={status} />
               </Grid.Col>
             </Grid>
-          </Container>
+          </Center>
         </Header>
       }
       footer={

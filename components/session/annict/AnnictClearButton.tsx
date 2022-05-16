@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Button } from '@mantine/core'
+import { Trash } from 'tabler-icons-react'
 
 import type { Work } from '../../../graphql/types'
 
@@ -13,7 +14,12 @@ export const AnnictClearButton: React.FC<{
   }
 
   return (
-    <Button color={isFetching ? 'gray' : 'primary'} disabled={isFetching} onClick={() => handleClearClick()}>
+    <Button
+      leftIcon={<Trash />}
+      color={isFetching ? 'gray' : 'red'}
+      disabled={isFetching}
+      onClick={() => handleClearClick()}
+    >
       Clear
     </Button>
   )

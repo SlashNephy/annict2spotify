@@ -1,6 +1,9 @@
 import React from 'react'
 
-import { Avatar, Box, Center, Grid, Text } from '@mantine/core'
+import { Avatar, Divider, Indicator, Menu, Text } from '@mantine/core'
+import { Logout } from 'tabler-icons-react'
+
+import { signOutCustom } from '../../lib/session'
 
 import type { Session } from 'next-auth'
 import type { SessionContextValue } from 'next-auth/react'
@@ -9,26 +12,36 @@ export const UserInfo: React.FC<{ session: Session | null; status: SessionContex
   session,
   status,
 }) => {
-  if (status === 'loading') {
-    return <span>Loading...</span>
-  }
-  if (!session?.user) {
+  if (!session?.user || status === 'loading') {
     return <></>
   }
 
   return (
-    <Box>
-      <Center>
-        <Grid justify="right" align="center" grow>
-          <Avatar src={session.user.image} />
+    <Menu
+      placement="end"
+      control={
+        <Indicator withBorder size={16}>
+          <Avatar src={session.user?.image} size="md" />
+        </Indicator>
+      }
+    >
+      <Menu.Item disabled>
+        <div>
+          <Text size="sm" weight={500} color="gray">
+            {session.user?.name}
+          </Text>
 
-          <Grid.Col span={2}>
-            <Text>
-              {session.user.name} ({session.user.email})
-            </Text>
-          </Grid.Col>
-        </Grid>
-      </Center>
-    </Box>
+          <Text color="dimmed" size="xs">
+            {session.user?.email}
+          </Text>
+        </div>
+      </Menu.Item>
+
+      <Divider />
+
+      <Menu.Item color="red" icon={<Logout />} onClick={() => signOutCustom()}>
+        Sign out
+      </Menu.Item>
+    </Menu>
   )
 }

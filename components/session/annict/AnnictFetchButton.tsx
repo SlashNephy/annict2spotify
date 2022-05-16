@@ -4,7 +4,7 @@ import { Button } from '@mantine/core'
 import { cancelable } from 'cancelable-promise'
 
 import { fetchAllWorks } from '../../../lib/annict'
-import { statusState2Label } from './ui'
+import { statusState2Color, statusState2Icon, statusState2Label } from './ui'
 
 import type { StatusState, Work } from '../../../graphql/types'
 import type CancelablePromise from 'cancelable-promise'
@@ -48,12 +48,17 @@ export const AnnictFetchButton: React.FC<{
     setPromise(undefined)
   }
 
-  const color = isCancelable ? 'red' : isFetching ? 'gray' : 'primary'
+  const color = isCancelable ? 'red' : isFetching ? 'gray' : statusState2Color(state)
   const label = isCancelable ? 'Cancel' : isFetching ? 'Fetching' : 'Fetch'
 
   return (
     <>
-      <Button color={color} disabled={!isCancelable && isFetching} onClick={() => handleFetchClick()}>
+      <Button
+        leftIcon={statusState2Icon(state)}
+        color={color}
+        disabled={!isCancelable && isFetching}
+        onClick={() => handleFetchClick()}
+      >
         {label} {statusState2Label(state)}
       </Button>
 
