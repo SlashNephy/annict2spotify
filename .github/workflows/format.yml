@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  lint:
+  format:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -21,7 +21,7 @@ jobs:
           cache: yarn
 
       - name: Format
-        run: yarn format
+        run: yarn && yarn format
 
       - name: Push
         uses: stefanzweifel/git-auto-commit-action@v4
