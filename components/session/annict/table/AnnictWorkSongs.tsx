@@ -1,19 +1,18 @@
 import React from 'react'
+import { useQuery } from 'react-query'
 
 import { Badge, List, ListItem } from '@mantine/core'
-import useSWR from 'swr'
 
+import { getSyobocalSongs } from '../../../../lib/api'
 import { songKind2Color, songKind2Label } from '../ui'
 
-import type { Song } from '../../../../lib/syobocal/song'
-
 export const AnnictWorkSongs: React.FC<{ tid: number }> = ({ tid }) => {
-  const { data, error } = useSWR<Song[]>(`/api/syobocal/songs/${tid}`)
+  const { data, isLoading, error } = useQuery([`songs-${tid}`], () => getSyobocalSongs(tid))
 
   if (error) {
     return <span>Failed to fetch</span>
   }
-  if (!data) {
+  if (!data || isLoading) {
     return <span>Loading...</span>
   }
 

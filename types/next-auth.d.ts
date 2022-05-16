@@ -3,8 +3,8 @@ import 'next-auth'
 declare module 'next-auth/jwt' {
   type ServiceJwt = {
     accessToken: string
-    expiresAt: number
-    refreshToken: string
+    expiresAt?: number
+    refreshToken?: string
   }
 
   interface JWT {

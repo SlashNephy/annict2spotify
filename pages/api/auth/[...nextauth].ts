@@ -6,7 +6,7 @@ import Spotify from 'next-auth/providers/spotify'
 import { IS_DEBUG } from '../../../lib/constants'
 
 import type { AnnictProfile } from '../../../lib/annict'
-import type { JWT } from 'next-auth/jwt'
+import type { JWT, ServiceJwt } from 'next-auth/jwt'
 
 const ANNICT_CLIENT_ID = process.env.ANNICT_CLIENT_ID
 const ANNICT_CLIENT_SECRET = process.env.ANNICT_CLIENT_SECRET
@@ -57,13 +57,11 @@ export default NextAuth({
   callbacks: {
     async jwt({ token, account }): Promise<JWT> {
       if (account) {
-        const session: JWT['annict'] = {
+        const session: ServiceJwt = {
           // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
           accessToken: account.access_token!,
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          expiresAt: account.expires_at!,
-          // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-          refreshToken: account.refresh_token!,
+          expiresAt: account.expires_at,
+          refreshToken: account.refresh_token,
         }
 
         switch (account.provider) {

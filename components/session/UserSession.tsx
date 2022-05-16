@@ -11,42 +11,51 @@ import { SpotifySession } from './spotify/SpotifySession'
 import { UserInfo } from './UserInfo'
 
 import type { Work } from '../../graphql/types'
+import type { ServiceJwt } from 'next-auth/jwt'
 
 export const UserSession: React.FC = () => {
+  const [step, setStep] = React.useState(0)
   const { data: session, status } = useSession()
-  const [annictToken, setAnnictToken] = useLocalStorage<string | undefined>({ key: 'annict-token' })
-  const [spotifyToken, setSpotifyToken] = useLocalStorage<string | undefined>({ key: 'spotify-token' })
+  const [annictToken, setAnnictToken] = useLocalStorage<ServiceJwt | undefined>({ key: 'annict-token' })
+  const [spotifyToken, setSpotifyToken] = useLocalStorage<ServiceJwt | undefined>({ key: 'spotify-token' })
   const [selectedWorks, setSelectedWorks] = React.useState(() => new Map<number, Work>())
+  const [isSyncClicked, setIsSyncClicked] = React.useState(false)
 
   React.useEffect(() => {
-    if (!annictToken && session?.annict) {
-      setAnnictToken(session.annict.accessToken)
-    }
-
-    if (!spotifyToken && session?.spotify) {
-      setSpotifyToken(session.spotify.accessToken)
-    }
-
     if (session?.expires && Date.parse(session.expires) < Date.now()) {
       setAnnictToken(undefined)
       setSpotifyToken(undefined)
       signOut().catch(console.error)
     }
-  }, [annictToken, setAnnictToken, spotifyToken, setSpotifyToken, session])
+  }, [session, setAnnictToken, setSpotifyToken])
 
-  const step =
-    // 未ログイン
-    !annictToken && !spotifyToken
-      ? 0
-      : // Annict でログイン済
-      annictToken
-      ? 1
-      : // Spotify でログイン済
-      spotifyToken && selectedWorks.size === 0
-      ? 2
-      : selectedWorks.size > 0
-      ? 3
-      : 4
+  React.useEffect(() => {
+    if (annictToken?.expiresAt && annictToken.expiresAt < Date.now() / 1000) {
+      setAnnictToken(undefined)
+    } else if (!annictToken && session?.annict) {
+      setAnnictToken(session.annict)
+    }
+  }, [session, annictToken, setAnnictToken])
+
+  React.useEffect(() => {
+    if (spotifyToken?.expiresAt && spotifyToken.expiresAt < Date.now() / 1000) {
+      setSpotifyToken(undefined)
+    } else if (!spotifyToken && session?.spotify) {
+      setSpotifyToken(session.spotify)
+    }
+  }, [session, spotifyToken, setSpotifyToken])
+
+  React.useEffect(() => {
+    if (!annictToken && !spotifyToken) {
+      setStep(0)
+    } else if (annictToken && !spotifyToken) {
+      setStep(1)
+    } else if (spotifyToken && spotifyToken && !isSyncClicked) {
+      setStep(2)
+    } else {
+      setStep(3)
+    }
+  }, [annictToken, spotifyToken, isSyncClicked])
 
   return (
     <>
@@ -72,7 +81,11 @@ export const UserSession: React.FC = () => {
           <UserInfo session={session} status={status} />
           <Space h="xl" />
           {annictToken && (
-            <AnnictSession token={annictToken} selectedWorks={selectedWorks} setSelectedWorks={setSelectedWorks} />
+            <AnnictSession
+              token={annictToken.accessToken}
+              selectedWorks={selectedWorks}
+              setSelectedWorks={setSelectedWorks}
+            />
           )}
         </Stepper.Step>
 
@@ -80,7 +93,7 @@ export const UserSession: React.FC = () => {
           <Space h="xl" />
           <UserInfo session={session} status={status} />
           <Space h="xl" />
-          {spotifyToken && <SpotifySession token={spotifyToken} />}
+          {spotifyToken && <SpotifySession token={spotifyToken.accessToken} />}
         </Stepper.Step>
 
         <Stepper.Completed>

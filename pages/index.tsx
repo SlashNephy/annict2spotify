@@ -2,8 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import React from 'react'
 
-import { Anchor, AppShell, Container, Footer, Header, Space, Text, Title } from '@mantine/core'
-import { bottom } from '@popperjs/core'
+import { Anchor, AppShell, Container, Footer, Header, Text, Title } from '@mantine/core'
 import { Heart } from 'tabler-icons-react'
 
 import { UserSession } from '../components/session/UserSession'

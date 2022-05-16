@@ -1,11 +1,12 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { MantineProvider } from '@mantine/core'
 import { SessionProvider } from 'next-auth/react'
-import { RecoilRoot } from 'recoil'
-import { SWRConfig } from 'swr'
+
+const queryClient = new QueryClient()
 
 // noinspection HtmlRequiredTitleElement
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => (
@@ -14,25 +15,19 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
     </Head>
 
-    <RecoilRoot>
-      <SessionProvider session={session}>
-        <SWRConfig
-          value={{
-            fetcher: (input, init) => fetch(input, init).then((response) => response.json()),
+    <SessionProvider session={session}>
+      <QueryClientProvider client={queryClient}>
+        <MantineProvider
+          withGlobalStyles
+          withNormalizeCSS
+          theme={{
+            colorScheme: 'light',
           }}
         >
-          <MantineProvider
-            withGlobalStyles
-            withNormalizeCSS
-            theme={{
-              colorScheme: 'light',
-            }}
-          >
-            <Component {...pageProps} />
-          </MantineProvider>
-        </SWRConfig>
-      </SessionProvider>
-    </RecoilRoot>
+          <Component {...pageProps} />
+        </MantineProvider>
+      </QueryClientProvider>
+    </SessionProvider>
   </>
 )
 
