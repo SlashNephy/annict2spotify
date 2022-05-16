@@ -2177,7 +2177,7 @@ __metadata:
     eslint-import-resolver-typescript: 2.7.1
     eslint-plugin-import: 2.26.0
     eslint-plugin-promise: 6.0.0
-    eslint-plugin-react: ^7.29.4
+    eslint-plugin-react: 7.29.4
     eslint-plugin-react-hooks: 4.5.0
     eslint-plugin-unused-imports: 2.0.0
     fast-xml-parser: 4.0.7
@@ -3719,7 +3719,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react@npm:^7.29.4":
+"eslint-plugin-react@npm:7.29.4, eslint-plugin-react@npm:^7.29.4":
   version: 7.29.4
   resolution: "eslint-plugin-react@npm:7.29.4"
   dependencies:
