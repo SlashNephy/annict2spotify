@@ -51,6 +51,8 @@ export default NextAuth({
     Spotify({
       clientId: SPOTIFY_CLIENT_ID,
       clientSecret: SPOTIFY_CLIENT_SECRET,
+      authorization:
+        'https://accounts.spotify.com/authorize?scope=user-read-email,playlist-modify-public,playlist-modify-private,playlist-read-collaborative,playlist-read-private',
     }),
   ],
   callbacks: {
