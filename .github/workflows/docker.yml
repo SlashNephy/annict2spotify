@@ -4,6 +4,8 @@ on:
   push:
     paths-ignore:
       - '**.md'
+    branches-ignore:
+      - 'renovate/**'
 
   release:
     types:
