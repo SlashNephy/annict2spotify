@@ -1,11 +1,10 @@
-import type { Session, User } from 'next-auth'
 import NextAuth from 'next-auth'
-
 import Spotify from 'next-auth/providers/spotify'
 
 import { IS_DEBUG } from '../../../lib/constants'
 
 import type { AnnictProfile } from '../../../lib/annict'
+import type { Session, User } from 'next-auth'
 import type { JWT, ServiceJwt } from 'next-auth/jwt'
 
 const ANNICT_CLIENT_ID = process.env.ANNICT_CLIENT_ID

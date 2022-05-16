@@ -2145,6 +2145,7 @@ __metadata:
     eslint-config-next: 12.1.6
     eslint-config-prettier: 8.5.0
     eslint-import-resolver-typescript: 2.7.1
+    eslint-plugin-css-import-order: ^1.1.0
     eslint-plugin-import: 2.26.0
     eslint-plugin-promise: 6.0.0
     eslint-plugin-react: 7.29.4
@@ -2159,7 +2160,7 @@ __metadata:
     prettier: 2.6.2
     react: 18.1.0
     react-dom: 18.1.0
-    react-query: ^3.39.0
+    react-query: 3.39.0
     spotify-web-api-node: 5.0.2
     tabler-icons-react: 1.48.0
     typescript: 4.6.4
@@ -3610,6 +3611,15 @@ __metadata:
     debug: ^3.2.7
     find-up: ^2.1.0
   checksum: 77048263f309167a1e6a1e1b896bfb5ddd1d3859b2e2abbd9c32c432aee13d610d46e6820b1ca81b37fba437cf423a404bc6649be64ace9148a3062d1886a678
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-css-import-order@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "eslint-plugin-css-import-order@npm:1.1.0"
+  peerDependencies:
+    eslint: ">= 6.0.0 < 9.0.0"
+  checksum: 337de7ffdf9e67f66dd4ddf6ca26b59c997734f22303cf0a90f239563e072bbb41c497e2903583d27b0c22c68f137a083ae946c606b050086593ac842382ee0d
   languageName: node
   linkType: hard
 
@@ -6666,7 +6676,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-query@npm:^3.39.0":
+"react-query@npm:3.39.0":
   version: 3.39.0
   resolution: "react-query@npm:3.39.0"
   dependencies:

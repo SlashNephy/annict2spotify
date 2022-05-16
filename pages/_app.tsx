@@ -1,10 +1,11 @@
-import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
-import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { MantineProvider } from '@mantine/core'
 import { SessionProvider } from 'next-auth/react'
+import { QueryClient, QueryClientProvider } from 'react-query'
+
+import '../styles/globals.css'
 
 const queryClient = new QueryClient()
 

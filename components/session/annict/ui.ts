@@ -42,9 +42,9 @@ export const statusState2Color = (state?: StatusState | null): MantineColor | un
 export const songKind2Label = (kind: Song['kind'], number?: number): string => {
   switch (kind) {
     case 'opening':
-      return `OP${  number ? ` ${number}` : ''}`
+      return `OP${number ? ` ${number}` : ''}`
     case 'ending':
-      return `ED${  number ? ` ${number}` : ''}`
+      return `ED${number ? ` ${number}` : ''}`
     case 'insert':
       return 'Insert'
     default:

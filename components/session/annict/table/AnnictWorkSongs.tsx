@@ -1,7 +1,7 @@
 import React from 'react'
-import { useQuery } from 'react-query'
 
 import { Badge, List, ListItem } from '@mantine/core'
+import { useQuery } from 'react-query'
 
 import { getSyobocalSongs } from '../../../../lib/api'
 import { songKind2Color, songKind2Label } from '../ui'

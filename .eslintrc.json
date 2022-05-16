@@ -9,13 +9,14 @@
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
+    "plugin:css-import-order/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest"
   },
-  "plugins": ["@typescript-eslint", "promise", "unused-imports"],
+  "plugins": ["@typescript-eslint", "promise", "unused-imports", "css-import-order"],
   "rules": {
     "indent": ["error", 2, { "SwitchCase": 1 }],
     "linebreak-style": ["error", "unix"],
@@ -33,11 +34,11 @@
         },
         "pathGroups": [
           {
-            "pattern": "{react*,react/**,next*,next/**}",
+            "pattern": "{react,react/**,react-dom,react-dom/**,next,next/**}",
             "group": "builtin"
           },
           {
-            "pattern": "**.module.css",
+            "pattern": "**.css",
             "group": "type",
             "position": "after"
           }
