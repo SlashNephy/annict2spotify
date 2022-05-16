@@ -7,10 +7,9 @@ import { AnnictClearButton } from './AnnictClearButton'
 import { AnnictFetchButton } from './AnnictFetchButton'
 
 import type { Work } from '../../../graphql/types'
-import type { ServiceJwt } from 'next-auth/jwt'
 
 export const AnnictFetchButtons: React.FC<{
-  token: ServiceJwt
+  token: string
   setWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
 }> = ({ token, setWorks }) => {
   const [isFetching, setIsFetching] = React.useState(false)

@@ -14,12 +14,12 @@ import type { Work } from '../../../graphql/types'
 
 export const AnnictWorkTable: React.FC<{
   works: Map<number, Work>
-  selectedWorks: Set<number>
-  setSelectedWorks: React.Dispatch<React.SetStateAction<Set<number>>>
+  selectedWorks: Map<number, Work>
+  setSelectedWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
 }> = ({ works, selectedWorks, setSelectedWorks }) => {
   return (
     <>
-      <Table striped={true} highlightOnHover={true}>
+      <Table striped highlightOnHover>
         <thead>
           <tr>
             <th>

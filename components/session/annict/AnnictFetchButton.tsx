@@ -8,11 +8,10 @@ import { statusState2Label } from './ui'
 
 import type { StatusState, Work } from '../../../graphql/types'
 import type CancelablePromise from 'cancelable-promise'
-import type { ServiceJwt } from 'next-auth/jwt'
 
 export const AnnictFetchButton: React.FC<{
   state: StatusState
-  token: ServiceJwt
+  token: string
   isFetching: boolean
   setIsFetching: React.Dispatch<React.SetStateAction<boolean>>
   setWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
@@ -32,7 +31,7 @@ export const AnnictFetchButton: React.FC<{
       return
     }
 
-    const task = cancelable(fetchAllWorks(token.accessToken, state))
+    const task = cancelable(fetchAllWorks(token, state))
     setIsFetching(true)
     setPromise(task)
 

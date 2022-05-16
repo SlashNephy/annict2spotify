@@ -6,11 +6,13 @@ import { AnnictFetchButtons } from './AnnictFetchButtons'
 import { AnnictWorkTable } from './AnnictWorkTable'
 
 import type { Work } from '../../../graphql/types'
-import type { ServiceJwt } from 'next-auth/jwt'
 
-export const AnnictSession: React.FC<{ token: ServiceJwt }> = ({ token }) => {
+export const AnnictSession: React.FC<{
+  token: string
+  selectedWorks: Map<number, Work>
+  setSelectedWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
+}> = ({ token, selectedWorks, setSelectedWorks }) => {
   const [works, setWorks] = React.useState(() => new Map<number, Work>())
-  const [selectedWorks, setSelectedWorks] = React.useState(() => new Set<number>())
 
   return (
     <>

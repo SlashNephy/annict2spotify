@@ -6,18 +6,18 @@ import type { Work } from '../../../../graphql/types'
 
 export const AnnictWorkSelectAllCheckbox: React.FC<{
   works: Map<number, Work>
-  selectedWorks: Set<number>
-  setSelectedWorks: React.Dispatch<React.SetStateAction<Set<number>>>
+  selectedWorks: Map<number, Work>
+  setSelectedWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
 }> = ({ works, selectedWorks, setSelectedWorks }) => {
   const handleCheck = () => {
     const workSize = works.size
 
     setSelectedWorks((current) => {
       if (current.size === workSize) {
-        return new Set()
+        return new Map()
       }
 
-      return new Set(works.keys())
+      return new Map(works.entries())
     })
   }
 
@@ -26,7 +26,7 @@ export const AnnictWorkSelectAllCheckbox: React.FC<{
       checked={selectedWorks.size === works.size}
       indeterminate={selectedWorks.size > 0 && selectedWorks.size < works.size}
       onChange={() => handleCheck()}
-      readOnly={true}
-    ></Checkbox>
+      readOnly
+    />
   )
 }

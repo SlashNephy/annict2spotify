@@ -1,5 +1,6 @@
-import { SeasonName, StatusState } from '../../../graphql/types'
+import { StatusState } from '../../../graphql/types'
 
+import type { SeasonName } from '../../../graphql/types'
 import type { Song } from '../../../lib/syobocal/song'
 import type { MantineColor } from '@mantine/core'
 
@@ -11,8 +12,12 @@ export const statusState2Label = (state?: StatusState | null): string | undefine
   return state
     .toLowerCase()
     .split('_')
-    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .map((part) => capitalize(part))
     .join(' ')
+}
+
+const capitalize = (text: string): string => {
+  return text.charAt(0).toUpperCase() + text.slice(1)
 }
 
 export const statusState2Color = (state?: StatusState | null): MantineColor | undefined => {
@@ -37,9 +42,9 @@ export const statusState2Color = (state?: StatusState | null): MantineColor | un
 export const songKind2Label = (kind: Song['kind'], number?: number): string => {
   switch (kind) {
     case 'opening':
-      return 'OP' + (number ? ` ${number}` : '')
+      return `OP${  number ? ` ${number}` : ''}`
     case 'ending':
-      return 'ED' + (number ? ` ${number}` : '')
+      return `ED${  number ? ` ${number}` : ''}`
     case 'insert':
       return 'Insert'
     default:
@@ -61,16 +66,5 @@ export const songKind2Color = (kind: Song['kind']): MantineColor => {
 }
 
 export const seasonName2Label = (seasonName: SeasonName): string => {
-  switch (seasonName) {
-    case SeasonName.Spring:
-      return 'Spring'
-    case SeasonName.Summer:
-      return 'Summer'
-    case SeasonName.Autumn:
-      return 'Autumn'
-    case SeasonName.Winter:
-      return 'Winter'
-    default:
-      return 'Unknown'
-  }
+  return capitalize(seasonName.toLowerCase())
 }

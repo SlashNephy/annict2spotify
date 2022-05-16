@@ -6,29 +6,24 @@ import type { Work } from '../../../../graphql/types'
 
 export const AnnictWorkCheckbox: React.FC<{
   work: Work
-  selectedWorks: Set<number>
-  setSelectedWorks: React.Dispatch<React.SetStateAction<Set<number>>>
+  selectedWorks: Map<number, Work>
+  setSelectedWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
 }> = ({ work, selectedWorks, setSelectedWorks }) => {
-  const handleCheck = (workId: number) => {
+  const handleCheck = (work: Work) => {
+    const workId = work.annictId
     const isChecked = selectedWorks.has(workId)
 
     setSelectedWorks((current) => {
-      const copiedIds = new Set(current)
+      const copiedIds = new Map(current.entries())
       if (isChecked) {
         copiedIds.delete(workId)
       } else {
-        copiedIds.add(workId)
+        copiedIds.set(workId, work)
       }
 
       return copiedIds
     })
   }
 
-  return (
-    <Checkbox
-      checked={selectedWorks.has(work.annictId)}
-      onChange={() => handleCheck(work.annictId)}
-      readOnly={true}
-    ></Checkbox>
-  )
+  return <Checkbox checked={selectedWorks.has(work.annictId)} onChange={() => handleCheck(work)} readOnly />
 }
