@@ -1609,6 +1609,34 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/client@npm:3.14.0":
+  version: 3.14.0
+  resolution: "@prisma/client@npm:3.14.0"
+  dependencies:
+    "@prisma/engines-version": 3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a
+  peerDependencies:
+    prisma: "*"
+  peerDependenciesMeta:
+    prisma:
+      optional: true
+  checksum: 65ecb4e3c66cce717238b145791c8659c01d170ea6dda63230e5c5491d32a04b950d9fde427042e2e3a358724542052b8a1d16afefc14720451b4eb447789ba7
+  languageName: node
+  linkType: hard
+
+"@prisma/engines-version@npm:3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a":
+  version: 3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a
+  resolution: "@prisma/engines-version@npm:3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a"
+  checksum: 89721b5a865514a70ddee40f2e0c6996a6157b7603602f5bcc7e37771824d8b69a85b9040e6ce85e9619cf77d7c2e1d603349319a2620e0b2e34273f063277e8
+  languageName: node
+  linkType: hard
+
+"@prisma/engines@npm:3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a":
+  version: 3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a
+  resolution: "@prisma/engines@npm:3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a"
+  checksum: f5b1e09fc1e4fcc5a5f15f9e97b87b328067174310cf92d6d9779969510e8d9176e2aed69a3344d2a635f1c2c6b3484d174ce01cfbef4dae8fd49531a9bf9c0e
+  languageName: node
+  linkType: hard
+
 "@radix-ui/number@npm:0.1.0":
   version: 0.1.0
   resolution: "@radix-ui/number@npm:0.1.0"
@@ -2228,6 +2256,7 @@ __metadata:
     "@mantine/core": 4.2.5
     "@mantine/hooks": 4.2.5
     "@mantine/next": 4.2.5
+    "@prisma/client": 3.14.0
     "@types/node": 17.0.31
     "@types/prettier": 2.6.1
     "@types/react": 18.0.9
@@ -2239,6 +2268,7 @@ __metadata:
     autoprefixer: 10.4.7
     cancelable-promise: 4.3.0
     concurrently: 7.2.0
+    date-fns: 2.28.0
     eslint: 8.16.0
     eslint-config-next: 12.1.6
     eslint-config-prettier: 8.5.0
@@ -2258,9 +2288,11 @@ __metadata:
     node-fetch: 2.6.7
     postcss: 8.4.14
     prettier: 2.6.2
+    prisma: 3.14.0
     react: 18.1.0
     react-dom: 18.1.0
     react-query: 3.39.0
+    react-render-if-visible: 2.1.0
     spotify-web-api-node: 5.0.2
     tabler-icons-react: 1.48.0
     tailwindcss: 3.0.24
@@ -3258,17 +3290,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"date-fns@npm:2.28.0, date-fns@npm:^2.16.1":
+  version: 2.28.0
+  resolution: "date-fns@npm:2.28.0"
+  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
+  languageName: node
+  linkType: hard
+
 "date-fns@npm:^1.27.2":
   version: 1.30.1
   resolution: "date-fns@npm:1.30.1"
   checksum: 86b1f3269cbb1f3ee5ac9959775ea6600436f4ee2b78430cd427b41a0c9fabf740b1a5d401c085f3003539a6f4755c7c56c19fbd70ce11f6f673f6bc8075b710
-  languageName: node
-  linkType: hard
-
-"date-fns@npm:^2.16.1":
-  version: 2.28.0
-  resolution: "date-fns@npm:2.28.0"
-  checksum: a0516b2e4f99b8bffc6cc5193349f185f195398385bdcaf07f17c2c4a24473c99d933eb0018be4142a86a6d46cb0b06be6440ad874f15e795acbedd6fd727a1f
   languageName: node
   linkType: hard
 
@@ -6856,6 +6888,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prisma@npm:3.14.0":
+  version: 3.14.0
+  resolution: "prisma@npm:3.14.0"
+  dependencies:
+    "@prisma/engines": 3.14.0-36.2b0c12756921c891fec4f68d9444e18c7d5d4a6a
+  bin:
+    prisma: build/index.js
+    prisma2: build/index.js
+  checksum: 4923371fda3bb430fd3c842615a7010de335a482273c890eb755038b54ab21184bf2a8d7720b63fd4037e5148dfa46c3ab550f205f5ce62884941539a95d62e9
+  languageName: node
+  linkType: hard
+
 "process-nextick-args@npm:~2.0.0":
   version: 2.0.1
   resolution: "process-nextick-args@npm:2.0.1"
@@ -7016,6 +7060,16 @@ __metadata:
     react-native:
       optional: true
   checksum: 18fd745ef86375c73496d6bcffdd4a6d02b48feb1e63c05bcb1881406a91ecf776543d0751b776a6ff6ffddd3d7bf31973a37df8e4eb72d1626c41b815396aef
+  languageName: node
+  linkType: hard
+
+"react-render-if-visible@npm:2.1.0":
+  version: 2.1.0
+  resolution: "react-render-if-visible@npm:2.1.0"
+  peerDependencies:
+    react: ">= 16.8.0 < 19"
+    react-dom: ">= 16.8.0 < 19"
+  checksum: 6d3e313a19ba6871511e98eea253cf4c2ba99c87ed99507fb7b188fa589686555a8412bacb9599f988f591a8ae3253edf079a4870f0acf79fb6767c39c80eed2
   languageName: node
   linkType: hard
 
