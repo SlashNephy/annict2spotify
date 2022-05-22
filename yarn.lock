@@ -2292,6 +2292,7 @@ __metadata:
     react: 18.1.0
     react-dom: 18.1.0
     react-query: 3.39.0
+    react-render-if-visible: 2.1.0
     spotify-web-api-node: 5.0.2
     tabler-icons-react: 1.48.0
     tailwindcss: 3.0.24
@@ -7059,6 +7060,16 @@ __metadata:
     react-native:
       optional: true
   checksum: 18fd745ef86375c73496d6bcffdd4a6d02b48feb1e63c05bcb1881406a91ecf776543d0751b776a6ff6ffddd3d7bf31973a37df8e4eb72d1626c41b815396aef
+  languageName: node
+  linkType: hard
+
+"react-render-if-visible@npm:2.1.0":
+  version: 2.1.0
+  resolution: "react-render-if-visible@npm:2.1.0"
+  peerDependencies:
+    react: ">= 16.8.0 < 19"
+    react-dom: ">= 16.8.0 < 19"
+  checksum: 6d3e313a19ba6871511e98eea253cf4c2ba99c87ed99507fb7b188fa589686555a8412bacb9599f988f591a8ae3253edf079a4870f0acf79fb6767c39c80eed2
   languageName: node
   linkType: hard
 

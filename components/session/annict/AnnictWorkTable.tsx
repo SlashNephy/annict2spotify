@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { Table } from '@mantine/core'
+import RenderIfVisible from 'react-render-if-visible'
 
 import { AnnictWorkCheckbox } from './table/AnnictWorkCheckbox'
 import { AnnictWorkRating } from './table/AnnictWorkRating'
@@ -39,7 +40,13 @@ export const AnnictWorkTable: React.FC<{
         </thead>
         <tbody>
           {Array.from(works.values()).map((work) => (
-            <tr key={work.annictId}>
+            <RenderIfVisible
+              key={work.annictId}
+              stayRendered
+              defaultHeight={200}
+              rootElement="tr"
+              placeholderElement="td"
+            >
               <td>
                 <AnnictWorkCheckbox work={work} selectedWorks={selectedWorks} setSelectedWorks={setSelectedWorks} />
               </td>
@@ -58,7 +65,7 @@ export const AnnictWorkTable: React.FC<{
               <td>
                 <AnnictWorkSyobocalWrapper work={work} />
               </td>
-            </tr>
+            </RenderIfVisible>
           ))}
         </tbody>
       </Table>
