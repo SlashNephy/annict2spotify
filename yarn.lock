@@ -1364,20 +1364,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:4.2.5":
-  version: 4.2.5
-  resolution: "@mantine/core@npm:4.2.5"
+"@mantine/core@npm:4.2.6":
+  version: 4.2.6
+  resolution: "@mantine/core@npm:4.2.6"
   dependencies:
-    "@mantine/styles": 4.2.5
+    "@mantine/styles": 4.2.6
     "@popperjs/core": ^2.9.3
     "@radix-ui/react-scroll-area": ^0.1.1
     react-popper: ^2.2.5
     react-textarea-autosize: ^8.3.2
   peerDependencies:
-    "@mantine/hooks": 4.2.5
+    "@mantine/hooks": 4.2.6
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: c6cc3ec1047b54cf31144c5d244958e88e7b9c673e7f056aaa857f764f3779ed5481bba9f0d7ee6cfff20f9975eb3a72bce7c7b8013995e64fac8beb76adce59
+  checksum: d90e6d4be81d992dbaf1e89b548663465408fd94152be5eda6db2c9a1a5dfa2852a5955d8ad7cb2381d79fc9d7b4d164b26f5c464554c8434fc2bfa64dcf7245
   languageName: node
   linkType: hard
 
@@ -1436,6 +1436,23 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: 62b45b106dc65b19c87af9f62aa5b1294276436fb232eea837750fcc64c62e5f87a8d14ffd1034ae17943bceed9a79c087b676f0c50dc62eede263b765eeab32
+  languageName: node
+  linkType: hard
+
+"@mantine/styles@npm:4.2.6":
+  version: 4.2.6
+  resolution: "@mantine/styles@npm:4.2.6"
+  dependencies:
+    "@emotion/cache": 11.7.1
+    "@emotion/react": 11.7.1
+    "@emotion/serialize": 1.0.2
+    "@emotion/utils": 1.0.0
+    clsx: ^1.1.1
+    csstype: 3.0.9
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 2f0a1fe0996a59f462659573b3a2ea116fd226a1b3f2837fe875632ef2be336fbe4f83c80952f05b49e821c2604246f6c3e38f41b58bf3e18559028caa93f36b
   languageName: node
   linkType: hard
 
@@ -2225,7 +2242,7 @@ __metadata:
     "@graphql-codegen/typescript-operations": 2.4.0
     "@iconify/react": 3.2.1
     "@kawaiioverflow/arm": 0.89.0
-    "@mantine/core": 4.2.5
+    "@mantine/core": 4.2.6
     "@mantine/hooks": 4.2.5
     "@mantine/next": 4.2.5
     "@types/node": 17.0.31
