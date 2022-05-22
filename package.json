@@ -19,10 +19,10 @@
     "prisma:generate": "prisma generate"
   },
   "dependencies": {
-    "@kawaiioverflow/arm": "0.89.0",
-    "@mantine/core": "4.2.5",
-    "@mantine/hooks": "4.2.5",
-    "@mantine/next": "4.2.5",
+    "@kawaiioverflow/arm": "0.90.0",
+    "@mantine/core": "4.2.6",
+    "@mantine/hooks": "4.2.6",
+    "@mantine/next": "4.2.6",
     "@prisma/client": "3.14.0",
     "cancelable-promise": "4.3.0",
     "date-fns": "2.28.0",
