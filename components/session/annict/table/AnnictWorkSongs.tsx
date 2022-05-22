@@ -10,7 +10,7 @@ import { songKind2Color, songKind2Label } from '../ui'
 import type { Song } from '../../../../lib/syobocal/song'
 
 export const AnnictWorkSongs: React.FC<{ tid: number }> = ({ tid }) => {
-  const { data, isLoading, error } = useQuery([`songs-${tid}`], () => getSyobocalPage(tid))
+  const { data, isLoading, error } = useQuery(`songs-${tid}`, () => getSyobocalPage(tid))
   const [songs, setSongs] = React.useState<Song[]>([])
 
   React.useEffect(() => {
