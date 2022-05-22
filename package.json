@@ -21,7 +21,7 @@
     "@kawaiioverflow/arm": "0.89.0",
     "@mantine/core": "4.2.5",
     "@mantine/hooks": "4.2.5",
-    "@mantine/next": "4.2.5",
+    "@mantine/next": "4.2.6",
     "cancelable-promise": "4.3.0",
     "fast-xml-parser": "4.0.7",
     "graphql-request": "4.2.0",
