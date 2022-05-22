@@ -4,10 +4,17 @@ import { Alert, Grid, Space, Stepper } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
 import { AlertCircle, ListCheck, Login, PlaylistAdd } from 'tabler-icons-react'
 
-import { ANNICT_TOKEN_KEY, signOutCustom, SPOTIFY_TOKEN_KEY } from '../../lib/session'
+import {
+  ANNICT_TOKEN_KEY,
+  clearAnnictToken,
+  clearSpotifyToken,
+  signOutCustom,
+  SPOTIFY_TOKEN_KEY,
+} from '../../lib/session'
 import { AnnictSession } from './annict/AnnictSession'
 import { SignInButton } from './SignInButton'
 import { SpotifySession } from './spotify/SpotifySession'
+import { SpotifySyncButton } from './spotify/SpotifySyncButton'
 
 import type { Work } from '../../graphql/types'
 import type { Session } from 'next-auth'
@@ -28,7 +35,7 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
 
   React.useEffect(() => {
     if (annictToken?.expiresAt && annictToken.expiresAt < Date.now() / 1000) {
-      setAnnictToken(undefined)
+      clearAnnictToken()
     } else if (!annictToken && session?.annict) {
       setAnnictToken(session.annict)
     }
@@ -36,20 +43,20 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
 
   React.useEffect(() => {
     if (spotifyToken?.expiresAt && spotifyToken.expiresAt < Date.now() / 1000) {
-      setSpotifyToken(undefined)
+      clearSpotifyToken()
     } else if (!spotifyToken && session?.spotify) {
       setSpotifyToken(session.spotify)
     }
   }, [session, spotifyToken, setSpotifyToken])
 
   React.useEffect(() => {
-    if (!annictToken && !spotifyToken) {
+    if (!annictToken) {
       setStep(0)
     } else if (annictToken && !spotifyToken) {
       setStep(1)
-    } else if (spotifyToken && spotifyToken && !isSyncClicked) {
+    } else if (annictToken && spotifyToken && !isSyncClicked) {
       setStep(2)
-    } else {
+    } else if (annictToken && spotifyToken && isSyncClicked) {
       setStep(3)
     }
   }, [annictToken, spotifyToken, isSyncClicked])
@@ -78,6 +85,8 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
         </Stepper.Step>
 
         <Stepper.Step icon={<ListCheck />} label="3. Fetch Annict animes" allowStepSelect={false}>
+          <Space h="md" />
+          <SpotifySyncButton selectedWorks={selectedWorks} setIsClicked={setIsSyncClicked} />
           <Space h={40} />
           {annictToken && (
             <AnnictSession
@@ -90,7 +99,7 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
 
         <Stepper.Step icon={<PlaylistAdd />} label="4. Sync Spotify playlist" allowStepSelect={false}>
           <Space h={40} />
-          {spotifyToken && <SpotifySession token={spotifyToken.accessToken} />}
+          {spotifyToken && <SpotifySession token={spotifyToken} />}
         </Stepper.Step>
 
         <Stepper.Completed>

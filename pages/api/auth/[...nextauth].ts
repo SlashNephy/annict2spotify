@@ -2,6 +2,7 @@ import NextAuth from 'next-auth'
 import Spotify from 'next-auth/providers/spotify'
 
 import { IS_DEBUG } from '../../../lib/constants'
+import { createSpotifyClient } from '../../../lib/spotify'
 
 import type { AnnictProfile } from '../../../lib/annict'
 import type { Session, User } from 'next-auth'
@@ -72,6 +73,18 @@ export default NextAuth({
           case 'spotify':
             token.spotify = session
             break
+        }
+      }
+
+      // https://next-auth.js.org/tutorials/refresh-token-rotation
+      if (token.spotify?.refreshToken && token.spotify?.expiresAt && token.spotify.expiresAt < Date.now() / 1000) {
+        const client = createSpotifyClient(token.spotify)
+
+        const newToken = await client.refreshAccessToken()
+        token.spotify = {
+          accessToken: newToken.body.access_token,
+          refreshToken: newToken.body.refresh_token,
+          expiresAt: Date.now() / 1000 + newToken.body.expires_in,
         }
       }
 
