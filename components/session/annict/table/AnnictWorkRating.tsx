@@ -7,5 +7,5 @@ export const AnnictWorkRating: React.FC<{ work: Work }> = ({ work }) => {
     return <span>-</span>
   }
 
-  return <span>{(work.satisfactionRate / 10).toFixed(2)} / 10</span>
+  return <span>{(work.satisfactionRate / 10).toFixed(2)}</span>
 }

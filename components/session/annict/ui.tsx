@@ -40,6 +40,8 @@ export const statusState2Color = (state?: StatusState | null): MantineColor | un
       return 'red'
     case StatusState.StopWatching:
       return 'gray'
+    default:
+      throw new Error(`Unknown StatusState: ${state}`)
   }
 }
 
@@ -59,19 +61,23 @@ export const statusState2Icon = (state?: StatusState | null): React.ReactNode | 
       return <PlayerPause />
     case StatusState.StopWatching:
       return <PlayerStop />
+    default:
+      throw new Error(`Unknown StatusState: ${state}`)
   }
 }
 
-export const songKind2Label = (kind: Song['kind'], number?: number): string => {
+export const songKind2Label = (kind: Song['kind'], song: Song): string => {
   switch (kind) {
     case 'opening':
-      return `OP${number ? ` ${number}` : ''}`
+      return `OP${song.number ? ` ${song.number}` : ''}`
     case 'ending':
-      return `ED${number ? ` ${number}` : ''}`
+      return `ED${song.number ? ` ${song.number}` : ''}`
     case 'insert':
-      return 'Insert'
+      return `Insert${song.usedIn ? ` (${song.usedIn})` : ''}`
+    case 'theme':
+      return 'Theme'
     default:
-      return 'Unknown'
+      throw new Error(`Unknown song['kind']: ${kind}`)
   }
 }
 
@@ -83,8 +89,10 @@ export const songKind2Color = (kind: Song['kind']): MantineColor => {
       return 'violet'
     case 'insert':
       return 'cyan'
+    case 'theme':
+      return 'orange'
     default:
-      return 'gray'
+      throw new Error(`Unknown song['kind']: ${kind}`)
   }
 }
 

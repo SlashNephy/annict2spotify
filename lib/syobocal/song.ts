@@ -1,22 +1,26 @@
 export type Song = {
-  kind: 'opening' | 'ending' | 'insert'
-  name: string
+  kind: 'opening' | 'ending' | 'insert' | 'theme'
+  title: string
+  label: string
   number?: number
-  attributes: {
+  creators: {
     lyricist?: string
     composer?: string
     arranger?: string
     artist?: string
   }
+  usedIn?: string
+  note?: string
 }
 
+/*
 export const parseTitleItemComment = (comment?: string): Song[] => {
   const songs: Song[] = []
   if (!comment) {
     return songs
   }
 
-  for (const section of comment.split('\n\n').filter((section) => section.startsWith('*'))) {
+  for (const section of comment.split('\n\n').filter((section) => section.match(/^\*[^*]/))) {
     const lines = section.substring(1).split('\n')
     const sectionName = lines[0]
     const attributes = parseAttributes(lines.slice(1))
@@ -77,7 +81,7 @@ const parseSong = (kind: Song['kind'], match: RegExpMatchArray, attributes: Map<
   return {
     kind,
     number: isNaN(number) ? undefined : number,
-    name: match.groups.name,
+    title: match.groups.name,
     attributes: parseSongAttributes(attributes),
   }
 }
@@ -99,4 +103,115 @@ const getValueByKeyContaining = (attributes: Map<string, string>, ...keys: strin
       }
     }
   }
+}
+ */
+
+export const parsePage = (html: string): Song[] => {
+  const parser = new DOMParser()
+  const document = parser.parseFromString(html, 'text/html')
+
+  return parsePageDocument(document)
+}
+
+const parsePageDocument = (document: Document): Song[] => {
+  const songs: Song[] = []
+
+  const items: { [kind in Song['kind']]: NodeListOf<HTMLTableElement> } = {
+    opening: document.querySelectorAll<HTMLTableElement>('table.section.op'),
+    ending: document.querySelectorAll<HTMLTableElement>('table.section.ed'),
+    insert: document.querySelectorAll<HTMLTableElement>('table.section.st'),
+    theme: document.querySelectorAll<HTMLTableElement>('table[class="section"]'),
+  }
+
+  for (const [kind, tables] of Object.entries(items)) {
+    const elements = Object.values(tables)
+
+    const result = elements
+      .map((element) => parseSongElement(kind as Song['kind'], element))
+      .filter((song) => song !== null) as Song[]
+    songs.push(...result)
+  }
+
+  return songs
+}
+
+const parseSongElement = (kind: Song['kind'], element: Element): Song | null => {
+  const title = parseSongTitleElement(element)
+  if (!title) {
+    return null
+  }
+
+  const table = parseSongTableElement(element)
+  if (!table) {
+    return null
+  }
+
+  return {
+    kind,
+    ...title,
+    ...table,
+  }
+}
+
+const parseSongTitleElement = (element: Element): Pick<Song, 'title' | 'label' | 'number'> | null => {
+  const titleElement = element.querySelector<HTMLDivElement>('div.title')
+  if (!titleElement) {
+    return null
+  }
+
+  const label = titleElement.querySelector('small')?.textContent
+  if (!label) {
+    return null
+  }
+
+  const title = Object.values(titleElement.childNodes)
+    .slice(-1)[0]
+    ?.textContent?.replace(/^「(.*)」$/, '$1')
+  if (!title) {
+    return null
+  }
+
+  const match = label.match(/(?<number>\d*?)$/)
+  const number = match?.groups?.number ? parseInt(match.groups.number) : undefined
+
+  return { title, label, number }
+}
+
+const parseSongTableElement = (element: Element): Pick<Song, 'creators' | 'usedIn' | 'note'> | null => {
+  const data = element.querySelector<HTMLTableElement>('table.data')
+  if (!data) {
+    return null
+  }
+
+  const song: Pick<Song, 'creators' | 'usedIn' | 'note'> = {
+    creators: {},
+  }
+
+  for (const row of data.querySelectorAll<HTMLTableRowElement>('table.data tr')) {
+    const key = row.querySelector<HTMLTableCellElement>('th')?.textContent
+    const value = row.querySelector<HTMLAnchorElement>('td a')?.textContent
+    if (!key || !value) {
+      continue
+    }
+
+    if (key.includes('作詞')) {
+      song.creators.lyricist = value
+    }
+    if (key.includes('作曲')) {
+      song.creators.composer = value
+    }
+    if (key.includes('編曲')) {
+      song.creators.arranger = value
+    }
+    if (key.includes('歌')) {
+      song.creators.artist = value
+    }
+    if (key === '使用話数') {
+      song.usedIn = value
+    }
+  }
+
+  song.note = element.querySelector<HTMLUListElement>('ul')?.textContent ?? undefined
+
+  return song
 }

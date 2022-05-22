@@ -52,3 +52,14 @@ export type SyobocalTitleLookupResponse = {
     }
   }
 }
+
+export const fetchPage = async (tid: number): Promise<string> => {
+  const url = `https://cal.syoboi.jp/tid/${tid}`
+  const response = await fetch(url, {
+    headers: {
+      'User-Agent': USER_AGENT,
+    },
+  })
+
+  return await response.text()
+}

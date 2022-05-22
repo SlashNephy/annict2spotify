@@ -13,16 +13,19 @@
     "format": "concurrently 'yarn:format:*'",
     "format:eslint": "yarn lint:eslint --fix",
     "format:prettier": "yarn lint:prettier --write",
-    "prebuild": "yarn graphql:download && yarn graphql:generate",
+    "prebuild": "concurrently 'yarn:*:generate'",
     "graphql:download": "curl -o graphql/schema.graphql https://raw.githubusercontent.com/kiraka/annict-web/main/app/graphql/beta/schema.graphql",
-    "graphql:generate": "graphql-codegen --config codegen.yml"
+    "graphql:generate": "graphql-codegen --config codegen.yml",
+    "prisma:generate": "prisma generate"
   },
   "dependencies": {
     "@kawaiioverflow/arm": "0.89.0",
     "@mantine/core": "4.2.5",
     "@mantine/hooks": "4.2.5",
     "@mantine/next": "4.2.5",
+    "@prisma/client": "3.14.0",
     "cancelable-promise": "4.3.0",
+    "date-fns": "2.28.0",
     "fast-xml-parser": "4.0.7",
     "graphql-request": "4.2.0",
     "next": "12.1.6",
@@ -65,6 +68,7 @@
     "graphql": "16.5.0",
     "postcss": "8.4.14",
     "prettier": "2.6.2",
+    "prisma": "3.14.0",
     "tailwindcss": "3.0.24",
     "typescript": "4.6.4"
   },
