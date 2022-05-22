@@ -32,7 +32,7 @@ export const AnnictWorkSongs: React.FC<{ tid: number }> = ({ tid }) => {
   return (
     <List>
       {songs.map((song) => (
-        <ListItem key={`${song.kind}_${song.number}_${song.title}`}>
+        <ListItem key={`${song.label}_${song.title}`}>
           <Badge color={songKind2Color(song.kind)}>{songKind2Label(song.kind, song)}</Badge>
           <span>
             {song.title}
