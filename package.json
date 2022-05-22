@@ -20,7 +20,7 @@
   "dependencies": {
     "@kawaiioverflow/arm": "0.89.0",
     "@mantine/core": "4.2.5",
-    "@mantine/hooks": "4.2.5",
+    "@mantine/hooks": "4.2.6",
     "@mantine/next": "4.2.5",
     "cancelable-promise": "4.3.0",
     "fast-xml-parser": "4.0.7",
