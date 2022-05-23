@@ -1892,12 +1892,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:18.0.4":
-  version: 18.0.4
-  resolution: "@types/react-dom@npm:18.0.4"
+"@types/react-dom@npm:18.0.5":
+  version: 18.0.5
+  resolution: "@types/react-dom@npm:18.0.5"
   dependencies:
     "@types/react": "*"
-  checksum: decde42d02a90ac2fe94fd6bfd9c78d002c03762a2d940df9422bf61af89c03d05e2113fd55fe45521fe27fa872a79dfd654b7d6b89652b455425efdcb763c58
+  checksum: cd48b81950f499b52a3f0c08261f00046f9b7c96699fa249c9664e257e820daf6ecac815cd1028cebc9d105094adc39d047d1efd79214394b8b2d515574c0787
   languageName: node
   linkType: hard
 
@@ -2260,7 +2260,7 @@ __metadata:
     "@types/node": 17.0.31
     "@types/prettier": 2.6.1
     "@types/react": 18.0.9
-    "@types/react-dom": 18.0.4
+    "@types/react-dom": 18.0.5
     "@types/spotify-web-api-node": 5.0.7
     "@types/tailwindcss": 3.0.10
     "@typescript-eslint/eslint-plugin": 5.25.0
@@ -2283,7 +2283,7 @@ __metadata:
     fast-xml-parser: 4.0.7
     graphql: 16.5.0
     graphql-request: 4.2.0
-    nanoid: ^3.3.4
+    nanoid: 3.3.4
     next: 12.1.6
     next-auth: 4.3.4
     node-fetch: 2.6.7
@@ -6085,7 +6085,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^3.1.30, nanoid@npm:^3.3.3, nanoid@npm:^3.3.4":
+"nanoid@npm:3.3.4, nanoid@npm:^3.1.30, nanoid@npm:^3.3.3, nanoid@npm:^3.3.4":
   version: 3.3.4
   resolution: "nanoid@npm:3.3.4"
   bin:
