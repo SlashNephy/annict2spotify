@@ -1,4 +1,7 @@
+import { nanoid } from 'nanoid'
+
 export type Song = {
+  readonly id: string
   kind: 'opening' | 'ending' | 'insert' | 'theme'
   title: string
   label: string
@@ -126,16 +129,21 @@ const parsePageDocument = (document: Document): Song[] => {
   for (const [kind, tables] of Object.entries(items)) {
     const elements = Object.values(tables)
 
-    const result = elements
+    const results = elements
       .map((element) => parseSongElement(kind as Song['kind'], element))
       .filter((song) => song !== null) as Song[]
-    songs.push(...result)
+    songs.push(...results)
   }
 
   return songs
 }
 
 const parseSongElement = (kind: Song['kind'], element: Element): Song | null => {
+  // const href = element.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.href
+  // if (!href) {
+  //   return null
+  // }
+
   const title = parseSongTitleElement(element)
   if (!title) {
     return null
@@ -146,7 +154,10 @@ const parseSongElement = (kind: Song['kind'], element: Element): Song | null => 
     return null
   }
 
+  const id = nanoid() // `${href}_${title.label}`
+
   return {
+    id,
     kind,
     ...title,
     ...table,

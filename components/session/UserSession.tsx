@@ -2,21 +2,17 @@ import React from 'react'
 
 import { Alert, Grid, Space, Stepper } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
+import { signIn } from 'next-auth/react'
 import { AlertCircle, ListCheck, Login, PlaylistAdd } from 'tabler-icons-react'
 
-import {
-  ANNICT_TOKEN_KEY,
-  clearAnnictToken,
-  clearSpotifyToken,
-  signOutCustom,
-  SPOTIFY_TOKEN_KEY,
-} from '../../lib/session'
+import { ANNICT_TOKEN_KEY, signOutCustom, SPOTIFY_TOKEN_KEY } from '../../lib/session'
 import { AnnictSession } from './annict/AnnictSession'
 import { SignInButton } from './SignInButton'
 import { SpotifySession } from './spotify/SpotifySession'
 import { SpotifySyncButton } from './spotify/SpotifySyncButton'
 
 import type { Work } from '../../graphql/types'
+import type { Song } from '../../lib/syobocal/song'
 import type { Session } from 'next-auth'
 import type { ServiceJwt } from 'next-auth/jwt'
 
@@ -24,7 +20,8 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
   const [step, setStep] = React.useState(0)
   const [annictToken, setAnnictToken] = useLocalStorage<ServiceJwt | undefined>({ key: ANNICT_TOKEN_KEY })
   const [spotifyToken, setSpotifyToken] = useLocalStorage<ServiceJwt | undefined>({ key: SPOTIFY_TOKEN_KEY })
-  const [selectedWorks, setSelectedWorks] = React.useState(() => new Map<number, Work>())
+  const [selectedWorks, setSelectedWorks] = React.useState<Map<number, Work>>(() => new Map())
+  const [selectedSongs, setSelectedSongs] = React.useState<Map<string, Song>>(() => new Map())
   const [isSyncClicked, setIsSyncClicked] = React.useState(false)
 
   React.useEffect(() => {
@@ -34,17 +31,17 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
   }, [session])
 
   React.useEffect(() => {
-    if (annictToken?.expiresAt && annictToken.expiresAt < Date.now() / 1000) {
-      clearAnnictToken()
-    } else if (!annictToken && session?.annict) {
+    if (session?.annict?.expiresAt && session.annict.expiresAt < Date.now() / 1000) {
+      signIn('annict').catch(console.error)
+    } else if (session?.annict) {
       setAnnictToken(session.annict)
     }
   }, [session, annictToken, setAnnictToken])
 
   React.useEffect(() => {
-    if (spotifyToken?.expiresAt && spotifyToken.expiresAt < Date.now() / 1000) {
-      clearSpotifyToken()
-    } else if (!spotifyToken && session?.spotify) {
+    if (session?.spotify?.expiresAt && session.spotify.expiresAt < Date.now() / 1000) {
+      signIn('spotify').catch(console.error)
+    } else if (session?.spotify) {
       setSpotifyToken(session.spotify)
     }
   }, [session, spotifyToken, setSpotifyToken])
@@ -86,20 +83,21 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
 
         <Stepper.Step icon={<ListCheck />} label="3. Fetch Annict animes" allowStepSelect={false}>
           <Space h="md" />
-          <SpotifySyncButton selectedWorks={selectedWorks} setIsClicked={setIsSyncClicked} />
+          <SpotifySyncButton selectedSongs={selectedSongs} setIsClicked={setIsSyncClicked} />
           <Space h={40} />
           {annictToken && (
             <AnnictSession
               token={annictToken.accessToken}
               selectedWorks={selectedWorks}
               setSelectedWorks={setSelectedWorks}
+              setSelectedSongs={setSelectedSongs}
             />
           )}
         </Stepper.Step>
 
         <Stepper.Step icon={<PlaylistAdd />} label="4. Sync Spotify playlist" allowStepSelect={false}>
           <Space h={40} />
-          {spotifyToken && <SpotifySession token={spotifyToken} />}
+          {spotifyToken && <SpotifySession token={spotifyToken} selectedSongs={selectedSongs} />}
         </Stepper.Step>
 
         <Stepper.Completed>

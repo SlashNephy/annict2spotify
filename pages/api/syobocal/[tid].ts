@@ -26,7 +26,7 @@ const handler: NextApiHandler = async (req, res) => {
     if (page) {
       const willBeUpdated = add(page.updatedAt, { days: 7 })
       if (new Date() <= willBeUpdated) {
-        return res.status(200).setHeader('Content-Type', 'text/plain').send(page.content)
+        return res.status(200).setHeader('Content-Type', 'text/plain; charset=utf-8').send(page.content)
       }
     }
   } catch (error) {
@@ -43,7 +43,7 @@ const handler: NextApiHandler = async (req, res) => {
     await updateSyobocalPageInDatabase(id, response)
     console.log(`Updated syobocal page ${id}.`)
 
-    res.status(200).setHeader('Content-Type', 'text/plain').send(response)
+    res.status(200).setHeader('Content-Type', 'text/plain; charset=utf-8').send(response)
   } catch (error) {
     console.error(error)
 

@@ -11,7 +11,7 @@ export const AnnictWorkSeason: React.FC<{ work: Work }> = ({ work }) => {
 
   return (
     <span>
-      {seasonName2Label(work.seasonName)}, {work.seasonYear}
+      {seasonName2Label(work.seasonName)} {work.seasonYear}
     </span>
   )
 }

@@ -27,18 +27,31 @@ export const getPlaylists = async (token: ServiceJwt): Promise<SpotifyApi.Playli
       .then((response) => response.body)
     items.push(...body.items)
 
-    offset += body.limit
-    if (body.total < offset) {
+    if (body.next === null) {
       return items
     }
+
+    offset += body.limit
   }
 }
 
 export const searchTracks = async (token: ServiceJwt, query: string): Promise<SpotifyApi.TrackSearchResponse> => {
   const client = createSpotifyClient(token)
 
-  const response = await client.searchTracks(query)
+  const response = await client.searchTracks(query, {
+    market: 'JP',
+  })
   return response.body
+}
+
+export const addTracksToPlaylist = async (
+  token: ServiceJwt,
+  playlistId: string,
+  trackUris: string[]
+): Promise<void> => {
+  const client = createSpotifyClient(token)
+
+  await client.addTracksToPlaylist(playlistId, trackUris)
 }
 
 export const getProfile = async (token: ServiceJwt): Promise<SpotifyApi.CurrentUsersProfileResponse> => {

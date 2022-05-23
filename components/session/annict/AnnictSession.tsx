@@ -6,14 +6,17 @@ import { AnnictFetchButtons } from './AnnictFetchButtons'
 import { AnnictWorkTable } from './AnnictWorkTable'
 
 import type { Work } from '../../../graphql/types'
+import type { Song } from '../../../lib/syobocal/song'
 
 export const AnnictSession: React.FC<{
   token: string
   selectedWorks: Map<number, Work>
   setSelectedWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
-}> = ({ token, selectedWorks, setSelectedWorks }) => {
+  setSelectedSongs: React.Dispatch<React.SetStateAction<Map<string, Song>>>
+}> = ({ token, selectedWorks, setSelectedWorks, setSelectedSongs }) => {
   const [isFetching, setIsFetching] = React.useState(false)
   const [works, setWorks] = React.useState(() => new Map<number, Work>())
+  const [songs, setSongs] = React.useState(() => new Map<number, Song[]>())
 
   return (
     <>
@@ -25,7 +28,14 @@ export const AnnictSession: React.FC<{
       </Grid>
 
       {works.size > 0 && (
-        <AnnictWorkTable works={works} selectedWorks={selectedWorks} setSelectedWorks={setSelectedWorks} />
+        <AnnictWorkTable
+          works={works}
+          selectedWorks={selectedWorks}
+          setSelectedWorks={setSelectedWorks}
+          songs={songs}
+          setSongs={setSongs}
+          setSelectedSongs={setSelectedSongs}
+        />
       )}
     </>
   )

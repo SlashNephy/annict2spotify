@@ -3,25 +3,48 @@ import React from 'react'
 import { Checkbox } from '@mantine/core'
 
 import type { Work } from '../../../../graphql/types'
+import type { Song } from '../../../../lib/syobocal/song'
 
 export const AnnictWorkCheckbox: React.FC<{
   work: Work
   selectedWorks: Map<number, Work>
   setSelectedWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
-}> = ({ work, selectedWorks, setSelectedWorks }) => {
+  songs: Map<number, Song[]>
+  setSelectedSongs: React.Dispatch<React.SetStateAction<Map<string, Song>>>
+}> = ({ work, selectedWorks, setSelectedWorks, songs, setSelectedSongs }) => {
   const handleCheck = (work: Work) => {
     const workId = work.annictId
-    const isChecked = selectedWorks.has(workId)
+    const wasChecked = selectedWorks.has(workId)
 
     setSelectedWorks((current) => {
-      const copiedIds = new Map(current.entries())
-      if (isChecked) {
-        copiedIds.delete(workId)
+      const copied = new Map(current.entries())
+      if (wasChecked) {
+        copied.delete(workId)
       } else {
-        copiedIds.set(workId, work)
+        copied.set(workId, work)
       }
 
-      return copiedIds
+      return copied
+    })
+
+    setSelectedSongs((current) => {
+      const workSongs = songs.get(workId)
+      if (!workSongs) {
+        return current
+      }
+
+      const copied = new Map(current.entries())
+      if (wasChecked) {
+        for (const workSong of workSongs) {
+          copied.delete(workSong.id)
+        }
+      } else {
+        for (const workSong of workSongs) {
+          copied.set(workSong.id, workSong)
+        }
+      }
+
+      return copied
     })
   }
 

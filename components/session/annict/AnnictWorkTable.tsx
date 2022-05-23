@@ -12,12 +12,16 @@ import { AnnictWorkSyobocalWrapper } from './table/AnnictWorkSyobocalWrapper'
 import { AnnictWorkTitle } from './table/AnnictWorkTitle'
 
 import type { Work } from '../../../graphql/types'
+import type { Song } from '../../../lib/syobocal/song'
 
 export const AnnictWorkTable: React.FC<{
   works: Map<number, Work>
   selectedWorks: Map<number, Work>
   setSelectedWorks: React.Dispatch<React.SetStateAction<Map<number, Work>>>
-}> = ({ works, selectedWorks, setSelectedWorks }) => {
+  songs: Map<number, Song[]>
+  setSongs: React.Dispatch<React.SetStateAction<Map<number, Song[]>>>
+  setSelectedSongs: React.Dispatch<React.SetStateAction<Map<string, Song>>>
+}> = ({ works, selectedWorks, setSelectedWorks, songs, setSongs, setSelectedSongs }) => {
   return (
     <>
       <Table striped highlightOnHover>
@@ -28,6 +32,8 @@ export const AnnictWorkTable: React.FC<{
                 works={works}
                 selectedWorks={selectedWorks}
                 setSelectedWorks={setSelectedWorks}
+                songs={songs}
+                setSelectedSongs={setSelectedSongs}
               />
               Include?
             </th>
@@ -48,7 +54,13 @@ export const AnnictWorkTable: React.FC<{
               placeholderElement="td"
             >
               <td>
-                <AnnictWorkCheckbox work={work} selectedWorks={selectedWorks} setSelectedWorks={setSelectedWorks} />
+                <AnnictWorkCheckbox
+                  work={work}
+                  selectedWorks={selectedWorks}
+                  setSelectedWorks={setSelectedWorks}
+                  songs={songs}
+                  setSelectedSongs={setSelectedSongs}
+                />
               </td>
               <td>
                 <AnnictWorkTitle work={work} />
@@ -63,7 +75,7 @@ export const AnnictWorkTable: React.FC<{
                 <AnnictWorkStatus work={work} />
               </td>
               <td>
-                <AnnictWorkSyobocalWrapper work={work} />
+                <AnnictWorkSyobocalWrapper work={work} setSongs={setSongs} />
               </td>
             </RenderIfVisible>
           ))}

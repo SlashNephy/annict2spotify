@@ -16,7 +16,7 @@ RUN apt update \
 
 COPY --from=cache /app/node_modules/ /app/node_modules/
 COPY ./ /app/
-RUN yarn prebuild && yarn build
+RUN yarn generate && yarn build
 
 FROM --platform=$TARGETPLATFORM node:18.2.0-bullseye-slim as runtime
 WORKDIR /app

@@ -2283,6 +2283,7 @@ __metadata:
     fast-xml-parser: 4.0.7
     graphql: 16.5.0
     graphql-request: 4.2.0
+    nanoid: ^3.3.4
     next: 12.1.6
     next-auth: 4.3.4
     node-fetch: 2.6.7

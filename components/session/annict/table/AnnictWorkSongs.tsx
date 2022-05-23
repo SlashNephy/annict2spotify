@@ -9,18 +9,27 @@ import { songKind2Color, songKind2Label } from '../ui'
 
 import type { Song } from '../../../../lib/syobocal/song'
 
-export const AnnictWorkSongs: React.FC<{ tid: number }> = ({ tid }) => {
-  const { data, isLoading, error } = useQuery(`songs-${tid}`, () => getSyobocalPage(tid))
-  const [songs, setSongs] = React.useState<Song[]>([])
+export const AnnictWorkSongs: React.FC<{
+  workId: number
+  tid: number
+  setSongs: React.Dispatch<React.SetStateAction<Map<number, Song[]>>>
+}> = ({ workId, tid, setSongs }) => {
+  const { data, isLoading, error } = useQuery([tid, 'syobocal'], () => getSyobocalPage(tid))
+  const [workSongs, setWorkSongs] = React.useState<Song[]>([])
 
   React.useEffect(() => {
     if (data) {
       const songs = parsePage(data)
-      setSongs(songs)
-    }
 
-    return () => setSongs([])
-  }, [data])
+      setWorkSongs(songs)
+      setSongs((previous) => {
+        const copied = new Map(previous.entries())
+        copied.set(workId, songs)
+
+        return copied
+      })
+    }
+  }, [data, setSongs, workId])
 
   if (error) {
     return <span>Failed to fetch</span>
@@ -31,8 +40,8 @@ export const AnnictWorkSongs: React.FC<{ tid: number }> = ({ tid }) => {
 
   return (
     <List>
-      {songs.map((song) => (
-        <ListItem key={`${song.label}_${song.title}`}>
+      {workSongs.map((song) => (
+        <ListItem key={song.id}>
           <Badge color={songKind2Color(song.kind)}>{songKind2Label(song.kind, song)}</Badge>
           <span>
             {song.title}

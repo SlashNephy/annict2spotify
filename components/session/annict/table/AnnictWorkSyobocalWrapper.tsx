@@ -7,8 +7,12 @@ import { AnnictWorkSongs } from './AnnictWorkSongs'
 import { AnnictWorkSyobocalLink } from './AnnictWorkSyobocalLink'
 
 import type { Work } from '../../../../graphql/types'
+import type { Song } from '../../../../lib/syobocal/song'
 
-export const AnnictWorkSyobocalWrapper: React.FC<{ work: Work }> = ({ work }) => {
+export const AnnictWorkSyobocalWrapper: React.FC<{
+  work: Work
+  setSongs: React.Dispatch<React.SetStateAction<Map<number, Song[]>>>
+}> = ({ work, setSongs }) => {
   const tid = annict2syobocal(work.annictId) ?? work.syobocalTid
   if (!tid) {
     return <span>-</span>
@@ -17,7 +21,7 @@ export const AnnictWorkSyobocalWrapper: React.FC<{ work: Work }> = ({ work }) =>
   return (
     <SimpleGrid>
       <AnnictWorkSyobocalLink tid={tid} />
-      <AnnictWorkSongs tid={tid} />
+      <AnnictWorkSongs workId={work.annictId} tid={tid} setSongs={setSongs} />
     </SimpleGrid>
   )
 }
