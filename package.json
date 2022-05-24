@@ -17,7 +17,7 @@
     "format:prettier": "yarn lint:prettier --write",
     "introspect": "curl -o graphql/schema.graphql https://raw.githubusercontent.com/kiraka/annict-web/main/app/graphql/beta/schema.graphql",
     "generate": "concurrently -n generate: 'yarn:generate:*'",
-    "generate:graphql": "graphql-codegen --config codegen.yml",
+    "generate:graphql": "yarn introspect && graphql-codegen --config codegen.yml",
     "generate:prisma": "prisma generate"
   },
   "dependencies": {
