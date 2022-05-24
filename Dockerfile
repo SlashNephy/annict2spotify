@@ -6,6 +6,7 @@ COPY ./package.json ./.yarnrc.yml ./yarn.lock /app/
 RUN yarn
 
 FROM --platform=$BUILDPLATFORM node:18.2.0-bullseye-slim AS build
+ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 
 RUN apt update \
@@ -19,6 +20,7 @@ COPY ./ /app/
 RUN yarn generate && yarn build
 
 FROM --platform=$TARGETPLATFORM node:18.2.0-bullseye-slim as runtime
+ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 
 RUN npm install -g next
