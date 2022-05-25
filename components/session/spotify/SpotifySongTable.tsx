@@ -1,17 +1,18 @@
 import React from 'react'
 
 import { Table } from '@mantine/core'
+import RenderIfVisible from 'react-render-if-visible'
 
 import { SpotifySongRow } from './table/SpotifySongRow'
 
 import type { Song } from '../../../lib/syobocal/song'
+import type { ServiceJwt } from 'next-auth/jwt'
 
 export const SpotifySongTable: React.FC<{
+  token: ServiceJwt
   selectedSongs: Map<string, Song>
-  tracks: Map<string, SpotifyApi.TrackObjectFull[]>
-  selectedTracks: Map<string, number>
-  setSelectedTracks: React.Dispatch<React.SetStateAction<Map<string, number>>>
-}> = ({ selectedSongs, tracks, selectedTracks, setSelectedTracks }) => {
+  setSelectedTracks: React.Dispatch<React.SetStateAction<Map<string, SpotifyApi.TrackObjectFull>>>
+}> = ({ token, selectedSongs, setSelectedTracks }) => {
   return (
     <>
       <Table striped highlightOnHover>
@@ -25,7 +26,9 @@ export const SpotifySongTable: React.FC<{
         </thead>
         <tbody>
           {Array.from(selectedSongs.values()).map((song) => (
-            <SpotifySongRow key={song.id} song={song} tracks={tracks} setSelectedTracks={setSelectedTracks} />
+            <RenderIfVisible key={song.id} stayRendered defaultHeight={200} rootElement="tr" placeholderElement="td">
+              <SpotifySongRow token={token} song={song} setSelectedTracks={setSelectedTracks} />
+            </RenderIfVisible>
           ))}
         </tbody>
       </Table>

@@ -3,13 +3,8 @@ import React from 'react'
 import { Table } from '@mantine/core'
 import RenderIfVisible from 'react-render-if-visible'
 
-import { AnnictWorkCheckbox } from './table/AnnictWorkCheckbox'
-import { AnnictWorkRating } from './table/AnnictWorkRating'
-import { AnnictWorkSeason } from './table/AnnictWorkSeason'
 import { AnnictWorkSelectAllCheckbox } from './table/AnnictWorkSelectAllCheckbox'
-import { AnnictWorkStatus } from './table/AnnictWorkStatus'
-import { AnnictWorkSyobocalWrapper } from './table/AnnictWorkSyobocalWrapper'
-import { AnnictWorkTitle } from './table/AnnictWorkTitle'
+import { AnnictWorkTableRow } from './table/AnnictWorkTableRow'
 
 import type { Work } from '../../../graphql/types'
 import type { Song } from '../../../lib/syobocal/song'
@@ -53,30 +48,14 @@ export const AnnictWorkTable: React.FC<{
               rootElement="tr"
               placeholderElement="td"
             >
-              <td>
-                <AnnictWorkCheckbox
-                  work={work}
-                  selectedWorks={selectedWorks}
-                  setSelectedWorks={setSelectedWorks}
-                  songs={songs}
-                  setSelectedSongs={setSelectedSongs}
-                />
-              </td>
-              <td>
-                <AnnictWorkTitle work={work} />
-              </td>
-              <td>
-                <AnnictWorkSeason work={work} />
-              </td>
-              <td>
-                <AnnictWorkRating work={work} />
-              </td>
-              <td>
-                <AnnictWorkStatus work={work} />
-              </td>
-              <td>
-                <AnnictWorkSyobocalWrapper work={work} setSongs={setSongs} />
-              </td>
+              <AnnictWorkTableRow
+                work={work}
+                selectedWorks={selectedWorks}
+                setSelectedWorks={setSelectedWorks}
+                songs={songs}
+                setSongs={setSongs}
+                setSelectedSongs={setSelectedSongs}
+              />
             </RenderIfVisible>
           ))}
         </tbody>

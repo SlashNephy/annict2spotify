@@ -1,50 +1,58 @@
 import React from 'react'
 
-import { Group, Select } from '@mantine/core'
-import RenderIfVisible from 'react-render-if-visible'
+import { Group, Loader, Select } from '@mantine/core'
 import { AlertTriangle, Check, Microphone2 } from 'tabler-icons-react'
 
-import { CustomSelectItem } from '../SpotifySession'
+import { CustomSelectItem } from '../../../CustomSelectItem'
+import { useSongTracks } from './useSongTracks'
 
 import type { Song } from '../../../../lib/syobocal/song'
 import type { SelectItem } from '@mantine/core'
+import type { ServiceJwt } from 'next-auth/jwt'
 
 export const SpotifySongRow: React.FC<{
+  token: ServiceJwt
   song: Song
-  tracks: Map<string, SpotifyApi.TrackObjectFull[]>
-  setSelectedTracks: React.Dispatch<React.SetStateAction<Map<string, number>>>
-}> = ({ song, tracks, setSelectedTracks }) => {
-  const [data, setData] = React.useState<SelectItem[]>(() => [])
+  setSelectedTracks: React.Dispatch<React.SetStateAction<Map<string, SpotifyApi.TrackObjectFull>>>
+}> = ({ token, song, setSelectedTracks }) => {
+  const { tracks, isLoading, isError } = useSongTracks(token, song, 5)
   const [value, setValue] = React.useState<string>()
 
-  const intoSelectItem = (track: SpotifyApi.TrackObjectFull) => ({
-    label: track.name,
-    image: track.album.images[0]?.url,
-    value: track.uri,
-  })
-
+  // 1曲目を選択しておく
   React.useEffect(() => {
-    const songTracks = tracks.get(song.id)
-    if (songTracks && songTracks.length > 0) {
-      setData(songTracks.map(intoSelectItem))
+    const firstTrack = tracks[0]
+    if (!firstTrack) {
+      return
     }
-  }, [tracks, song.id])
 
-  React.useEffect(() => {
-    if (!value) {
-      const track = tracks.get(song.id)?.[0]
+    setValue((current) => {
+      return current ?? firstTrack.uri
+    })
+    setSelectedTracks((current) => {
+      if (!current.has(song.id)) {
+        current.set(song.id, firstTrack)
+      }
 
-      setSelectedTracks((selectedTracks) => {
-        selectedTracks.set(song.id, 0)
-        return selectedTracks
-      })
-      setValue(track?.uri)
+      return current
+    })
+  }, [song, tracks, setSelectedTracks])
+
+  const handleChange = (value: string | null) => {
+    const track = tracks.find((track) => track.uri === value)
+    if (!track) {
+      return
     }
-  }, [setSelectedTracks, song.id, tracks, value])
+
+    setValue(value ?? undefined)
+    setSelectedTracks((previous) => {
+      previous.set(song.id, track)
+      return previous
+    })
+  }
 
   return (
-    <RenderIfVisible stayRendered defaultHeight={200} rootElement="tr" placeholderElement="td">
-      <td>{tracks.size > 0 ? <Check /> : <AlertTriangle />}</td>
+    <>
+      <td>{tracks.length > 0 ? <Check /> : <AlertTriangle />}</td>
       <td>{song.title}</td>
       <td>
         <Group>
@@ -52,8 +60,28 @@ export const SpotifySongRow: React.FC<{
         </Group>
       </td>
       <td>
-        <Select value={value} itemComponent={CustomSelectItem} data={data} required searchable />
+        {isError ? (
+          <AlertTriangle />
+        ) : isLoading ? (
+          <Loader />
+        ) : (
+          <Select
+            value={value}
+            itemComponent={CustomSelectItem}
+            data={tracks.map(intoSelectItem)}
+            required
+            searchable
+            onChange={handleChange}
+          />
+        )}
       </td>
-    </RenderIfVisible>
+    </>
   )
 }
+
+const intoSelectItem = (track: SpotifyApi.TrackObjectFull): SelectItem => ({
+  label: track.name,
+  image: track.album.images[0].url,
+  value: track.uri,
+  group: track.artists[0].name,
+})

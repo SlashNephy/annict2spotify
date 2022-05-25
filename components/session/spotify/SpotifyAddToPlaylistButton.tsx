@@ -9,29 +9,29 @@ import type { ServiceJwt } from 'next-auth/jwt'
 
 export const SpotifyAddToPlaylistButton: React.FC<{
   token: ServiceJwt
-  selectedPlaylist?: string
-  tracks: Map<string, SpotifyApi.TrackObjectFull[]>
-  selectedTracks: Map<string, number>
-}> = ({ token, selectedPlaylist, tracks, selectedTracks }) => {
+  selectedPlaylist?: SpotifyApi.PlaylistObjectSimplified
+  selectedTracks: Map<string, SpotifyApi.TrackObjectFull>
+}> = ({ token, selectedPlaylist, selectedTracks }) => {
   const handleClick = async () => {
     if (!selectedPlaylist) {
       return
     }
 
-    const selectedTrackUris = Object.entries(selectedTracks)
-      .map(([id, index]) => {
-        return tracks.get(id)?.[index]?.uri ?? tracks.get(id)?.[0]?.uri
-      })
-      .filter((uri) => uri)
+    const selectedTrackUris = Array.from(selectedTracks.values()).map((track) => track.uri)
 
     const client = createSpotifyClient(token)
-    await client.addTracksToPlaylist(selectedPlaylist, selectedTrackUris as string[])
+    await client.addTracksToPlaylist(selectedPlaylist.id, selectedTrackUris)
   }
 
   return (
     <>
       <Grid justify="center" align="center" columns={10}>
-        <Button leftIcon={<DatabaseImport />} disabled={!selectedPlaylist} color="blue" onClick={() => handleClick()}>
+        <Button
+          leftIcon={<DatabaseImport />}
+          disabled={!selectedPlaylist || selectedTracks.size === 0}
+          color="blue"
+          onClick={() => handleClick()}
+        >
           Add Tracks to Playlist
         </Button>
       </Grid>

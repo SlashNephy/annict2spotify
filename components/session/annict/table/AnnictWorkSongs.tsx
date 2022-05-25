@@ -14,7 +14,7 @@ export const AnnictWorkSongs: React.FC<{
   tid: number
   setSongs: React.Dispatch<React.SetStateAction<Map<number, Song[]>>>
 }> = ({ workId, tid, setSongs }) => {
-  const { data, isLoading, error } = useQuery([tid, 'syobocal'], () => getSyobocalPage(tid))
+  const { data, isLoading, error } = useQuery(['syobocal', tid], () => getSyobocalPage(tid))
   const [workSongs, setWorkSongs] = React.useState<Song[]>([])
 
   React.useEffect(() => {
