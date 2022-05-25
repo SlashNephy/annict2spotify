@@ -6,8 +6,8 @@ import { Anchor, AppShell, Center, Container, Footer, Grid, Header, Text, Title 
 import { useSession } from 'next-auth/react'
 import { Heart } from 'tabler-icons-react'
 
-import { UserInfo } from '../components/session/UserInfo'
-import { UserSession } from '../components/session/UserSession'
+import { UserInfo } from '../components/user/UserInfo'
+import { UserSession } from '../components/user/UserSession'
 import packageJson from '../package.json'
 
 const Home: NextPage = () => {

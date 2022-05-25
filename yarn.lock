@@ -2283,6 +2283,7 @@ __metadata:
     fast-xml-parser: 4.0.7
     graphql: 16.5.0
     graphql-request: 4.2.0
+    levenshtein-edit-distance: 3.0.0
     nanoid: 3.3.4
     next: 12.1.6
     next-auth: 4.3.4
@@ -5529,6 +5530,15 @@ __metadata:
   dependencies:
     package-json: ^6.3.0
   checksum: fbc72b071eb66c40f652441fd783a9cca62f08bf42433651937f078cd9ef94bf728ec7743992777826e4e89305aef24f234b515e6030503a2cbee7fc9bdc2c0f
+  languageName: node
+  linkType: hard
+
+"levenshtein-edit-distance@npm:3.0.0":
+  version: 3.0.0
+  resolution: "levenshtein-edit-distance@npm:3.0.0"
+  bin:
+    levenshtein-edit-distance: cli.js
+  checksum: 8101a86c33e09e8708b1a23d2c16b2ac7e85bf884fbb9626cac011ce89b6db4ea6c85b0915420f00e9096452e70dcf704b257a5f28efc6f4a1af16e118c790e0
   languageName: node
   linkType: hard
 
