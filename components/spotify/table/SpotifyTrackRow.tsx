@@ -60,6 +60,9 @@ export const SpotifyTrackRow: React.FC<{
           isLoading={isLoading}
         />
       </td>
+      <td>
+        <audio src={selectedTrack?.preview_url} autoPlay={false} controls />
+      </td>
     </>
   )
 }

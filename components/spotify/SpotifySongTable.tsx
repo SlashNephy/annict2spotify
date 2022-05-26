@@ -26,6 +26,7 @@ export const SpotifySongTable: React.FC<
             <th>Title</th>
             <th>Artist</th>
             <th>Spotify</th>
+            <th>Preview</th>
           </tr>
         </thead>
         <tbody>
