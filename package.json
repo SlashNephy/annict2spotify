@@ -48,7 +48,7 @@
     "@graphql-codegen/typescript": "2.4.11",
     "@graphql-codegen/typescript-graphql-request": "4.4.8",
     "@graphql-codegen/typescript-operations": "2.4.0",
-    "@iconify/react": "3.2.1",
+    "@iconify/react": "3.2.2",
     "@types/node": "17.0.31",
     "@types/prettier": "2.6.1",
     "@types/react": "18.0.9",

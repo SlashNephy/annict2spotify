@@ -1309,10 +1309,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/react@npm:3.2.1":
-  version: 3.2.1
-  resolution: "@iconify/react@npm:3.2.1"
-  checksum: 3c8f74506403b9a8166443c4ec04736aace0fd3ee27572501954c8a505e65893c0c06f5fdf55c5207c3564f3be5c870f71d87a474f5b93eb3d3c1347312b47aa
+"@iconify/react@npm:3.2.2":
+  version: 3.2.2
+  resolution: "@iconify/react@npm:3.2.2"
+  peerDependencies:
+    react: ">=16"
+  checksum: 8b52e1291d7e6c9422ab49eabd6c3bbb29cb852578c08616dd66a2b0e64aad4579ea3e8a6a3881d9d25d363eada16940e78477806fa36cfd98c0cd79778d7d0f
   languageName: node
   linkType: hard
 
@@ -2251,7 +2253,7 @@ __metadata:
     "@graphql-codegen/typescript": 2.4.11
     "@graphql-codegen/typescript-graphql-request": 4.4.8
     "@graphql-codegen/typescript-operations": 2.4.0
-    "@iconify/react": 3.2.1
+    "@iconify/react": 3.2.2
     "@kawaiioverflow/arm": 0.91.0
     "@mantine/core": 4.2.6
     "@mantine/hooks": 4.2.6
