@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY ./.yarn/ /app/.yarn/
 COPY ./package.json ./.yarnrc.yml ./yarn.lock /app/
-RUN yarn
+RUN yarn --frozen-lockfile
 
 FROM --platform=$BUILDPLATFORM node:18.2.0-bullseye-slim AS build
 ENV NEXT_TELEMETRY_DISABLED=1
