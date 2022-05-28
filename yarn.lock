@@ -597,6 +597,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.8.7":
+  version: 7.18.3
+  resolution: "@babel/runtime@npm:7.18.3"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: db8526226aa02cfa35a5a7ac1a34b5f303c62a1f000c7db48cb06c6290e616483e5036ab3c4e7a84d0f3be6d4e2148d5fe5cec9564bf955f505c3e764b83d7f1
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.16.7":
   version: 7.16.7
   resolution: "@babel/template@npm:7.16.7"
@@ -1405,6 +1414,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mantine/notifications@npm:4.2.6":
+  version: 4.2.6
+  resolution: "@mantine/notifications@npm:4.2.6"
+  dependencies:
+    react-transition-group: ^4.4.2
+  peerDependencies:
+    "@mantine/core": 4.2.6
+    "@mantine/hooks": 4.2.6
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 4eedde05924891e95e15378cd4d90412ce9c8c8c8639e67882f26dc04ad214165fafc90217ad24ee61d15e4809cef6122808166ad3ded6f680e3afb35058e12b
+  languageName: node
+  linkType: hard
+
 "@mantine/ssr@npm:4.2.6":
   version: 4.2.6
   resolution: "@mantine/ssr@npm:4.2.6"
@@ -1894,10 +1917,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/prettier@npm:2.6.2":
-  version: 2.6.2
-  resolution: "@types/prettier@npm:2.6.2"
-  checksum: b1b0aadc2a325bcbf0040abd1f75de8cc08dd4a203c43c18dbb209c9e53b3e1c5c72faf82b7868302487f5cd0721c9ec26ee7e3fabd986d8066aba284196bd6d
+"@types/prettier@npm:2.6.3":
+  version: 2.6.3
+  resolution: "@types/prettier@npm:2.6.3"
+  checksum: e1836699ca189fff6d2a73dc22e028b6a6f693ed1180d5998ac29fa197caf8f85aa92cb38db642e4a370e616b451cb5722ad2395dab11c78e025a1455f37d1f0
   languageName: node
   linkType: hard
 
@@ -2284,9 +2307,10 @@ __metadata:
     "@mantine/core": 4.2.6
     "@mantine/hooks": 4.2.6
     "@mantine/next": 4.2.6
+    "@mantine/notifications": 4.2.6
     "@prisma/client": 3.14.0
     "@types/node": 17.0.31
-    "@types/prettier": 2.6.2
+    "@types/prettier": 2.6.3
     "@types/react": 18.0.9
     "@types/react-dom": 18.0.5
     "@types/spotify-web-api-node": 5.0.7
@@ -2308,7 +2332,7 @@ __metadata:
     eslint-plugin-react-hooks: 4.5.0
     eslint-plugin-tailwindcss: 3.5.0
     eslint-plugin-unused-imports: 2.0.0
-    fast-xml-parser: 4.0.7
+    fast-xml-parser: 4.0.8
     graphql: 16.5.0
     graphql-request: 4.2.0
     levenshtein-edit-distance: 3.0.0
@@ -3611,6 +3635,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-helpers@npm:^5.0.1":
+  version: 5.2.1
+  resolution: "dom-helpers@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": ^7.8.7
+    csstype: ^3.0.2
+  checksum: 863ba9e086f7093df3376b43e74ce4422571d404fc9828bf2c56140963d5edf0e56160f9b2f3bb61b282c07f8fc8134f023c98fd684bddcb12daf7b0f14d951c
+  languageName: node
+  linkType: hard
+
 "dom-serializer@npm:^1.0.1":
   version: 1.4.1
   resolution: "dom-serializer@npm:1.4.1"
@@ -4301,14 +4335,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-xml-parser@npm:4.0.7":
-  version: 4.0.7
-  resolution: "fast-xml-parser@npm:4.0.7"
+"fast-xml-parser@npm:4.0.8":
+  version: 4.0.8
+  resolution: "fast-xml-parser@npm:4.0.8"
   dependencies:
     strnum: ^1.0.5
   bin:
     fxparser: src/cli/cli.js
-  checksum: c80013da6c5f02bdf02f4f62c7e97c051c202280e3f740ef5e52a7608314466a5e2b7f877b4d9d275ad5934bf6c203e1634ecb78128177faf9d75efefa120db1
+  checksum: bf8467fb59b0840f4e3e8383872ec39a97f6cc16fc1c05b3e28060500f85cd34477911254fae61dff64e42129687f2e4ae47c86038230344e306124abaa2f335
   languageName: node
   linkType: hard
 
@@ -7327,7 +7361,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.8.1":
+"prop-types@npm:^15.6.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -7484,6 +7518,21 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: da3d0192825df3d9f27eef33e7eddf928359a7e3e2b01ae7f7f672ecf4e5c1f7a34f27bdde9ccc24e2e9fbe1d1b9dd2a39c7d47323c9bdf63e7b9bd05c325a71
+  languageName: node
+  linkType: hard
+
+"react-transition-group@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "react-transition-group@npm:4.4.2"
+  dependencies:
+    "@babel/runtime": ^7.5.5
+    dom-helpers: ^5.0.1
+    loose-envify: ^1.4.0
+    prop-types: ^15.6.2
+  peerDependencies:
+    react: ">=16.6.0"
+    react-dom: ">=16.6.0"
+  checksum: b67bf5b3e86dbab72d658b9a52a3589e5960583ab28c7c66272427d8fe30d4c7de422d5046ae96bd2683cdf80cc3264b2516f5ce80cae1dbe6cf3ca6dda392c5
   languageName: node
   linkType: hard
 

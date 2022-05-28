@@ -17,15 +17,17 @@ export const AnnictWorkSelectAllCheckbox: React.FC<{
     const workSize = works.size
 
     setSelectedWorks((current) => {
+      // 全選択状態なので全て解除する
       if (current.size === workSize) {
         return new Map()
       }
 
+      // 全選択状態でないので全て選択する
       return new Map(works.entries())
     })
 
     const selectedSongs = new Map<string, Song>()
-    for (const song of Object.values(songs).flat()) {
+    for (const song of Array.from(songs.values()).flat()) {
       selectedSongs.set(song.id, song)
     }
     setSelectedSongs(selectedSongs)

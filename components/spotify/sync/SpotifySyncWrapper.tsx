@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { showNotification } from '@mantine/notifications'
 import { cancelable } from 'cancelable-promise'
 
 import { addTracksToPlaylist } from '../../../lib/spotify'
@@ -16,6 +17,7 @@ export const SpotifySyncWrapper: React.FC<{
 }> = ({ token, selectedPlaylist, selectedTracks }) => {
   const [job, setJob] = React.useState<CancelablePromise<void>>()
   const isJobRunning = job !== undefined && !job.isCanceled()
+  const [progress, setProgress] = React.useState(0)
 
   const cancelJob = () => {
     job?.cancel()
@@ -30,10 +32,19 @@ export const SpotifySyncWrapper: React.FC<{
     cancelJob()
 
     const selectedTrackUris = Array.from(selectedTracks.values()).map((track) => track.uri)
-    const newJob = cancelable(addTracksToPlaylist(token, selectedPlaylist.id, selectedTrackUris))
+    const newJob = cancelable(addTracksToPlaylist(token, selectedPlaylist.id, selectedTrackUris, setProgress))
     setJob(newJob)
 
     await newJob
+    setJob(undefined)
+    setProgress(100)
+
+    showNotification({
+      color: 'green',
+      title: 'Added to playlist',
+      message: `Successfully added ${selectedTracks.size} tracks to ${selectedPlaylist.name}.`,
+      autoClose: 10000,
+    })
   }
 
   return (
@@ -43,7 +54,7 @@ export const SpotifySyncWrapper: React.FC<{
         onClick={handleClick}
       />
 
-      <SpotifySyncModal isJobRunning={isJobRunning} cancelJob={cancelJob} />
+      <SpotifySyncModal isJobRunning={isJobRunning} cancelJob={cancelJob} progress={progress} />
     </>
   )
 }

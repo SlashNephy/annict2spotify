@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import { MantineProvider } from '@mantine/core'
+import { NotificationsProvider } from '@mantine/notifications'
 import { SessionProvider } from 'next-auth/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -25,7 +26,9 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
             colorScheme: 'light',
           }}
         >
-          <Component {...pageProps} />
+          <NotificationsProvider position="top-right">
+            <Component {...pageProps} />
+          </NotificationsProvider>
         </MantineProvider>
       </QueryClientProvider>
     </SessionProvider>

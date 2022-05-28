@@ -2,6 +2,7 @@ import SpotifyWebApi from 'spotify-web-api-node'
 
 import { chunk } from './chunk'
 
+import type { Setter } from '../components/type'
 import type { ServiceJwt } from 'next-auth/jwt'
 
 export const createSpotifyClient = (token: ServiceJwt): SpotifyWebApi => {
@@ -39,12 +40,14 @@ export const searchTracks = async (
 export const addTracksToPlaylist = async (
   token: ServiceJwt,
   playlistId: string,
-  trackUris: string[]
+  trackUris: string[],
+  setProgress: Setter<number>
 ): Promise<void> => {
   const client = createSpotifyClient(token)
 
   for (const uris of chunk(trackUris, 100)) {
     await client.addTracksToPlaylist(playlistId, uris)
+    setProgress(Math.round((uris.length / trackUris.length) * 100))
   }
 }
 
