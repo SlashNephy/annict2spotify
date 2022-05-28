@@ -223,5 +223,4 @@ dist
 .idea/
 
 # Generated GraphQL resources
-graphql/schema.graphql
 graphql/**.ts
