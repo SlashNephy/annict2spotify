@@ -1,4 +1,8 @@
-.next
+.next/
 .yarn/
-out
 node_modules/
+
+graphql/*
+!graphql/documents/*
+
+tsconfig.json
