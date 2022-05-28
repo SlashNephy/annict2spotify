@@ -1,0 +1,13 @@
+{
+  "customSyntax": "postcss-scss",
+  "extends": ["stylelint-config-standard-scss"],
+  "ignoreFiles": [".next/**", "out/**"],
+  "rules": {
+    "scss/at-rule-no-unknown": [
+      true,
+      {
+        "ignoreAtRules": ["tailwind"]
+      }
+    ]
+  }
+}
