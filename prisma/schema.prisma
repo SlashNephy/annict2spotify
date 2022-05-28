@@ -6,15 +6,21 @@ generator client {
 }
 
 datasource db {
-  provider = env("DATABASE_TYPE")
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URI")
 }
 
 // TODO: TTL を設定したい
 // https://github.com/prisma/prisma/issues/5430
+
+/// しょぼかるのページ
 model SyobocalPage {
+  /// しょぼかるの TID (Title ID)
   tid       Int      @id
+  /// しょぼかるのページ本文
   content   String
+  /// エントリーの作成時刻
   createdAt DateTime @default(now())
+  /// エントリーの更新時刻
   updatedAt DateTime @updatedAt
 }

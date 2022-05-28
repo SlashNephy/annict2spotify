@@ -22,7 +22,7 @@ Annict および Spotify の OAuth アプリケーションの作成が必要で
 各種環境変数を `.env` に記述します。`ANNICT_ACCESS_TOKEN` は JetBrains IDEs の [GraphQL](https://plugins.jetbrains.com/plugin/8097-graphql) プラグインで使用します。使用しない場合は未設定で構いません。
 
 ```console
-$ cp .env.production .env
+$ cp .env.example .env
 $ code .env
 ```
 
@@ -38,6 +38,7 @@ $ openssl rand -base64 32
 
 ```console
 $ yarn
+$ yarn generate
 $ yarn dev
 ```
 
