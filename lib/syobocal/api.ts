@@ -9,6 +9,7 @@ export const executeTitleLookup = async (tid: number): Promise<SyobocalTitleLook
 export const executeTitleLookupBatch = async (tids: number[]): Promise<SyobocalTitleLookupResponse> => {
   const url = `https://cal.syoboi.jp/db.php?Command=TitleLookup&TID=${tids.join(',')}`
 
+  const { default: fetch } = await import('node-fetch')
   const response = await fetch(url, {
     headers: {
       'User-Agent': USER_AGENT,
@@ -55,6 +56,7 @@ export type SyobocalTitleLookupResponse = {
 
 export const fetchPage = async (tid: number): Promise<string> => {
   const url = `https://cal.syoboi.jp/tid/${tid}`
+  const { default: fetch } = await import('node-fetch')
   const response = await fetch(url, {
     headers: {
       'User-Agent': USER_AGENT,
