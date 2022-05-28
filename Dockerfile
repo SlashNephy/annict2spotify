@@ -1,32 +1,29 @@
 FROM --platform=$BUILDPLATFORM node:18.2.0-bullseye-slim AS cache
 WORKDIR /app
 
-COPY ./.yarn/ /app/.yarn/
-COPY ./package.json ./.yarnrc.yml ./yarn.lock /app/
+COPY ./.yarn/ ./.yarn/
+COPY ./package.json ./.yarnrc.yml ./yarn.lock ./
 RUN yarn --frozen-lockfile
 
 FROM --platform=$BUILDPLATFORM node:18.2.0-bullseye-slim AS build
 ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 
-RUN apt update \
-    && apt full-upgrade -y \
-    && apt install -y --no-install-recommends \
-      curl \
-      ca-certificates
-
 COPY --from=cache /app/node_modules/ /app/node_modules/
-COPY ./ /app/
+COPY ./ ./
 RUN yarn generate && yarn build
 
 FROM --platform=$TARGETPLATFORM node:18.2.0-bullseye-slim as runtime
+LABEL org.opencontainers.image.source="https://github.com/SlashNephy/annict2spotify"
+ENV NODE_ENV="production"
+ENV PORT=3000
 ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
+USER node
 
-RUN npm install -g next
+COPY --from=build /app/package.json /app/next.config.js ./
+COPY --from=build /app/public/ ./public/
+COPY --from=build --chown=node:node /app/.next/standalone ./
+COPY --from=build --chown=node:node /app/.next/static ./.next/static
 
-COPY --from=build /app/package.json /app/next.config.js /app/
-COPY --from=build /app/.next/ /app/.next/
-
-LABEL org.opencontainers.image.source="https://github.com/SlashNephy/annict2spotify"
-ENTRYPOINT ["next", "start"]
+ENTRYPOINT ["node", "server.js"]
