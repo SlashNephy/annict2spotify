@@ -17,10 +17,10 @@ export const AppHeader: React.FC<{
 }> = ({ isNavbarOpen, setIsNavbarOpen, session, status }) => {
   return (
     <Header height={80} p="md">
-      <Group style={{ justifyContent: 'space-evenly', marginLeft: 0, marginRight: 'auto' }}>
-        <Burger opened={isNavbarOpen} onClick={() => setIsNavbarOpen((value) => !value)} />
+      <Group>
+        <Burger opened={isNavbarOpen} onClick={() => setIsNavbarOpen((value) => !value)} style={{ maxWidth: '10%' }} />
 
-        <Group>
+        <Group style={{ justifyContent: 'center', width: '90%' }}>
           <Title>{packageJson.name}</Title>
           <UserInfo session={session} status={status} />
         </Group>
