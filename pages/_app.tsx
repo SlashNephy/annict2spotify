@@ -1,38 +1,50 @@
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
+import React from 'react'
 
-import { MantineProvider } from '@mantine/core'
+import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { NotificationsProvider } from '@mantine/notifications'
 import { SessionProvider } from 'next-auth/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
+
+import type { ColorScheme } from '@mantine/core'
 
 import '../styles/globals.css'
 
 const queryClient = new QueryClient()
 
-// noinspection HtmlRequiredTitleElement
-const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => (
-  <>
-    <Head>
-      <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-    </Head>
+const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
+  const [colorScheme, setColorScheme] = React.useState<ColorScheme>('light')
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
 
-    <SessionProvider session={session}>
-      <QueryClientProvider client={queryClient}>
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          theme={{
-            colorScheme: 'light',
-          }}
-        >
-          <NotificationsProvider position="top-right">
-            <Component {...pageProps} />
-          </NotificationsProvider>
-        </MantineProvider>
-      </QueryClientProvider>
-    </SessionProvider>
-  </>
-)
+  // noinspection HtmlRequiredTitleElement
+  return (
+    <>
+      <Head>
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
 
+      <SessionProvider session={session}>
+        <QueryClientProvider client={queryClient}>
+          <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+            <MantineProvider
+              withGlobalStyles
+              withNormalizeCSS
+              theme={{
+                colorScheme,
+              }}
+            >
+              <NotificationsProvider position="top-right">
+                <Component {...pageProps} />
+              </NotificationsProvider>
+            </MantineProvider>
+          </ColorSchemeProvider>
+        </QueryClientProvider>
+      </SessionProvider>
+    </>
+  )
+}
+
+// noinspection JSUnusedGlobalSymbols
 export default MyApp

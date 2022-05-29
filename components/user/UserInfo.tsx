@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { Avatar, Divider, Indicator, Menu, Text } from '@mantine/core'
-import { Logout } from 'tabler-icons-react'
+import { Avatar, Divider, Indicator, Menu, Text, useMantineColorScheme } from '@mantine/core'
+import { Logout, MoonStars, Sun } from 'tabler-icons-react'
 
 import { signOutCustom } from '../../lib/session'
 
@@ -12,6 +12,8 @@ export const UserInfo: React.FC<{ session: Session | null; status: SessionContex
   session,
   status,
 }) => {
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme()
+
   if (!session?.user || status === 'loading') {
     return <></>
   }
@@ -38,6 +40,13 @@ export const UserInfo: React.FC<{ session: Session | null; status: SessionContex
       </Menu.Item>
 
       <Divider />
+
+      <Menu.Item
+        icon={colorScheme === 'dark' ? <Sun size={18} /> : <MoonStars size={18} />}
+        onClick={() => toggleColorScheme()}
+      >
+        Toggle theme
+      </Menu.Item>
 
       <Menu.Item color="red" icon={<Logout />} onClick={() => signOutCustom()}>
         Sign out
