@@ -13,12 +13,10 @@
     "lint": "concurrently -n lint: 'yarn:lint:*'",
     "lint:eslint": "next lint",
     "lint:prettier": "prettier --check .",
-    "lint:stylelint": "stylelint '**/*.{css,scss,sass,less,styl}'",
     "hadolint": "hadolint Dockerfile",
     "format": "concurrently -n format: 'yarn:format:*'",
     "format:eslint": "yarn lint:eslint --fix",
     "format:prettier": "yarn lint:prettier --write",
-    "format:stylelint": "yarn lint:stylelint --fix",
     "format:prisma": "prisma format",
     "introspect": "curl -o graphql/schema.graphql https://raw.githubusercontent.com/kiraka/annict-web/main/app/graphql/beta/schema.graphql",
     "generate": "concurrently -n generate: 'yarn:generate:*'",
@@ -76,8 +74,6 @@
     "graphql": "16.5.0",
     "prettier": "2.6.2",
     "prisma": "3.14.0",
-    "stylelint": "14.8.5",
-    "stylelint-config-standard": "25.0.0",
     "typescript": "4.7.2"
   },
   "packageManager": "yarn@3.2.1"
