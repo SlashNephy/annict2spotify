@@ -17,6 +17,9 @@ env:
   IMAGE_NAME: ghcr.io/slashnephy/annict2spotify
   TARGET_PLATFORMS: linux/amd64,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x
 
+permissions:
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
