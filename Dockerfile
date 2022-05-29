@@ -14,7 +14,6 @@ COPY ./ ./
 RUN yarn generate && yarn build
 
 FROM --platform=$TARGETPLATFORM node:18.2.0-bullseye-slim as runtime
-LABEL org.opencontainers.image.source="https://github.com/SlashNephy/annict2spotify"
 ENV NODE_ENV="production"
 ENV PORT=3000
 ENV NEXT_TELEMETRY_DISABLED=1

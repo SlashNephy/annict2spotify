@@ -41,21 +41,24 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Prepare $IMAGE_TAG (on push to master branch)
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: echo "IMAGE_TAG=latest" >> $GITHUB_ENV
-      - name: Prepare $IMAGE_TAG (on push to other branches)
-        if: github.event_name == 'push' && github.ref != 'refs/heads/master'
-        run: echo "IMAGE_TAG=${GITHUB_REF##*/}" >> $GITHUB_ENV
-      - name: Prepare $IMAGE_TAG (on release)
-        if: github.event_name == 'release'
-        run: echo "IMAGE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
+      - name: Prepare Image Metadata
+        id: metadata
+        uses: docker/metadata-action@v4
+        with:
+          images: ${{ env.IMAGE_NAME }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=sha
 
       - name: Build & Push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
           platforms: ${{ env.TARGET_PLATFORMS }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
