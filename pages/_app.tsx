@@ -9,8 +9,6 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { useMemorableColorScheme } from '../lib/hooks/useMemorableColorScheme'
 
-import '../styles/globals.css'
-
 const queryClient = new QueryClient()
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {

@@ -51,4 +51,3 @@ $ yarn dev
 - GraphQL
 - Docker
 - Prisma
-- Tailwind CSS
