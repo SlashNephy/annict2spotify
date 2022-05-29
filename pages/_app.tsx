@@ -31,7 +31,7 @@ const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) =>
                 colorScheme,
               }}
             >
-              <NotificationsProvider position="top-right">
+              <NotificationsProvider position="top-right" autoClose={7000}>
                 <Component {...pageProps} />
               </NotificationsProvider>
             </MantineProvider>

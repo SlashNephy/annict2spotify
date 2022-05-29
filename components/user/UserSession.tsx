@@ -2,8 +2,9 @@ import React from 'react'
 
 import { Alert, Grid, Space, Stepper } from '@mantine/core'
 import { useLocalStorage } from '@mantine/hooks'
+import { showNotification } from '@mantine/notifications'
 import { signIn } from 'next-auth/react'
-import { AlertCircle, ListCheck, Login, PlaylistAdd } from 'tabler-icons-react'
+import { AlertCircle, Check, ListCheck, Login, PlaylistAdd } from 'tabler-icons-react'
 
 import { ANNICT_TOKEN_KEY, signOutCustom, SPOTIFY_TOKEN_KEY } from '../../lib/client/session'
 import { AnnictSession } from '../annict/AnnictSession'
@@ -35,6 +36,13 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
       signIn('annict').catch(console.error)
     } else if (session?.annict) {
       setAnnictToken(session.annict)
+      showNotification({
+        id: 'annict-login',
+        title: 'OAuth Login',
+        message: 'Connected to Annict!',
+        icon: <Check />,
+        color: 'green',
+      })
     }
   }, [session, annictToken, setAnnictToken])
 
@@ -43,6 +51,13 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
       signIn('spotify').catch(console.error)
     } else if (session?.spotify) {
       setSpotifyToken(session.spotify)
+      showNotification({
+        id: 'spotify-login',
+        title: 'OAuth Login',
+        message: 'Connected to Spotify!',
+        icon: <Check />,
+        color: 'green',
+      })
     }
   }, [session, spotifyToken, setSpotifyToken])
 
@@ -61,7 +76,7 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
   return (
     <>
       <Alert icon={<AlertCircle size={16} />} title="Welcome to annict2spotify" color="teal">
-        annict2spotify is a tool to help you transfer anisons which you tracked on Annict to your Spotify playlist.
+        annict2spotify is a tool to help you transfer anisons which you tracked on Annict to your Spotify playlist!
       </Alert>
 
       <Space h={40} />

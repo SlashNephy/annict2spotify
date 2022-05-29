@@ -1,7 +1,9 @@
 import React from 'react'
 
 import { Button } from '@mantine/core'
+import { hideNotification, showNotification } from '@mantine/notifications'
 import { cancelable } from 'cancelable-promise'
+import { Check, HandStop } from 'tabler-icons-react'
 
 import { fetchAllWorks } from '../../lib/client/annict/fetchAllWorks'
 import { statusState2Color, statusState2Icon, statusState2Label } from './ui'
@@ -25,6 +27,16 @@ export const AnnictFetchButton: React.FC<{
       promise?.cancel()
       setIsFetching(false)
       setPromise(undefined)
+
+      hideNotification(`annict-works-fetching-${state}`)
+      showNotification({
+        id: `annict-works-canceled-${state}`,
+        title: 'Fetching Canceled',
+        icon: <HandStop />,
+        message: `Successfully canceled fetching works from your ${statusState2Label(state)}.`,
+        color: 'orange',
+      })
+
       return
     }
 
@@ -35,6 +47,15 @@ export const AnnictFetchButton: React.FC<{
     const task = cancelable(fetchAllWorks(token, state))
     setIsFetching(true)
     setPromise(task)
+
+    showNotification({
+      id: `annict-works-fetching-${state}`,
+      title: 'Start Fetching...',
+      message: `Fetching ${statusState2Label(state)} works...`,
+      autoClose: false,
+      disallowClose: true,
+      loading: true,
+    })
 
     const newWorks = await task
     setWorks((current) => {
@@ -47,6 +68,15 @@ export const AnnictFetchButton: React.FC<{
 
     setIsFetching(false)
     setPromise(undefined)
+
+    hideNotification(`annict-works-fetching-${state}`)
+    showNotification({
+      id: `annict-works-fetched-${state}`,
+      title: 'Fetching Completed',
+      icon: <Check />,
+      message: `Fetched ${newWorks.length} works from your ${statusState2Label(state)} list.`,
+      color: 'green',
+    })
   }
 
   const color = isCancelable ? 'red' : isFetching ? 'gray' : statusState2Color(state)
@@ -62,10 +92,6 @@ export const AnnictFetchButton: React.FC<{
       >
         {label} {statusState2Label(state)}
       </Button>
-
-      {/*<Notification icon={<Check size={18} />} color="teal" title="Canceled successfully">*/}
-      {/*  Fetching {statusState2Label(state)} task was cancelled successfully.*/}
-      {/*</Notification>*/}
     </>
   )
 }
