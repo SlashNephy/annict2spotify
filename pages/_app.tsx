@@ -7,16 +7,14 @@ import { NotificationsProvider } from '@mantine/notifications'
 import { SessionProvider } from 'next-auth/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
-import type { ColorScheme } from '@mantine/core'
+import { useMemorableColorScheme } from '../lib/hooks/useMemorableColorScheme'
 
 import '../styles/globals.css'
 
 const queryClient = new QueryClient()
 
 const MyApp = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
-  const [colorScheme, setColorScheme] = React.useState<ColorScheme>('light')
-  const toggleColorScheme = (value?: ColorScheme) =>
-    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'))
+  const [colorScheme, toggleColorScheme] = useMemorableColorScheme()
 
   // noinspection HtmlRequiredTitleElement
   return (
