@@ -1,10 +1,10 @@
 import NextAuth from 'next-auth'
 import Spotify from 'next-auth/providers/spotify'
+import SpotifyWebApi from 'spotify-web-api-node'
 
-import { IS_DEBUG } from '../../../lib/constants'
-import { createSpotifyClient } from '../../../lib/spotify'
+import { IS_DEBUG } from '../../../lib/server/constants'
 
-import type { AnnictProfile } from '../../../lib/annict'
+import type { AnnictProfile } from '../../../lib/server/annict/AnnictProfile'
 import type { Session, User } from 'next-auth'
 import type { JWT, ServiceJwt } from 'next-auth/jwt'
 
@@ -22,6 +22,7 @@ if (!SPOTIFY_CLIENT_ID || !SPOTIFY_CLIENT_SECRET) {
   throw new Error('SPOTIFY_CLIENT_ID or SPOTIFY_CLIENT_SECRET is not set')
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default NextAuth({
   providers: [
     {
@@ -78,7 +79,11 @@ export default NextAuth({
 
       // https://next-auth.js.org/tutorials/refresh-token-rotation
       if (token.spotify?.refreshToken && token.spotify?.expiresAt && token.spotify.expiresAt < Date.now() / 1000) {
-        const client = createSpotifyClient(token.spotify)
+        const client = new SpotifyWebApi({
+          clientId: SPOTIFY_CLIENT_ID,
+          clientSecret: SPOTIFY_CLIENT_SECRET,
+          refreshToken: token.spotify.refreshToken,
+        })
 
         const newToken = await client.refreshAccessToken()
         token.spotify = {

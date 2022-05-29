@@ -4,12 +4,12 @@ import React from 'react'
 import { Button, Grid } from '@mantine/core'
 import { DatabaseImport } from 'tabler-icons-react'
 
-import type { Song } from '../../../lib/syobocal/song'
 import type { Setter } from '../../type'
+import type { SyobocalSong } from '@prisma/client'
 
 export const SpotifyImportButton: React.FC<
   ComponentPropsWithoutRef<'button'> & {
-    selectedSongs: Map<string, Song>
+    selectedSongs: Map<string, SyobocalSong>
     setIsClicked: Setter<boolean>
   }
 > = ({ selectedSongs, setIsClicked, ...props }) => {

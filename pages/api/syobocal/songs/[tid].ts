@@ -2,11 +2,17 @@ import type { NextApiHandler } from 'next'
 
 import { add } from 'date-fns'
 
-import { getSyobocalPageFromDatabase, updateSyobocalPageInDatabase } from '../../../lib/db'
-import { fetchPage } from '../../../lib/syobocal/api'
+import { findSyobocalEntry } from '../../../../lib/repository/findSyobocalEntry'
+import { updateSyobocalEntry } from '../../../../lib/repository/updateSyobocalEntry'
+import { fetchEntry } from '../../../../lib/server/syobocal/fetchEntry'
 
-// NodeJS には DOMParser がないので、クライアントでパースさせる
-const handler: NextApiHandler = async (req, res) => {
+import type { SyobocalSongInput } from '../../../../lib/repository/type'
+
+type ApiError = {
+  error: string
+}
+
+const handler: NextApiHandler<SyobocalSongInput[] | ApiError> = async (req, res) => {
   const { tid } = req.query
   if (!tid || typeof tid !== 'string') {
     return res.status(400).json({
@@ -22,11 +28,11 @@ const handler: NextApiHandler = async (req, res) => {
   }
 
   try {
-    const page = await getSyobocalPageFromDatabase(id)
-    if (page) {
-      const willBeUpdated = add(page.updatedAt, { days: 7 })
+    const entry = await findSyobocalEntry(id)
+    if (entry) {
+      const willBeUpdated = add(entry.updatedAt, { days: 7 })
       if (new Date() <= willBeUpdated) {
-        return res.status(200).setHeader('Content-Type', 'text/plain; charset=utf-8').send(page.content)
+        return res.status(200).json(entry.songs)
       }
     }
   } catch (error) {
@@ -38,12 +44,12 @@ const handler: NextApiHandler = async (req, res) => {
   }
 
   try {
-    const response = await fetchPage(id)
+    const entry = await fetchEntry(id)
 
-    await updateSyobocalPageInDatabase(id, response)
+    await updateSyobocalEntry(id, entry)
     console.log(`Updated syobocal page ${id}.`)
 
-    res.status(200).setHeader('Content-Type', 'text/plain; charset=utf-8').send(response)
+    res.status(200).json(entry.songs)
   } catch (error) {
     console.error(error)
 
@@ -53,4 +59,5 @@ const handler: NextApiHandler = async (req, res) => {
   }
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default handler

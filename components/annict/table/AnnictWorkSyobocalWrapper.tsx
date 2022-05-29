@@ -2,17 +2,17 @@ import React from 'react'
 
 import { SimpleGrid } from '@mantine/core'
 
-import { annict2syobocal } from '../../../lib/arm'
+import { annict2syobocal } from '../../../lib/client/arm'
 import { AnnictWorkSongs } from './AnnictWorkSongs'
 import { AnnictWorkSyobocalLink } from './AnnictWorkSyobocalLink'
 
 import type { Work } from '../../../graphql/types'
-import type { Song } from '../../../lib/syobocal/song'
 import type { Setter } from '../../type'
+import type { SyobocalSong } from '@prisma/client'
 
 export const AnnictWorkSyobocalWrapper: React.FC<{
   work: Work
-  setSongs: Setter<Map<number, Song[]>>
+  setSongs: Setter<Map<number, SyobocalSong[]>>
 }> = ({ work, setSongs }) => {
   const tid = annict2syobocal(work.annictId) ?? work.syobocalTid
   if (!tid) {

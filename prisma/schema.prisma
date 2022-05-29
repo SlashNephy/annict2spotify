@@ -13,14 +13,38 @@ datasource db {
 // TODO: TTL を設定したい
 // https://github.com/prisma/prisma/issues/5430
 
-/// しょぼかるのページ
-model SyobocalPage {
-  /// しょぼかるの TID (Title ID)
-  tid       Int      @id
-  /// しょぼかるのページ本文
-  content   String
+model SyobocalEntry {
+  id        Int            @id
+  name      String
+  songs     SyobocalSong[]
   /// エントリーの作成時刻
-  createdAt DateTime @default(now())
+  createdAt DateTime       @default(now())
   /// エントリーの更新時刻
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime       @updatedAt
+}
+
+model SyobocalSong {
+  entry SyobocalEntry @relation(fields: [tid], references: [id])
+
+  id     String   @id
+  tid    Int
+  kind   SongKind
+  name   String
+  label  String
+  number Int?
+
+  artist   String?
+  arranger String?
+  composer String?
+  lyricist String?
+
+  usedIn String?
+  note   String?
+}
+
+enum SongKind {
+  opening
+  ending
+  insert
+  theme
 }

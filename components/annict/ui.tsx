@@ -5,8 +5,8 @@ import { Check, PlayerPause, PlayerPlay, PlayerRecord, PlayerStop } from 'tabler
 import { StatusState } from '../../graphql/types'
 
 import type { SeasonName } from '../../graphql/types'
-import type { Song } from '../../lib/syobocal/song'
 import type { MantineColor } from '@mantine/core'
+import type { SyobocalSong } from '@prisma/client'
 
 export const statusState2Label = (state?: StatusState | null): string | undefined => {
   if (!state) {
@@ -66,7 +66,7 @@ export const statusState2Icon = (state?: StatusState | null): React.ReactNode | 
   }
 }
 
-export const songKind2Label = (kind: Song['kind'], song: Song): string => {
+export const songKind2Label = (kind: SyobocalSong['kind'], song: SyobocalSong): string => {
   switch (kind) {
     case 'opening':
       return `OP${song.number ? ` ${song.number}` : ''}`
@@ -81,7 +81,7 @@ export const songKind2Label = (kind: Song['kind'], song: Song): string => {
   }
 }
 
-export const songKind2Color = (kind: Song['kind']): MantineColor => {
+export const songKind2Color = (kind: SyobocalSong['kind']): MantineColor => {
   switch (kind) {
     case 'opening':
       return 'pink'

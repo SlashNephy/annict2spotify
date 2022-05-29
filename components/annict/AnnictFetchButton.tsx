@@ -3,7 +3,7 @@ import React from 'react'
 import { Button } from '@mantine/core'
 import { cancelable } from 'cancelable-promise'
 
-import { fetchAllWorks } from '../../lib/annict'
+import { fetchAllWorks } from '../../lib/client/annict/fetchAllWorks'
 import { statusState2Color, statusState2Icon, statusState2Label } from './ui'
 
 import type { StatusState, Work } from '../../graphql/types'

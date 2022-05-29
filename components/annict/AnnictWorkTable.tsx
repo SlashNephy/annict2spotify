@@ -7,16 +7,16 @@ import { AnnictWorkSelectAllCheckbox } from './table/AnnictWorkSelectAllCheckbox
 import { AnnictWorkTableRow } from './table/AnnictWorkTableRow'
 
 import type { Work } from '../../graphql/types'
-import type { Song } from '../../lib/syobocal/song'
 import type { Setter } from '../type'
+import type { SyobocalSong } from '@prisma/client'
 
 export const AnnictWorkTable: React.FC<{
   works: Map<number, Work>
   selectedWorks: Map<number, Work>
   setSelectedWorks: Setter<Map<number, Work>>
-  songs: Map<number, Song[]>
-  setSongs: Setter<Map<number, Song[]>>
-  setSelectedSongs: Setter<Map<string, Song>>
+  songs: Map<number, SyobocalSong[]>
+  setSongs: Setter<Map<number, SyobocalSong[]>>
+  setSelectedSongs: Setter<Map<string, SyobocalSong>>
 }> = ({ works, selectedWorks, setSelectedWorks, songs, setSongs, setSelectedSongs }) => {
   return (
     <>

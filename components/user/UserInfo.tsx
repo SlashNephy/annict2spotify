@@ -3,7 +3,7 @@ import React from 'react'
 import { Avatar, Divider, Indicator, Menu, Text, useMantineColorScheme } from '@mantine/core'
 import { Logout, MoonStars, Sun } from 'tabler-icons-react'
 
-import { signOutCustom } from '../../lib/session'
+import { signOutCustom } from '../../lib/client/session'
 
 import type { Session } from 'next-auth'
 import type { SessionContextValue } from 'next-auth/react'

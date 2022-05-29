@@ -6,14 +6,14 @@ import RenderIfVisible from 'react-render-if-visible'
 
 import { SpotifyTrackRow } from './table/SpotifyTrackRow'
 
-import type { Song } from '../../lib/syobocal/song'
 import type { Setter } from '../type'
+import type { SyobocalSong } from '@prisma/client'
 import type { ServiceJwt } from 'next-auth/jwt'
 
 export const SpotifySongTable: React.FC<
   ComponentPropsWithoutRef<'table'> & {
     token: ServiceJwt
-    selectedSongs: Map<string, Song>
+    selectedSongs: Map<string, SyobocalSong>
     setSelectedTracks: Setter<Map<string, SpotifyApi.TrackObjectFull>>
     isStrictMode: boolean
   }

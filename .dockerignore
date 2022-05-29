@@ -5,7 +5,8 @@
 node_modules
 
 .dockerignore
-.env*
+.env
+.env.example
 .gitignore
 Dockerfile
 LICENSE

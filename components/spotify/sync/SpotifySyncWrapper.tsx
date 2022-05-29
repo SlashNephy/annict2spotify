@@ -3,7 +3,7 @@ import React from 'react'
 import { showNotification } from '@mantine/notifications'
 import { cancelable } from 'cancelable-promise'
 
-import { addTracksToPlaylist } from '../../../lib/spotify'
+import { addTracksToPlaylist } from '../../../lib/client/spotify'
 import { SpotifySyncButton } from './SpotifySyncButton'
 import { SpotifySyncModal } from './SpotifySyncModal'
 

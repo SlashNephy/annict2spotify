@@ -3,7 +3,7 @@ import React from 'react'
 import { Select } from '@mantine/core'
 import { useQuery, useQueryClient } from 'react-query'
 
-import { createSpotifyClient, getPlaylists, getProfile } from '../../lib/spotify'
+import { createPrivatePlaylist, getPlaylists, getProfile } from '../../lib/client/spotify'
 import { CustomSelectItem } from '../CustomSelectItem'
 
 import type { SetterU } from '../type'
@@ -43,14 +43,9 @@ export const SpotifyPlaylistSelect: React.FC<{
   }
 
   const handleCreate = async (query: string) => {
-    const client = createSpotifyClient(token)
+    const response = await createPrivatePlaylist(token, query)
 
-    const response = await client.createPlaylist(query, {
-      public: false,
-      collaborative: false,
-    })
-
-    setSelections((previous) => [...previous, intoSelectItem(response.body)])
+    setSelections((previous) => [...previous, intoSelectItem(response)])
     await queryClient.invalidateQueries([token.accessToken, 'spotify', 'playlists'])
   }
 

@@ -3,15 +3,15 @@ import React from 'react'
 import { Checkbox } from '@mantine/core'
 
 import type { Work } from '../../../graphql/types'
-import type { Song } from '../../../lib/syobocal/song'
 import type { Setter } from '../../type'
+import type { SyobocalSong } from '@prisma/client'
 
 export const AnnictWorkSelectAllCheckbox: React.FC<{
   works: Map<number, Work>
   selectedWorks: Map<number, Work>
   setSelectedWorks: Setter<Map<number, Work>>
-  songs: Map<number, Song[]>
-  setSelectedSongs: Setter<Map<string, Song>>
+  songs: Map<number, SyobocalSong[]>
+  setSelectedSongs: Setter<Map<string, SyobocalSong>>
 }> = ({ works, selectedWorks, setSelectedWorks, songs, setSelectedSongs }) => {
   const handleCheck = () => {
     const workSize = works.size
@@ -26,7 +26,7 @@ export const AnnictWorkSelectAllCheckbox: React.FC<{
       return new Map(works.entries())
     })
 
-    const selectedSongs = new Map<string, Song>()
+    const selectedSongs = new Map<string, SyobocalSong>()
     for (const song of Array.from(songs.values()).flat()) {
       selectedSongs.set(song.id, song)
     }

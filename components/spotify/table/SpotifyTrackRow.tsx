@@ -5,13 +5,13 @@ import { SpotifyTrackArtist } from './SpotifyTrackArtist'
 import { SpotifyTrackName } from './SpotifyTrackName'
 import { SpotifyTrackSelect } from './SpotifyTrackSelect'
 
-import type { Song } from '../../../lib/syobocal/song'
 import type { Setter } from '../../type'
+import type { SyobocalSong } from '@prisma/client'
 import type { ServiceJwt } from 'next-auth/jwt'
 
 export const SpotifyTrackRow: React.FC<{
   token: ServiceJwt
-  song: Song
+  song: SyobocalSong
   setSelectedTracks: Setter<Map<string, SpotifyApi.TrackObjectFull>>
   isStrictMode: boolean
 }> = ({ token, song, setSelectedTracks, isStrictMode }) => {

@@ -8,16 +8,16 @@ import { AnnictWorkSyobocalWrapper } from './AnnictWorkSyobocalWrapper'
 import { AnnictWorkTitle } from './AnnictWorkTitle'
 
 import type { Work } from '../../../graphql/types'
-import type { Song } from '../../../lib/syobocal/song'
 import type { Setter } from '../../type'
+import type { SyobocalSong } from '@prisma/client'
 
 export const AnnictWorkTableRow: React.FC<{
   work: Work
   selectedWorks: Map<number, Work>
   setSelectedWorks: Setter<Map<number, Work>>
-  songs: Map<number, Song[]>
-  setSongs: Setter<Map<number, Song[]>>
-  setSelectedSongs: Setter<Map<string, Song>>
+  songs: Map<number, SyobocalSong[]>
+  setSongs: Setter<Map<number, SyobocalSong[]>>
+  setSelectedSongs: Setter<Map<string, SyobocalSong>>
 }> = ({ work, selectedWorks, setSelectedWorks, songs, setSongs, setSelectedSongs }) => {
   return (
     <>

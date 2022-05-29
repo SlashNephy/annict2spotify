@@ -1,8 +1,8 @@
 import { useQuery } from 'react-query'
 
-import { searchTracks } from '../spotify'
+import { searchTracks } from '../client/spotify'
 
-import type { Song } from '../syobocal/song'
+import type { SyobocalSong } from '@prisma/client'
 import type { ServiceJwt } from 'next-auth/jwt'
 
 export type SpotifyTrack = SpotifyApi.TrackObjectFull & {
@@ -10,7 +10,7 @@ export type SpotifyTrack = SpotifyApi.TrackObjectFull & {
   likelihood: number
 }
 
-export const useSongTracks = (token: ServiceJwt, song: Song, limit: number, isStrictMode: boolean) => {
+export const useSongTracks = (token: ServiceJwt, song: SyobocalSong, limit: number, isStrictMode: boolean) => {
   const { data, ...queryResult } = useQuery(['spotify', token, song.id], () => fetcher(token, song))
 
   const tracks = data ?? []
@@ -29,16 +29,16 @@ export const useSongTracks = (token: ServiceJwt, song: Song, limit: number, isSt
   return {
     tracks: tracks
       .sort((a, b) => a.distance - b.distance)
-      .filter((track) => track.name.includes(song.title))
+      .filter((track) => track.name.includes(song.name))
       .slice(0, limit),
     ...queryResult,
   }
 }
 
-const fetcher = async (token: ServiceJwt, song: Song): Promise<SpotifyTrack[]> => {
-  const query = [`track:${song.title}`]
-  if (song.creators.artist) {
-    query.push(`artist:${song.creators.artist}`)
+const fetcher = async (token: ServiceJwt, song: SyobocalSong): Promise<SpotifyTrack[]> => {
+  const query = [`track:${song.name}`]
+  if (song.artist) {
+    query.push(`artist:${song.artist}`)
   }
 
   const response = await searchTracks(token, query.join(' '), 50)
@@ -47,19 +47,19 @@ const fetcher = async (token: ServiceJwt, song: Song): Promise<SpotifyTrack[]> =
   return Promise.all(promises)
 }
 
-const intoSpotifyTrack = async (song: Song, track: SpotifyApi.TrackObjectFull): Promise<SpotifyTrack> => ({
+const intoSpotifyTrack = async (song: SyobocalSong, track: SpotifyApi.TrackObjectFull): Promise<SpotifyTrack> => ({
   ...track,
   distance: await calculateEditDistance(song, track),
   likelihood: 0,
 })
 
-const calculateEditDistance = async (song: Song, track: SpotifyApi.TrackObjectFull): Promise<number> => {
+const calculateEditDistance = async (song: SyobocalSong, track: SpotifyApi.TrackObjectFull): Promise<number> => {
   const { levenshteinEditDistance } = await import('levenshtein-edit-distance')
 
-  const distance = levenshteinEditDistance(song.title, track.name)
-  if (!song.creators.artist || track.artists.length === 0) {
+  const distance = levenshteinEditDistance(song.name, track.name)
+  if (!song.artist || track.artists.length === 0) {
     return distance
   }
 
-  return distance + levenshteinEditDistance(song.creators.artist, track.artists[0].name)
+  return distance + levenshteinEditDistance(song.artist, track.artists[0].name)
 }

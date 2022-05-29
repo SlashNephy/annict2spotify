@@ -6,10 +6,10 @@ import { SpotifyPlaylistSelect } from './SpotifyPlaylistSelect'
 import { SpotifySongTable } from './SpotifySongTable'
 import { SpotifySyncWrapper } from './sync/SpotifySyncWrapper'
 
-import type { Song } from '../../lib/syobocal/song'
+import type { SyobocalSong } from '@prisma/client'
 import type { ServiceJwt } from 'next-auth/jwt'
 
-export const SpotifySession: React.FC<{ token: ServiceJwt; selectedSongs: Map<string, Song> }> = ({
+export const SpotifySession: React.FC<{ token: ServiceJwt; selectedSongs: Map<string, SyobocalSong> }> = ({
   token,
   selectedSongs,
 }) => {

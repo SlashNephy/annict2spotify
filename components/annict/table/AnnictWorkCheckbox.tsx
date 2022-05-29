@@ -3,15 +3,15 @@ import React from 'react'
 import { Checkbox } from '@mantine/core'
 
 import type { Work } from '../../../graphql/types'
-import type { Song } from '../../../lib/syobocal/song'
 import type { Setter } from '../../type'
+import type { SyobocalSong } from '@prisma/client'
 
 export const AnnictWorkCheckbox: React.FC<{
   work: Work
   selectedWorks: Map<number, Work>
   setSelectedWorks: Setter<Map<number, Work>>
-  songs: Map<number, Song[]>
-  setSelectedSongs: Setter<Map<string, Song>>
+  songs: Map<number, SyobocalSong[]>
+  setSelectedSongs: Setter<Map<string, SyobocalSong>>
 }> = ({ work, selectedWorks, setSelectedWorks, songs, setSelectedSongs }) => {
   const handleCheck = (work: Work) => {
     const workId = work.annictId

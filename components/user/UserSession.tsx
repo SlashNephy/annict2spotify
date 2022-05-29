@@ -5,14 +5,14 @@ import { useLocalStorage } from '@mantine/hooks'
 import { signIn } from 'next-auth/react'
 import { AlertCircle, ListCheck, Login, PlaylistAdd } from 'tabler-icons-react'
 
-import { ANNICT_TOKEN_KEY, signOutCustom, SPOTIFY_TOKEN_KEY } from '../../lib/session'
+import { ANNICT_TOKEN_KEY, signOutCustom, SPOTIFY_TOKEN_KEY } from '../../lib/client/session'
 import { AnnictSession } from '../annict/AnnictSession'
 import { SpotifySession } from '../spotify/SpotifySession'
 import { SpotifyImportButton } from '../spotify/sync/SpotifyImportButton'
 import { SignInButton } from './SignInButton'
 
 import type { Work } from '../../graphql/types'
-import type { Song } from '../../lib/syobocal/song'
+import type { SyobocalSong } from '@prisma/client'
 import type { Session } from 'next-auth'
 import type { ServiceJwt } from 'next-auth/jwt'
 
@@ -21,7 +21,7 @@ export const UserSession: React.FC<{ session: Session | null }> = ({ session }) 
   const [annictToken, setAnnictToken] = useLocalStorage<ServiceJwt | undefined>({ key: ANNICT_TOKEN_KEY })
   const [spotifyToken, setSpotifyToken] = useLocalStorage<ServiceJwt | undefined>({ key: SPOTIFY_TOKEN_KEY })
   const [selectedWorks, setSelectedWorks] = React.useState<Map<number, Work>>(() => new Map())
-  const [selectedSongs, setSelectedSongs] = React.useState<Map<string, Song>>(() => new Map())
+  const [selectedSongs, setSelectedSongs] = React.useState<Map<string, SyobocalSong>>(() => new Map())
   const [isSyncClicked, setIsSyncClicked] = React.useState(false)
 
   React.useEffect(() => {

@@ -2,20 +2,18 @@ import SpotifyWebApi from 'spotify-web-api-node'
 
 import { chunk } from './chunk'
 
-import type { Setter } from '../components/type'
+import type { Setter } from '../../components/type'
 import type { ServiceJwt } from 'next-auth/jwt'
 
-export const createSpotifyClient = (token: ServiceJwt): SpotifyWebApi => {
+const createSpotifyClient = (token: ServiceJwt): SpotifyWebApi => {
   return new SpotifyWebApi({
-    clientId: process.env.SPOTIFY_CLIENT_ID,
-    clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
     accessToken: token.accessToken,
     refreshToken: token.refreshToken,
   })
 }
 
 export const getPlaylists = async (token: ServiceJwt): Promise<SpotifyApi.PlaylistObjectSimplified[]> => {
-  return getPagenatedItems(token, (client, offset) => {
+  return getPaginatedItems(token, (client, offset) => {
     return client.getUserPlaylists({
       limit: 50,
       offset,
@@ -62,7 +60,7 @@ export const getPlaylistTracks = async (
   token: ServiceJwt,
   playlistId: string
 ): Promise<SpotifyApi.PlaylistTrackObject[]> => {
-  return getPagenatedItems(token, (client, offset) => {
+  return getPaginatedItems(token, (client, offset) => {
     return client.getPlaylistTracks(playlistId, {
       market: 'JP',
       limit: 100,
@@ -71,7 +69,7 @@ export const getPlaylistTracks = async (
   })
 }
 
-const getPagenatedItems = async <T>(
+const getPaginatedItems = async <T>(
   token: ServiceJwt,
   fetcher: (client: SpotifyWebApi, offset: number) => Promise<{ body: SpotifyApi.PagingObject<T> }>
 ): Promise<T[]> => {
@@ -91,4 +89,17 @@ const getPagenatedItems = async <T>(
 
     offset += body.limit
   }
+}
+
+export const createPrivatePlaylist = async (
+  token: ServiceJwt,
+  name: string
+): Promise<SpotifyApi.CreatePlaylistResponse> => {
+  const client = createSpotifyClient(token)
+
+  const { body } = await client.createPlaylist(name, {
+    public: false,
+    collaborative: false,
+  })
+  return body
 }
