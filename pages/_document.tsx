@@ -4,12 +4,12 @@ import { createGetInitialProps } from '@mantine/next'
 
 const getInitialProps = createGetInitialProps()
 
-// noinspection HtmlRequiredTitleElement
 class MyDocument extends Document {
   static getInitialProps = getInitialProps
 
+  // noinspection HtmlRequiredTitleElement
   render = () => (
-    <Html>
+    <Html lang="en">
       <Head>
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -21,4 +21,5 @@ class MyDocument extends Document {
   )
 }
 
+// noinspection JSUnusedGlobalSymbols
 export default MyDocument
