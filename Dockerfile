@@ -9,11 +9,11 @@ FROM --platform=$BUILDPLATFORM node:18.2.0-bullseye-slim AS build
 ENV NEXT_TELEMETRY_DISABLED=1
 WORKDIR /app
 
-COPY --from=cache /app/node_modules/ /app/node_modules/
+COPY --from=cache /app/node_modules/ ./node_modules/
 COPY ./ ./
 RUN yarn generate && yarn build
 
-FROM --platform=$TARGETPLATFORM node:18.2.0-bullseye-slim as runtime
+FROM --platform=$TARGETPLATFORM node:18.2.0-bullseye-slim AS runtime
 ENV NODE_ENV="production"
 ENV PORT=3000
 ENV NEXT_TELEMETRY_DISABLED=1
