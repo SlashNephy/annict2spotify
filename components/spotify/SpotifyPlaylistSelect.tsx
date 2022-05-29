@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { Select } from '@mantine/core'
-import { useQuery, useQueryClient } from 'react-query'
 
-import { createPrivatePlaylist, getPlaylists, getProfile } from '../../lib/client/spotify'
+import { createPrivatePlaylist } from '../../lib/client/spotify'
+import { useSpotifyAvailablePlaylists } from '../../lib/hooks/useSpotifyAvailablePlaylists'
 import { CustomSelectItem } from '../CustomSelectItem'
 
 import type { SetterU } from '../type'
@@ -14,31 +14,19 @@ export const SpotifyPlaylistSelect: React.FC<{
   token: ServiceJwt
   setSelectedPlaylist: SetterU<SpotifyApi.PlaylistObjectSimplified>
 }> = ({ token, setSelectedPlaylist }) => {
-  const queryClient = useQueryClient()
-  const {
-    data: profile,
-    isLoading: isProfileLoading,
-    error: profileError,
-  } = useQuery(['spotify', token.accessToken, 'profile'], () => getProfile(token))
-  const {
-    data: playlists,
-    isLoading: isPlaylistsLoading,
-    error: playlistsError,
-  } = useQuery(['spotify', token.accessToken, 'playlists'], () => getPlaylists(token))
+  const [playlists, invalidatePlaylists, wasError] = useSpotifyAvailablePlaylists(token)
   const [selections, setSelections] = React.useState<SelectItem[]>(() => [])
 
   React.useEffect(() => {
-    if (profile && playlists) {
-      setSelections(
-        playlists.filter((playlist) => playlist.owner.id === profile.id || playlist.collaborative).map(intoSelectItem)
-      )
+    if (playlists) {
+      setSelections(playlists.map(intoSelectItem))
     }
-  }, [playlists, profile])
+  }, [playlists])
 
-  if (profileError || playlistsError) {
+  if (wasError) {
     return <span>Failed to fetch</span>
   }
-  if (!playlists || isProfileLoading || isPlaylistsLoading) {
+  if (!playlists) {
     return <span>Loading...</span>
   }
 
@@ -46,7 +34,7 @@ export const SpotifyPlaylistSelect: React.FC<{
     const response = await createPrivatePlaylist(token, query)
 
     setSelections((previous) => [...previous, intoSelectItem(response)])
-    await queryClient.invalidateQueries([token.accessToken, 'spotify', 'playlists'])
+    await invalidatePlaylists()
   }
 
   const handleChange = (value: string | null) => {

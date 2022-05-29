@@ -1,20 +1,16 @@
 import React from 'react'
 
 import { Avatar, Divider, Indicator, Menu, Text, useMantineColorScheme } from '@mantine/core'
+import { useSession } from 'next-auth/react'
 import { Logout, MoonStars, Sun } from 'tabler-icons-react'
 
 import { signOutCustom } from '../../lib/client/session'
 
-import type { Session } from 'next-auth'
-import type { SessionContextValue } from 'next-auth/react'
-
-export const UserInfo: React.FC<{ session: Session | null; status: SessionContextValue['status'] }> = ({
-  session,
-  status,
-}) => {
+export const UserInfo: React.FC = () => {
+  const { data: session } = useSession()
   const { colorScheme, toggleColorScheme } = useMantineColorScheme()
 
-  if (!session?.user || status === 'loading') {
+  if (!session?.user) {
     return <></>
   }
 

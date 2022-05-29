@@ -1,12 +1,10 @@
 import React from 'react'
 
 import { Alert, Grid, Space, Stepper } from '@mantine/core'
-import { useLocalStorage } from '@mantine/hooks'
-import { showNotification } from '@mantine/notifications'
-import { signIn } from 'next-auth/react'
-import { AlertCircle, Check, ListCheck, Login, PlaylistAdd } from 'tabler-icons-react'
+import { AlertCircle, ListCheck, Login, PlaylistAdd } from 'tabler-icons-react'
 
-import { ANNICT_TOKEN_KEY, signOutCustom, SPOTIFY_TOKEN_KEY } from '../../lib/client/session'
+import { useAnnictToken } from '../../lib/hooks/useAnnictToken'
+import { useSpotifyToken } from '../../lib/hooks/useSpotifyToken'
 import { AnnictSession } from '../annict/AnnictSession'
 import { SpotifySession } from '../spotify/SpotifySession'
 import { SpotifyImportButton } from '../spotify/sync/SpotifyImportButton'
@@ -14,52 +12,14 @@ import { SignInButton } from './SignInButton'
 
 import type { Work } from '../../graphql/types'
 import type { SyobocalSong } from '@prisma/client'
-import type { Session } from 'next-auth'
-import type { ServiceJwt } from 'next-auth/jwt'
 
-export const UserSession: React.FC<{ session: Session | null }> = ({ session }) => {
+export const UserSession: React.FC = () => {
   const [step, setStep] = React.useState(0)
-  const [annictToken, setAnnictToken] = useLocalStorage<ServiceJwt | undefined>({ key: ANNICT_TOKEN_KEY })
-  const [spotifyToken, setSpotifyToken] = useLocalStorage<ServiceJwt | undefined>({ key: SPOTIFY_TOKEN_KEY })
+  const annictToken = useAnnictToken()
+  const spotifyToken = useSpotifyToken()
   const [selectedWorks, setSelectedWorks] = React.useState<Map<number, Work>>(() => new Map())
   const [selectedSongs, setSelectedSongs] = React.useState<Map<string, SyobocalSong>>(() => new Map())
   const [isSyncClicked, setIsSyncClicked] = React.useState(false)
-
-  React.useEffect(() => {
-    if (session?.expires && Date.parse(session.expires) < Date.now()) {
-      signOutCustom().catch(console.error)
-    }
-  }, [session])
-
-  React.useEffect(() => {
-    if (session?.annict?.expiresAt && session.annict.expiresAt < Date.now() / 1000) {
-      signIn('annict').catch(console.error)
-    } else if (session?.annict) {
-      setAnnictToken(session.annict)
-      showNotification({
-        id: 'annict-login',
-        title: 'OAuth Login',
-        message: 'Connected to Annict!',
-        icon: <Check />,
-        color: 'green',
-      })
-    }
-  }, [session, annictToken, setAnnictToken])
-
-  React.useEffect(() => {
-    if (session?.spotify?.expiresAt && session.spotify.expiresAt < Date.now() / 1000) {
-      signIn('spotify').catch(console.error)
-    } else if (session?.spotify) {
-      setSpotifyToken(session.spotify)
-      showNotification({
-        id: 'spotify-login',
-        title: 'OAuth Login',
-        message: 'Connected to Spotify!',
-        icon: <Check />,
-        color: 'green',
-      })
-    }
-  }, [session, spotifyToken, setSpotifyToken])
 
   React.useEffect(() => {
     if (!annictToken) {
