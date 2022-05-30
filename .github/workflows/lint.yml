@@ -26,8 +26,11 @@ jobs:
           node-version: 18
           cache: yarn
 
+      - name: Install
+        run: yarn install --frozen-lockfile
+
       - name: Lint
-        run: yarn lint
+        run: yarn generate && yarn lint
 
       - name: Lint Code Base
         uses: github/super-linter/slim@v4
