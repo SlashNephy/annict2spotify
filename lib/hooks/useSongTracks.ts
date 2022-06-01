@@ -11,7 +11,7 @@ export type SpotifyTrack = SpotifyApi.TrackObjectFull & {
 }
 
 export const useSongTracks = (token: ServiceJwt, song: SyobocalSong, limit: number, isStrictMode: boolean) => {
-  const { data, ...queryResult } = useQuery(['spotify', token, song.id], () => fetcher(token, song))
+  const { data, ...queryResult } = useQuery(['spotify', token, song.id], async () => fetcher(token, song))
 
   const tracks = data ?? []
   const maxDistance = Math.max(...tracks.map((track) => track.distance))
@@ -43,7 +43,7 @@ const fetcher = async (token: ServiceJwt, song: SyobocalSong): Promise<SpotifyTr
 
   const response = await searchTracks(token, query.join(' '), 50)
   const items = response.tracks.items
-  const promises = items.map((track) => intoSpotifyTrack(song, track))
+  const promises = items.map(async (track) => intoSpotifyTrack(song, track))
   return Promise.all(promises)
 }
 

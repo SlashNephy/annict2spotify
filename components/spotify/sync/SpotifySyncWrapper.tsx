@@ -1,7 +1,6 @@
-import React from 'react'
-
 import { showNotification } from '@mantine/notifications'
 import { cancelable } from 'cancelable-promise'
+import React from 'react'
 
 import { addTracksToPlaylist } from '../../../lib/client/spotify'
 import { SpotifySyncButton } from './SpotifySyncButton'

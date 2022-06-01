@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { SimpleGrid } from '@mantine/core'
+import React from 'react'
 
 import { annict2syobocal } from '../../../lib/client/arm'
 import { AnnictWorkSongs } from './AnnictWorkSongs'

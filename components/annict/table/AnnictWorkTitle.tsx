@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Anchor } from '@mantine/core'
+import React from 'react'
 
 import type { Work } from '../../../graphql/types'
 

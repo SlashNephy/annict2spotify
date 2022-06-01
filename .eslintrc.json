@@ -1,67 +1,102 @@
 {
-  "env": {
-    "es2022": true
-  },
+  "plugins": ["@typescript-eslint", "promise", "unused-imports", "css-import-order"],
   "extends": [
     "eslint:recommended",
     "next/core-web-vitals",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:import/typescript",
     "plugin:css-import-order/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "sourceType": "module",
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "project": ["./tsconfig.json"]
   },
-  "plugins": ["@typescript-eslint", "promise", "unused-imports", "css-import-order"],
+  "env": {
+    "es2022": true,
+    "browser": true
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
+    // 基本インデントを 2 にする
     "indent": ["error", 2, { "SwitchCase": 1 }],
+    // 改行コードを LF にする
     "linebreak-style": ["error", "unix"],
+    // ダブルクォーテーションを禁止
     "quotes": ["error", "single"],
+    // セミコロンを禁止
     "semi": ["error", "never"],
+    // import 順を並び替える
     "import/order": [
       "warn",
       {
-        "groups": ["builtin", "external", ["parent", "sibling", "index"], "object", "type"],
+        // 組み込み ← 外部依存 ← 内部依存 ← import type の順にする
+        "groups": ["builtin", "external", ["parent", "sibling", "index"], "object", "type", "unknown"],
+        // カテゴリー間に改行を入れる
         "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": ["builtin"],
+        // 大文字小文字区別なしで ABC 順にする
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true
         },
         "pathGroups": [
-          {
-            "pattern": "{react,react/**,react-dom,react-dom/**,next,next/**}",
-            "group": "builtin"
-          },
+          // **.css は最後に配置する
           {
             "pattern": "**.css",
             "group": "type",
             "position": "after"
           }
-        ]
+        ],
+        // **.css が import 順最後ではないときに警告
+        "warnOnUnassignedImports": true
       }
     ],
-    "@typescript-eslint/no-unused-vars": "off",
+    // 不要 import 文を禁止
     "unused-imports/no-unused-imports": "error",
-    "unused-imports/no-unused-vars": [
-      "warn",
-      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
-    ],
+    // import type を優先
     "@typescript-eslint/consistent-type-imports": [
-      "warn",
+      "error",
       {
         "prefer": "type-imports"
       }
     ],
+    // 不要な変数を禁止
+    "@typescript-eslint/no-unused-vars": "off",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      // "_" で始まる変数を許可
+      {
+        "vars": "all",
+        "varsIgnorePattern": "^_",
+        "args": "after-used",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    // default export を禁止
     "import/no-default-export": "error",
+    // アロー関数を優先
     "prefer-arrow-callback": "error",
+    // const a = function () { ... } を禁止
+    "func-style": [2, "declaration", { "allowArrowFunctions": true }],
+    // 中括弧の省略を禁止
     "curly": "error",
+    // <div flag={true} /> 👉 <div flag />
     "react/jsx-boolean-value": "error",
+    // <div value={"test"} /> 👉 <div value="test" />
     "react/jsx-curly-brace-presence": "error",
+    // <div></div> 👉 <div />
     "react/self-closing-comp": [
       "error",
       {
@@ -69,18 +104,48 @@
         "html": true
       }
     ],
+    // コンポーネント名を PascalCase に強制
     "react/jsx-pascal-case": "error",
+    // テンプレート文字列を優先
     "prefer-template": "error",
+    // == 比較 👉 === 比較
+    "eqeqeq": "error",
+    // *.js で 'use strick'; を強制
+    "strict": ["error", "global"],
+    // Array<T> 👉 T[]
+    "@typescript-eslint/array-type": "error",
+    // (T) expr 👉 expr as T
+    "@typescript-eslint/consistent-type-assertions": "error",
+    // 未ハンドルの Promise を警告
+    "@typescript-eslint/no-floating-promises": "warn",
+    // require() を禁止
+    "@typescript-eslint/no-require-imports": "error",
+    // Promise<T> を返す関数では async のマークを強制
+    "@typescript-eslint/promise-function-async": "error",
+    // eval() を禁止
+    "@typescript-eslint/no-implied-eval": "error",
+    // *.jsx 内で React の import がなくても OK
     "react/react-in-jsx-scope": "off",
-    "eqeqeq": "error"
+    // テンプレート文字列で undefined | null を許可
+    "@typescript-eslint/restrict-template-expressions": "off",
+    // スコープ厳格化を解除
+    "@typescript-eslint/unbound-method": "off",
+    // 暗黙の any からのキャストを許可
+    "@typescript-eslint/no-unsafe-assignment": "off",
+    // return の返り値チェック厳格化を解除
+    "@typescript-eslint/no-unsafe-return": "off",
+    // Promise の返り値チェック厳格化を解除
+    "@typescript-eslint/no-misused-promises": "off"
   },
   "overrides": [
     {
+      // Next.js の動作に必要な default export を許可
       "files": ["pages/**/*.{ts,tsx}"],
       "rules": {
         "import/no-default-export": "off"
       }
     }
   ],
+  // 不要なルール無効化コメントを報告する
   "reportUnusedDisableDirectives": true
 }

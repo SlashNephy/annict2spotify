@@ -1,14 +1,14 @@
-import type { NextPage } from 'next'
+import { AppShell, Container } from '@mantine/core'
 import Head from 'next/head'
 import React from 'react'
-
-import { AppShell, Container } from '@mantine/core'
 
 import { AppFooter } from '../components/app/AppFooter'
 import { AppHeader } from '../components/app/AppHeader'
 import { AppNavbar } from '../components/app/AppNavbar'
 import { UserSession } from '../components/user/UserSession'
 import packageJson from '../package.json'
+
+import type { NextPage } from 'next'
 
 const Home: NextPage = () => {
   const [isNavbarOpen, setIsNavbarOpen] = React.useState(false)

@@ -1,8 +1,7 @@
-import React from 'react'
-
 import { Button } from '@mantine/core'
 import { hideNotification, showNotification } from '@mantine/notifications'
 import { cancelable } from 'cancelable-promise'
+import React from 'react'
 import { Check, HandStop } from 'tabler-icons-react'
 
 import { fetchAllWorks } from '../../lib/client/annict/fetchAllWorks'
@@ -88,7 +87,7 @@ export const AnnictFetchButton: React.FC<{
         leftIcon={statusState2Icon(state)}
         color={color}
         disabled={!isCancelable && isFetching}
-        onClick={() => handleFetchClick()}
+        onClick={async () => handleFetchClick()}
       >
         {label} {statusState2Label(state)}
       </Button>

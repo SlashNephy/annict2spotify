@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Avatar, Group, Text } from '@mantine/core'
+import React from 'react'
 import { Music } from 'tabler-icons-react'
 
 import type { SelectItem } from '@mantine/core'

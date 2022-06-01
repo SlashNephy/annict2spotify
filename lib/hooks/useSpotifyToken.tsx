@@ -1,8 +1,7 @@
-import React from 'react'
-
 import { useLocalStorage } from '@mantine/hooks'
 import { showNotification } from '@mantine/notifications'
 import { signIn } from 'next-auth/react'
+import React from 'react'
 import { Check } from 'tabler-icons-react'
 
 import { SPOTIFY_TOKEN_KEY } from '../client/session'

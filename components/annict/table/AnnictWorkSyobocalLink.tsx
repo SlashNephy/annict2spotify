@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Anchor } from '@mantine/core'
+import React from 'react'
 
 export const AnnictWorkSyobocalLink: React.FC<{ tid: number }> = ({ tid }) => {
   return (

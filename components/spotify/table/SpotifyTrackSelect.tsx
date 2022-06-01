@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Loader, Select } from '@mantine/core'
+import React from 'react'
 import { AlertTriangle } from 'tabler-icons-react'
 
 import { CustomSelectItem } from '../../CustomSelectItem'

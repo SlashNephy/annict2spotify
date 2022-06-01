@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Button, Divider, Grid, Modal, Progress, useMantineTheme } from '@mantine/core'
+import React from 'react'
 import { HandStop } from 'tabler-icons-react'
 
 export const SpotifySyncModal: React.FC<{

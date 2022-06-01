@@ -1,7 +1,6 @@
-import React from 'react'
-
 import { Button } from '@mantine/core'
 import { showNotification } from '@mantine/notifications'
+import React from 'react'
 import { Trash } from 'tabler-icons-react'
 
 import type { Work } from '../../graphql/types'

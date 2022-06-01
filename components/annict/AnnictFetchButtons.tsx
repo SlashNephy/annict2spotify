@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Grid } from '@mantine/core'
+import React from 'react'
 
 import { StatusState } from '../../graphql/types'
 import { AnnictClearButton } from './AnnictClearButton'

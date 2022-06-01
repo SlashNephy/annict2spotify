@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Checkbox } from '@mantine/core'
+import React from 'react'
 
 import type { Work } from '../../../graphql/types'
 import type { Setter } from '../../type'

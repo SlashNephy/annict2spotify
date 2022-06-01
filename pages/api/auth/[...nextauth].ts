@@ -103,7 +103,7 @@ export default NextAuth({
         session.spotify = token.spotify
       }
 
-      return session
+      return Promise.resolve(session)
     },
   },
   debug: IS_DEBUG,

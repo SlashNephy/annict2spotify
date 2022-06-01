@@ -13,7 +13,7 @@ const createSpotifyClient = (token: ServiceJwt): SpotifyWebApi => {
 }
 
 export const getPlaylists = async (token: ServiceJwt): Promise<SpotifyApi.PlaylistObjectSimplified[]> => {
-  return getPaginatedItems(token, (client, offset) => {
+  return getPaginatedItems(token, async (client, offset) => {
     return client.getUserPlaylists({
       limit: 50,
       offset,
@@ -60,7 +60,7 @@ export const getPlaylistTracks = async (
   token: ServiceJwt,
   playlistId: string
 ): Promise<SpotifyApi.PlaylistTrackObject[]> => {
-  return getPaginatedItems(token, (client, offset) => {
+  return getPaginatedItems(token, async (client, offset) => {
     return client.getPlaylistTracks(playlistId, {
       market: 'JP',
       limit: 100,

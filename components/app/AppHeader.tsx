@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Burger, Group, Header, Title } from '@mantine/core'
+import React from 'react'
 
 import packageJson from '../../package.json'
 import { UserInfo } from '../user/UserInfo'

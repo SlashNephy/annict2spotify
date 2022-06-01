@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Group, Switch } from '@mantine/core'
+import React from 'react'
 
 import { SpotifyPlaylistSelect } from './SpotifyPlaylistSelect'
 import { SpotifySongTable } from './SpotifySongTable'

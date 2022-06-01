@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Anchor, Container, Footer, Text } from '@mantine/core'
+import React from 'react'
 import { Heart } from 'tabler-icons-react'
 
 import packageJson from '../../package.json'

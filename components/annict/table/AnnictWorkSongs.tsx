@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Badge, List, ListItem } from '@mantine/core'
+import React from 'react'
 import { useQuery } from 'react-query'
 
 import { getSyobocalSongs } from '../../../lib/client/api'
@@ -14,7 +13,7 @@ export const AnnictWorkSongs: React.FC<{
   tid: number
   setSongs: Setter<Map<number, SyobocalSong[]>>
 }> = ({ workId, tid, setSongs }) => {
-  const { data: workSongs, isLoading, error } = useQuery(['syobocal', tid], () => getSyobocalSongs(tid))
+  const { data: workSongs, isLoading, error } = useQuery(['syobocal', tid], async () => getSyobocalSongs(tid))
 
   React.useEffect(() => {
     if (workSongs) {

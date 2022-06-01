@@ -1,7 +1,6 @@
-import React from 'react'
-
 import { Avatar, Divider, Indicator, Menu, Text, useMantineColorScheme } from '@mantine/core'
 import { useSession } from 'next-auth/react'
+import React from 'react'
 import { Logout, MoonStars, Sun } from 'tabler-icons-react'
 
 import { signOutCustom } from '../../lib/client/session'
@@ -44,7 +43,7 @@ export const UserInfo: React.FC = () => {
         Toggle theme
       </Menu.Item>
 
-      <Menu.Item color="red" icon={<Logout />} onClick={() => signOutCustom()}>
+      <Menu.Item color="red" icon={<Logout />} onClick={async () => signOutCustom()}>
         Sign out
       </Menu.Item>
     </Menu>

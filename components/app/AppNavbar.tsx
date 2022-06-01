@@ -1,7 +1,6 @@
+import { Anchor, Collapse, Navbar, Text } from '@mantine/core'
 import Link from 'next/link'
 import React from 'react'
-
-import { Anchor, Collapse, Navbar, Text } from '@mantine/core'
 
 export const AppNavbar: React.FC<{ isOpen: boolean }> = ({ isOpen }) => {
   return (

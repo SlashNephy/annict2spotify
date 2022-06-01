@@ -1,13 +1,13 @@
-import type { AppProps } from 'next/app'
-import Head from 'next/head'
-import React from 'react'
-
 import { ColorSchemeProvider, MantineProvider } from '@mantine/core'
 import { NotificationsProvider } from '@mantine/notifications'
 import { SessionProvider } from 'next-auth/react'
+import Head from 'next/head'
+import React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { useMemorableColorScheme } from '../lib/hooks/useMemorableColorScheme'
+
+import type { AppProps } from 'next/app'
 
 const queryClient = new QueryClient()
 

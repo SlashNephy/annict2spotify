@@ -1,8 +1,8 @@
-import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
-
 import { Button, Grid } from '@mantine/core'
+import React from 'react'
 import { DatabaseImport } from 'tabler-icons-react'
+
+import type { ComponentPropsWithoutRef } from 'react'
 
 export const SpotifySyncButton: React.FC<
   ComponentPropsWithoutRef<'button'> & {

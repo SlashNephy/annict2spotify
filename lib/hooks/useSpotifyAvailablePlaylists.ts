@@ -7,11 +7,12 @@ import type { ServiceJwt } from 'next-auth/jwt'
 export const useSpotifyAvailablePlaylists = (token: ServiceJwt) => {
   const queryClient = useQueryClient()
 
-  const { data: profile, isError: isProfileError } = useQuery(['spotify', token.accessToken, 'profile'], () =>
+  const { data: profile, isError: isProfileError } = useQuery(['spotify', token.accessToken, 'profile'], async () =>
     getProfile(token)
   )
-  const { data: playlists, isError: isPlaylistsError } = useQuery(['spotify', token.accessToken, 'playlists'], () =>
-    getPlaylists(token)
+  const { data: playlists, isError: isPlaylistsError } = useQuery(
+    ['spotify', token.accessToken, 'playlists'],
+    async () => getPlaylists(token)
   )
 
   const result =

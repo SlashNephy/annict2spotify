@@ -1,5 +1,3 @@
-import type { NextApiHandler } from 'next'
-
 import { add } from 'date-fns'
 
 import { findSyobocalEntry } from '../../../../lib/repository/findSyobocalEntry'
@@ -7,6 +5,7 @@ import { updateSyobocalEntry } from '../../../../lib/repository/updateSyobocalEn
 import { fetchEntry } from '../../../../lib/server/syobocal/fetchEntry'
 
 import type { SyobocalSongInput } from '../../../../lib/repository/type'
+import type { NextApiHandler } from 'next'
 
 type ApiError = {
   error: string

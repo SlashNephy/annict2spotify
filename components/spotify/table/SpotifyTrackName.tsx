@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Text } from '@mantine/core'
+import React from 'react'
 
 import type { SyobocalSong } from '@prisma/client'
 

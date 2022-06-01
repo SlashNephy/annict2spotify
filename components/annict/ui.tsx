@@ -1,5 +1,4 @@
 import React from 'react'
-
 import { Check, PlayerPause, PlayerPlay, PlayerRecord, PlayerStop } from 'tabler-icons-react'
 
 import { StatusState } from '../../graphql/types'

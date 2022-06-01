@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Badge } from '@mantine/core'
+import React from 'react'
 
 import { statusState2Color, statusState2Label } from '../ui'
 

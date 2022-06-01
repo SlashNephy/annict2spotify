@@ -1,6 +1,5 @@
-import React from 'react'
-
 import { Alert, Grid, Space, Stepper } from '@mantine/core'
+import React from 'react'
 import { AlertCircle, ListCheck, Login, PlaylistAdd } from 'tabler-icons-react'
 
 import { useAnnictToken } from '../../lib/hooks/useAnnictToken'

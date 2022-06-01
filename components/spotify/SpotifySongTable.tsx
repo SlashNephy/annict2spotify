@@ -1,7 +1,5 @@
-import type { ComponentPropsWithoutRef } from 'react'
-import React from 'react'
-
 import { Table } from '@mantine/core'
+import React from 'react'
 import RenderIfVisible from 'react-render-if-visible'
 
 import { SpotifyTrackRow } from './table/SpotifyTrackRow'
@@ -9,6 +7,7 @@ import { SpotifyTrackRow } from './table/SpotifyTrackRow'
 import type { Setter } from '../type'
 import type { SyobocalSong } from '@prisma/client'
 import type { ServiceJwt } from 'next-auth/jwt'
+import type { ComponentPropsWithoutRef } from 'react'
 
 export const SpotifySongTable: React.FC<
   ComponentPropsWithoutRef<'table'> & {
