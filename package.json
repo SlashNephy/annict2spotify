@@ -27,7 +27,7 @@
     "@kawaiioverflow/arm": "0.92.0",
     "@mantine/core": "4.2.8",
     "@mantine/hooks": "4.2.8",
-    "@mantine/next": "4.2.7",
+    "@mantine/next": "4.2.8",
     "@mantine/notifications": "4.2.7",
     "@prisma/client": "3.14.0",
     "cancelable-promise": "4.3.0",
