@@ -1392,12 +1392,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:4.2.7":
-  version: 4.2.7
-  resolution: "@mantine/hooks@npm:4.2.7"
+"@mantine/hooks@npm:4.2.8":
+  version: 4.2.8
+  resolution: "@mantine/hooks@npm:4.2.8"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: 66dc8887b7913334ed1ce6f4be0353f4273142b10d1e820d4395edbad5fc7dc7f8483e07abe5956d7463fc77365340765c80843d8f825dc00c447310eb58831d
+  checksum: 371bc3fa19130838d1a53454291b84c41390f9e8d4d89166c3ba36b60e5e671502b221a98834a42be3de0c6ab878eb0a950a58f8770e44ad6d9cba1468ef0aae
   languageName: node
   linkType: hard
 
@@ -2331,7 +2331,7 @@ __metadata:
     "@iconify/react": 3.2.2
     "@kawaiioverflow/arm": 0.92.0
     "@mantine/core": 4.2.8
-    "@mantine/hooks": 4.2.7
+    "@mantine/hooks": 4.2.8
     "@mantine/next": 4.2.7
     "@mantine/notifications": 4.2.7
     "@prisma/client": 3.14.0
