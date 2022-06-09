@@ -13,13 +13,20 @@ export const updateSyobocalEntry = async (id: number, entry: SyobocalEntryWithSo
       create: {
         ...entry,
         songs: {
-          create: entry.songs,
+          connectOrCreate: entry.songs.map((song) => ({
+            create: song,
+            where: { id: song.id },
+          })),
         },
       },
       update: {
         ...entry,
         songs: {
-          create: entry.songs,
+          // https://stackoverflow.com/questions/65587200/updating-a-many-to-many-relationship-in-prisma
+          connectOrCreate: entry.songs.map((song) => ({
+            create: song,
+            where: { id: song.id },
+          })),
         },
       },
     })
