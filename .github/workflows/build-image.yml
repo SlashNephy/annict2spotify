@@ -1,0 +1,25 @@
+name: 'Build Image'
+
+on:
+  push:
+    paths-ignore:
+      - '**.md'
+    branches-ignore:
+      - 'renovate/**'
+
+  release:
+    types:
+      - published
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    uses: SlashNephy/.github/.github/workflows/docker-build.yml@master
+    with:
+      image-name: ghcr.io/slashnephy/annict2spotify
+      image-platforms: linux/amd64 # ,linux/arm/v7,linux/arm64/v8,linux/ppc64le,linux/s390x

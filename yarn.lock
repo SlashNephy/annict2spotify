@@ -1318,15 +1318,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@iconify/react@npm:3.2.2":
-  version: 3.2.2
-  resolution: "@iconify/react@npm:3.2.2"
-  peerDependencies:
-    react: ">=16"
-  checksum: 8b52e1291d7e6c9422ab49eabd6c3bbb29cb852578c08616dd66a2b0e64aad4579ea3e8a6a3881d9d25d363eada16940e78477806fa36cfd98c0cd79778d7d0f
-  languageName: node
-  linkType: hard
-
 "@jridgewell/gen-mapping@npm:^0.1.0":
   version: 0.1.1
   resolution: "@jridgewell/gen-mapping@npm:0.1.1"
@@ -1820,6 +1811,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@slashnephy/eslint-config@npm:0.1.1":
+  version: 0.1.1
+  resolution: "@slashnephy/eslint-config@npm:0.1.1"
+  dependencies:
+    "@typescript-eslint/eslint-plugin": 5.27.1
+    "@typescript-eslint/parser": 5.27.1
+    eslint-config-next: 12.1.6
+    eslint-config-prettier: 8.5.0
+    eslint-import-resolver-typescript: 2.7.1
+    eslint-plugin-css-import-order: 1.1.0
+    eslint-plugin-import: 2.26.0
+    eslint-plugin-promise: 6.0.0
+    eslint-plugin-react: 7.30.0
+    eslint-plugin-react-hooks: 4.5.0
+    eslint-plugin-unused-imports: 2.0.0
+  peerDependencies:
+    eslint: ^8
+    prettier: ^2
+    typescript: ^4
+  checksum: b2fea5b8d7d4c3ed31b4376298523a260a363838bc14983785f428f8c926f7b95d5fb2d89355445349a79e69bb3a85ccc43ae57b1a9af6b1bc0fac4d0d07fecb
+  languageName: node
+  linkType: hard
+
+"@slashnephy/prettier-config@npm:0.1.0":
+  version: 0.1.0
+  resolution: "@slashnephy/prettier-config@npm:0.1.0"
+  peerDependencies:
+    prettier: ^2
+    typescript: ^4
+  checksum: dec44dbbc7757ff7be5f9ceb3671fe804b2dbada655ddb9d241c3ce3442d083341de0215691bd08f0c02b77309f2d1fc812e030f6905bb3ed90c6820451ecc85
+  languageName: node
+  linkType: hard
+
 "@szmarczak/http-timer@npm:^1.1.2":
   version: 1.1.2
   resolution: "@szmarczak/http-timer@npm:1.1.2"
@@ -1918,13 +1942,6 @@ __metadata:
   version: 6.0.3
   resolution: "@types/parse5@npm:6.0.3"
   checksum: ddb59ee4144af5dfcc508a8dcf32f37879d11e12559561e65788756b95b33e6f03ea027d88e1f5408f9b7bfb656bf630ace31a2169edf44151daaf8dd58df1b7
-  languageName: node
-  linkType: hard
-
-"@types/prettier@npm:2.6.3":
-  version: 2.6.3
-  resolution: "@types/prettier@npm:2.6.3"
-  checksum: e1836699ca189fff6d2a73dc22e028b6a6f693ed1180d5998ac29fa197caf8f85aa92cb38db642e4a370e616b451cb5722ad2395dab11c78e025a1455f37d1f0
   languageName: node
   linkType: hard
 
@@ -2311,34 +2328,23 @@ __metadata:
     "@graphql-codegen/typescript": 2.5.0
     "@graphql-codegen/typescript-graphql-request": 4.4.9
     "@graphql-codegen/typescript-operations": 2.4.1
-    "@iconify/react": 3.2.2
     "@kawaiioverflow/arm": 0.92.0
     "@mantine/core": 4.2.8
     "@mantine/hooks": 4.2.8
     "@mantine/next": 4.2.8
     "@mantine/notifications": 4.2.8
     "@prisma/client": 3.14.0
+    "@slashnephy/eslint-config": 0.1.1
+    "@slashnephy/prettier-config": 0.1.0
     "@types/jsdom": 16.2.14
     "@types/node": 17.0.31
-    "@types/prettier": 2.6.3
     "@types/react": 18.0.12
     "@types/react-dom": 18.0.5
     "@types/spotify-web-api-node": 5.0.7
-    "@typescript-eslint/eslint-plugin": 5.27.1
-    "@typescript-eslint/parser": 5.27.1
     cancelable-promise: 4.3.0
     concurrently: 7.2.1
     date-fns: 2.28.0
     eslint: 8.17.0
-    eslint-config-next: 12.1.6
-    eslint-config-prettier: 8.5.0
-    eslint-import-resolver-typescript: 2.7.1
-    eslint-plugin-css-import-order: 1.1.0
-    eslint-plugin-import: 2.26.0
-    eslint-plugin-promise: 6.0.0
-    eslint-plugin-react: 7.30.0
-    eslint-plugin-react-hooks: 4.5.0
-    eslint-plugin-unused-imports: 2.0.0
     graphql: 16.5.0
     graphql-request: 4.3.0
     jsdom: 19.0.0

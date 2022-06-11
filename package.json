@@ -13,7 +13,6 @@
     "lint": "concurrently -n lint: 'yarn:lint:*'",
     "lint:eslint": "next lint",
     "lint:prettier": "prettier --check .",
-    "hadolint": "hadolint Dockerfile",
     "format": "concurrently -n format: 'yarn:format:*'",
     "format:eslint": "yarn lint:eslint --fix",
     "format:prettier": "yarn lint:prettier --write",
@@ -51,30 +50,24 @@
     "@graphql-codegen/typescript": "2.5.0",
     "@graphql-codegen/typescript-graphql-request": "4.4.9",
     "@graphql-codegen/typescript-operations": "2.4.1",
-    "@iconify/react": "3.2.2",
+    "@slashnephy/eslint-config": "0.1.1",
+    "@slashnephy/prettier-config": "0.1.0",
     "@types/jsdom": "16.2.14",
     "@types/node": "17.0.31",
-    "@types/prettier": "2.6.3",
     "@types/react": "18.0.12",
     "@types/react-dom": "18.0.5",
     "@types/spotify-web-api-node": "5.0.7",
-    "@typescript-eslint/eslint-plugin": "5.27.1",
-    "@typescript-eslint/parser": "5.27.1",
     "concurrently": "7.2.1",
     "eslint": "8.17.0",
-    "eslint-config-next": "12.1.6",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-import-resolver-typescript": "2.7.1",
-    "eslint-plugin-css-import-order": "1.1.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-promise": "6.0.0",
-    "eslint-plugin-react": "7.30.0",
-    "eslint-plugin-react-hooks": "4.5.0",
-    "eslint-plugin-unused-imports": "2.0.0",
     "graphql": "16.5.0",
     "prettier": "2.6.2",
     "prisma": "3.14.0",
     "typescript": "4.7.3"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@3.2.1",
+  "eslintConfig": {
+    "extends": [
+      "@slashnephy/eslint-config"
+    ]
+  }
 }
