@@ -2,6 +2,14 @@
 
 🎧 Annict で視聴記録したアニメの主題歌などの Spotify のプレイリストを作成するくん
 
+## Gallery
+
+![](https://raw.githubusercontent.com/SlashNephy/annict2spotify/master/docs/screenshot1.png)
+
+![](https://raw.githubusercontent.com/SlashNephy/annict2spotify/master/docs/screenshot2.png)
+
+![](https://raw.githubusercontent.com/SlashNephy/annict2spotify/master/docs/screenshot3.png)
+
 ## Get Started
 
 ### 開発環境
