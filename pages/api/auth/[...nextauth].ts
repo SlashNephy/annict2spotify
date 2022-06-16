@@ -22,7 +22,7 @@ if (!SPOTIFY_CLIENT_ID || !SPOTIFY_CLIENT_SECRET) {
   throw new Error('SPOTIFY_CLIENT_ID or SPOTIFY_CLIENT_SECRET is not set')
 }
 
-// noinspection JSUnusedGlobalSymbols
+// eslint-disable-next-line import/no-default-export
 export default NextAuth({
   providers: [
     {

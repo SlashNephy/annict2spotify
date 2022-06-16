@@ -58,5 +58,5 @@ const handler: NextApiHandler<SyobocalSongInput[] | ApiError> = async (req, res)
   }
 }
 
-// noinspection JSUnusedGlobalSymbols
+// eslint-disable-next-line import/no-default-export
 export default handler

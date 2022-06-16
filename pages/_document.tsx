@@ -4,10 +4,10 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 const getInitialProps = createGetInitialProps()
 
 class MyDocument extends Document {
-  static getInitialProps = getInitialProps
+  public static getInitialProps = getInitialProps
 
   // noinspection HtmlRequiredTitleElement
-  render = () => (
+  public render = () => (
     <Html lang="en">
       <Head>
         <link rel="icon" href="/favicon.ico" />

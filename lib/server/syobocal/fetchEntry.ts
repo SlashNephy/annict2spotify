@@ -3,8 +3,7 @@ import { JSDOM } from 'jsdom'
 import { USER_AGENT } from '../constants'
 import { makeSha1HexHash } from '../makeSha1HexHash'
 
-import type { SyobocalSongInput } from '../../repository/type'
-import type { SyobocalEntryWithSongsInput } from '../../repository/type'
+import type { SyobocalSongInput, SyobocalEntryWithSongsInput } from '../../repository/type'
 
 export const fetchEntry = async (tid: number): Promise<SyobocalEntryWithSongsInput> => {
   const html = await fetchHtml(tid)
