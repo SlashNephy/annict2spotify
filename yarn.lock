@@ -1406,20 +1406,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/core@npm:4.2.8":
-  version: 4.2.8
-  resolution: "@mantine/core@npm:4.2.8"
+"@mantine/core@npm:4.2.10":
+  version: 4.2.10
+  resolution: "@mantine/core@npm:4.2.10"
   dependencies:
-    "@mantine/styles": 4.2.8
+    "@mantine/styles": 4.2.10
     "@popperjs/core": ^2.9.3
     "@radix-ui/react-scroll-area": ^0.1.1
     react-popper: ^2.2.5
     react-textarea-autosize: ^8.3.2
   peerDependencies:
-    "@mantine/hooks": 4.2.8
+    "@mantine/hooks": 4.2.10
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: a7434d542657e5b196dc795503f667a4eff0cc4eed3870c3bd3ae1f645e01bc9c9e3dd32387907700cb96a41a70b836c0003756f5f488e7db7f61dee175386e6
+  checksum: ba7567d5d9c88237f52312f4fb1cfcfb3a4adca99661a5e303ceed3dda44cef4e2d13dc76833d028021b0891f03e4d009200361af5ec2aef4f29fcadf713709a
   languageName: node
   linkType: hard
 
@@ -1475,6 +1475,23 @@ __metadata:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
   checksum: f2588004ffa65890e4e88ff23aae54124ccc96edda8fcdf4fee9ec93219e156a9862ce6c8473c8096b4944858c56cd8268cd8451118ce55c8358f8c569699a54
+  languageName: node
+  linkType: hard
+
+"@mantine/styles@npm:4.2.10":
+  version: 4.2.10
+  resolution: "@mantine/styles@npm:4.2.10"
+  dependencies:
+    "@emotion/cache": 11.7.1
+    "@emotion/react": 11.7.1
+    "@emotion/serialize": 1.0.2
+    "@emotion/utils": 1.0.0
+    clsx: ^1.1.1
+    csstype: 3.0.9
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 17044254771cab2adc5d2cb9927f8d2e2af90aba1b2bdc4dfbf7a75c7672f0c0ffbb6caf1e20764186e615247b9b58c2e496ab2f37c52d47c0d571276feb723a
   languageName: node
   linkType: hard
 
@@ -2433,7 +2450,7 @@ __metadata:
     "@graphql-codegen/typescript-graphql-request": 4.4.10
     "@graphql-codegen/typescript-operations": 2.4.2
     "@kawaiioverflow/arm": 0.94.0
-    "@mantine/core": 4.2.8
+    "@mantine/core": 4.2.10
     "@mantine/hooks": 4.2.8
     "@mantine/next": 4.2.8
     "@mantine/notifications": 4.2.8
