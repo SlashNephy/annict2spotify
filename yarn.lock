@@ -1423,12 +1423,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/hooks@npm:4.2.8":
-  version: 4.2.8
-  resolution: "@mantine/hooks@npm:4.2.8"
+"@mantine/hooks@npm:4.2.10":
+  version: 4.2.10
+  resolution: "@mantine/hooks@npm:4.2.10"
   peerDependencies:
     react: ">=16.8.0"
-  checksum: 371bc3fa19130838d1a53454291b84c41390f9e8d4d89166c3ba36b60e5e671502b221a98834a42be3de0c6ab878eb0a950a58f8770e44ad6d9cba1468ef0aae
+  checksum: 66e69464f3a311d919ab1733af92753a6f65a0040c82c57d19036940be276cab36a99dd9d6339d1fa67fa8cea634dd277d1bf68d64348ea4a5d35d5ec6060f60
   languageName: node
   linkType: hard
 
@@ -2434,7 +2434,7 @@ __metadata:
     "@graphql-codegen/typescript-operations": 2.4.2
     "@kawaiioverflow/arm": 0.94.0
     "@mantine/core": 4.2.8
-    "@mantine/hooks": 4.2.8
+    "@mantine/hooks": 4.2.10
     "@mantine/next": 4.2.8
     "@mantine/notifications": 4.2.8
     "@prisma/client": 3.14.0
