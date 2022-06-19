@@ -1432,16 +1432,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/next@npm:4.2.8":
-  version: 4.2.8
-  resolution: "@mantine/next@npm:4.2.8"
+"@mantine/next@npm:4.2.10":
+  version: 4.2.10
+  resolution: "@mantine/next@npm:4.2.10"
   dependencies:
-    "@mantine/ssr": 4.2.8
+    "@mantine/ssr": 4.2.10
   peerDependencies:
     next: "*"
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: 48d658a6c1954a30906c34602a37da4b00ca3712819ba1cc1719045a95d412d1f3c6d847116b85f37c34dfdbac84929c525fdb20b4b93734f6016e1988924bfa
+  checksum: 4a608a6a1b32fe8fe3df25623e26656caafcbfc147be1af7c397792e3f7b25fd2365cbdf256cb5e61d6e19efc6037f61384a0b8d1cf6123fc5a0bd2c0b8a0ac6
   languageName: node
   linkType: hard
 
@@ -1459,22 +1459,39 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/ssr@npm:4.2.8":
-  version: 4.2.8
-  resolution: "@mantine/ssr@npm:4.2.8"
+"@mantine/ssr@npm:4.2.10":
+  version: 4.2.10
+  resolution: "@mantine/ssr@npm:4.2.10"
   dependencies:
     "@emotion/cache": 11.7.1
     "@emotion/react": 11.7.1
     "@emotion/serialize": 1.0.2
     "@emotion/server": 11.4.0
     "@emotion/utils": 1.0.0
-    "@mantine/styles": 4.2.8
+    "@mantine/styles": 4.2.10
     csstype: 3.0.9
     html-react-parser: 1.3.0
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: f2588004ffa65890e4e88ff23aae54124ccc96edda8fcdf4fee9ec93219e156a9862ce6c8473c8096b4944858c56cd8268cd8451118ce55c8358f8c569699a54
+  checksum: e0b2efdd3b60d43be45d036b5c651f01280f07f5b977206d2bd7d49231a8ca89e5aedfe7575e8053d423d5dc9b7190a445025471303710cf8e5181acab540ee3
+  languageName: node
+  linkType: hard
+
+"@mantine/styles@npm:4.2.10":
+  version: 4.2.10
+  resolution: "@mantine/styles@npm:4.2.10"
+  dependencies:
+    "@emotion/cache": 11.7.1
+    "@emotion/react": 11.7.1
+    "@emotion/serialize": 1.0.2
+    "@emotion/utils": 1.0.0
+    clsx: ^1.1.1
+    csstype: 3.0.9
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 17044254771cab2adc5d2cb9927f8d2e2af90aba1b2bdc4dfbf7a75c7672f0c0ffbb6caf1e20764186e615247b9b58c2e496ab2f37c52d47c0d571276feb723a
   languageName: node
   linkType: hard
 
@@ -2435,7 +2452,7 @@ __metadata:
     "@kawaiioverflow/arm": 0.94.0
     "@mantine/core": 4.2.8
     "@mantine/hooks": 4.2.8
-    "@mantine/next": 4.2.8
+    "@mantine/next": 4.2.10
     "@mantine/notifications": 4.2.8
     "@prisma/client": 3.14.0
     "@slashnephy/eslint-config": 0.1.6
