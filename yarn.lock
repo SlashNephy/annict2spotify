@@ -2463,7 +2463,7 @@ __metadata:
     react-query: 3.39.1
     react-render-if-visible: 2.1.0
     spotify-web-api-node: 5.0.2
-    tabler-icons-react: 1.48.1
+    tabler-icons-react: 1.50.0
     typescript: 4.7.4
   languageName: unknown
   linkType: soft
@@ -8268,12 +8268,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tabler-icons-react@npm:1.48.1":
-  version: 1.48.1
-  resolution: "tabler-icons-react@npm:1.48.1"
+"tabler-icons-react@npm:1.50.0":
+  version: 1.50.0
+  resolution: "tabler-icons-react@npm:1.50.0"
   peerDependencies:
     react: ">= 16.8.0"
-  checksum: 2d92fd25f3bae4acb9c440c3582af64b597c0d8c9f6aa30af80532dc28c32b80ff08c60c2611b0bb47a65e64f480874989173a48d91e3a54ecef6d151ae841bd
+  checksum: a8e785f29c8f55f8fa16ecdbe9047cbacf206d83e146aedccbfeb376249606fb9cd821a5c322b28ffceb42dd475cd31a5d7a6adb6d543f1bb914a9219c9b11de
   languageName: node
   linkType: hard
 
