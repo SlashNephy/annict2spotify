@@ -10,7 +10,6 @@ type Activity implements Node {
 
 enum ActivityAction {
   """
-
   """
   CREATE
 }
@@ -59,7 +58,6 @@ input ActivityOrder {
 
 enum ActivityOrderField {
   """
-
   """
   CREATED_AT
 }
@@ -117,12 +115,10 @@ input CastOrder {
 
 enum CastOrderField {
   """
-
   """
   CREATED_AT
 
   """
-
   """
   SORT_NUMBER
 }
@@ -292,12 +288,10 @@ input CharacterOrder {
 
 enum CharacterOrderField {
   """
-
   """
   CREATED_AT
 
   """
-
   """
   FAVORITE_CHARACTERS_COUNT
 }
@@ -491,12 +485,10 @@ input EpisodeOrder {
 
 enum EpisodeOrderField {
   """
-
   """
   CREATED_AT
 
   """
-
   """
   SORT_NUMBER
 }
@@ -563,27 +555,22 @@ Media of anime
 """
 enum Media {
   """
-
   """
   MOVIE
 
   """
-
   """
   OTHER
 
   """
-
   """
   OVA
 
   """
-
   """
   TV
 
   """
-
   """
   WEB
 }
@@ -674,12 +661,10 @@ interface Node {
 
 enum OrderDirection {
   """
-
   """
   ASC
 
   """
-
   """
   DESC
 }
@@ -742,12 +727,10 @@ input OrganizationOrder {
 
 enum OrganizationOrderField {
   """
-
   """
   CREATED_AT
 
   """
-
   """
   FAVORITE_ORGANIZATIONS_COUNT
 }
@@ -843,12 +826,10 @@ input PersonOrder {
 
 enum PersonOrderField {
   """
-
   """
   CREATED_AT
 
   """
-
   """
   FAVORITE_PEOPLE_COUNT
 }
@@ -913,19 +894,16 @@ input ProgramOrder {
 
 enum ProgramOrderField {
   """
-
   """
   STARTED_AT
 }
 
 enum ProgramState {
   """
-
   """
   HIDDEN
 
   """
-
   """
   PUBLISHED
 }
@@ -1141,12 +1119,10 @@ input RecordOrder {
 
 enum RecordOrderField {
   """
-
   """
   CREATED_AT
 
   """
-
   """
   LIKES_COUNT
 }
@@ -1212,12 +1188,10 @@ input ReviewOrder {
 
 enum ReviewOrderField {
   """
-
   """
   CREATED_AT
 
   """
-
   """
   LIKES_COUNT
 }
@@ -1227,22 +1201,18 @@ Season name
 """
 enum SeasonName {
   """
-
   """
   AUTUMN
 
   """
-
   """
   SPRING
 
   """
-
   """
   SUMMER
 
   """
-
   """
   WINTER
 }
@@ -1352,7 +1322,6 @@ input SeriesWorkOrder {
 
 enum SeriesWorkOrderField {
   """
-
   """
   SEASON
 }
@@ -1412,12 +1381,10 @@ input StaffOrder {
 
 enum StaffOrderField {
   """
-
   """
   CREATED_AT
 
   """
-
   """
   SORT_NUMBER
 }
@@ -1436,32 +1403,26 @@ type Status implements Node {
 
 enum StatusState {
   """
-
   """
   NO_STATE
 
   """
-
   """
   ON_HOLD
 
   """
-
   """
   STOP_WATCHING
 
   """
-
   """
   WANNA_WATCH
 
   """
-
   """
   WATCHED
 
   """
-
   """
   WATCHING
 }
@@ -2024,17 +1985,14 @@ input WorkOrder {
 
 enum WorkOrderField {
   """
-
   """
   CREATED_AT
 
   """
-
   """
   SEASON
 
   """
-
   """
   WATCHERS_COUNT
 }
