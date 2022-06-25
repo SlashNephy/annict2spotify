@@ -32,7 +32,7 @@
     "cancelable-promise": "4.3.0",
     "date-fns": "2.28.0",
     "graphql-request": "4.3.0",
-    "jsdom": "19.0.0",
+    "jsdom": "20.0.0",
     "levenshtein-edit-distance": "3.0.0",
     "next": "12.1.6",
     "next-auth": "4.6.1",
