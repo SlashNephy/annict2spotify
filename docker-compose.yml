@@ -4,6 +4,7 @@ services:
   db:
     # https://hub.docker.com/_/postgres
     image: postgres:14.4-bullseye
+    restart: always
     environment:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
@@ -12,6 +13,17 @@ services:
     volumes:
       - db:/var/lib/postgresql
 
+  app:
+    image: node:18.4.0-bullseye-slim
+    restart: always
+    depends_on:
+      - db
+    command: 'sh -c "apt-get update -y && apt-get install -y openssl && yarn && yarn generate && yarn dev"'
+    working_dir: /app
+    volumes:
+      - ./:/app
+    ports:
+      - '3000:3000/tcp'
+
 volumes:
   db:
-    driver: local
