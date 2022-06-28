@@ -1,5 +1,6 @@
 .next/
 .yarn/
+out/
 node_modules/
 
 graphql/*.ts
