@@ -41,7 +41,7 @@
     "react-query": "3.39.1",
     "react-render-if-visible": "2.1.0",
     "spotify-web-api-node": "5.0.2",
-    "tabler-icons-react": "1.51.0"
+    "tabler-icons-react": "1.52.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.6.4",
