@@ -852,9 +852,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/cli@npm:2.6.2":
-  version: 2.6.2
-  resolution: "@graphql-codegen/cli@npm:2.6.2"
+"@graphql-codegen/cli@npm:2.6.4":
+  version: 2.6.4
+  resolution: "@graphql-codegen/cli@npm:2.6.4"
   dependencies:
     "@graphql-codegen/core": 2.5.1
     "@graphql-codegen/plugin-helpers": ^2.4.1
@@ -875,10 +875,7 @@ __metadata:
     common-tags: ^1.8.0
     cosmiconfig: ^7.0.0
     debounce: ^1.2.0
-    dependency-graph: ^0.11.0
     detect-indent: ^6.0.0
-    glob: ^7.1.6
-    globby: ^11.0.4
     graphql-config: ^4.1.0
     inquirer: ^8.0.0
     is-glob: ^4.0.1
@@ -887,12 +884,9 @@ __metadata:
     listr: ^0.14.3
     listr-update-renderer: ^0.5.0
     log-symbols: ^4.0.0
-    minimatch: ^4.0.0
     mkdirp: ^1.0.4
     string-env-interpolation: ^1.0.1
     ts-log: ^2.2.3
-    tslib: ~2.3.0
-    valid-url: ^1.0.9
     wrap-ansi: ^7.0.0
     yaml: ^1.10.0
     yargs: ^17.0.0
@@ -902,7 +896,7 @@ __metadata:
     gql-gen: bin.js
     graphql-code-generator: bin.js
     graphql-codegen: bin.js
-  checksum: 5d8f81fab26984588fe4a7cfde12c45d86c101086acb3e2c3e6b23e194be7af6c2a76825c6da996e8841ac8c0a52f23d4658c6a795f345e1d577d75ad8025c2c
+  checksum: 664fbd395f3cb877c887e7a5bd41aa18e74db6d6bd70579c92235b3ba4853a331ad6ea317e22a0317f28dc90e41c7051554753c7023780399f72a187ba24c894
   languageName: node
   linkType: hard
 
@@ -2427,7 +2421,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "annict2spotify@workspace:."
   dependencies:
-    "@graphql-codegen/cli": 2.6.2
+    "@graphql-codegen/cli": 2.6.4
     "@graphql-codegen/import-types-preset": 2.1.20
     "@graphql-codegen/typescript": 2.5.1
     "@graphql-codegen/typescript-graphql-request": 4.4.10
@@ -4818,7 +4812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6, glob@npm:^7.2.0":
+"glob@npm:^7.1.1, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.2.0":
   version: 7.2.2
   resolution: "glob@npm:7.2.2"
   dependencies:
@@ -6291,7 +6285,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimatch@npm:4.2.1, minimatch@npm:^4.0.0":
+"minimatch@npm:4.2.1":
   version: 4.2.1
   resolution: "minimatch@npm:4.2.1"
   dependencies:
@@ -8693,13 +8687,6 @@ __metadata:
   version: 2.3.0
   resolution: "v8-compile-cache@npm:2.3.0"
   checksum: adb0a271eaa2297f2f4c536acbfee872d0dd26ec2d76f66921aa7fc437319132773483344207bdbeee169225f4739016d8d2dbf0553913a52bb34da6d0334f8e
-  languageName: node
-  linkType: hard
-
-"valid-url@npm:^1.0.9":
-  version: 1.0.9
-  resolution: "valid-url@npm:1.0.9"
-  checksum: 3ecb030559404441c2cf104cbabab8770efb0f36d117db03d1081052ef133015a68806148ce954bb4dd0b5c42c14b709a88783c93d66b0916cb67ba771c98702
   languageName: node
   linkType: hard
 
