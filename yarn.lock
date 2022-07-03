@@ -1393,10 +1393,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@kawaiioverflow/arm@npm:0.95.0":
-  version: 0.95.0
-  resolution: "@kawaiioverflow/arm@npm:0.95.0"
-  checksum: 788212dfe3735e3c46d093c5685f97b0c0ff4233833480a24225907f63d786c03c27455b3f2c92d24a1443c8fbec3061421d94552da03c0db09d5721cb7c09a7
+"@kawaiioverflow/arm@npm:0.96.0":
+  version: 0.96.0
+  resolution: "@kawaiioverflow/arm@npm:0.96.0"
+  checksum: 0ce15e1a690911f1b43e53b77d9dc958e2a8a31dda3c1e8ad73df026f66aa237a5fbe0046abfb59b1d853ab40d8ac285fbc51d46c0a3a873020de83588c0787c
   languageName: node
   linkType: hard
 
@@ -2440,7 +2440,7 @@ __metadata:
     "@graphql-codegen/typescript": 2.5.1
     "@graphql-codegen/typescript-graphql-request": 4.4.10
     "@graphql-codegen/typescript-operations": 2.4.2
-    "@kawaiioverflow/arm": 0.95.0
+    "@kawaiioverflow/arm": 0.96.0
     "@mantine/core": 4.2.11
     "@mantine/hooks": 4.2.11
     "@mantine/next": 4.2.11
