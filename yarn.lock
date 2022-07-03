@@ -2478,7 +2478,7 @@ __metadata:
     jsdom: 20.0.0
     levenshtein-edit-distance: 3.0.0
     next: 12.2.0
-    next-auth: 4.6.1
+    next-auth: 4.8.0
     node-fetch: 3.2.6
     prettier: 2.7.1
     prisma: 3.15.2
@@ -6594,9 +6594,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next-auth@npm:4.6.1":
-  version: 4.6.1
-  resolution: "next-auth@npm:4.6.1"
+"next-auth@npm:4.8.0":
+  version: 4.8.0
+  resolution: "next-auth@npm:4.8.0"
   dependencies:
     "@babel/runtime": ^7.16.3
     "@panva/hkdf": ^1.0.1
@@ -6614,7 +6614,7 @@ __metadata:
   peerDependenciesMeta:
     nodemailer:
       optional: true
-  checksum: 4d629119cbe5e2bbf6c61a50fc80764de626fa70dc3086faea2f00d9ffc7707651a941df72b4b72aa73ea1ac77c2d41f0f2507b029d6e369f72cbc7458abd024
+  checksum: 93f3a3f4bbbb686f69e86d72dc505034667f7b6a5c299f970cb0e03a68116263a86316ae3a5f01dd7719795d99e53ded7d3ab319eea4619bcd16646ecfd06151
   languageName: node
   linkType: hard
 
