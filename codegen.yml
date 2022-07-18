@@ -15,10 +15,19 @@ generates:
   graphql/operations.ts:
     plugins:
       - typescript-operations
-      - typescript-graphql-request
     preset: import-types
     presetConfig:
       typesPath: ./types
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+
+  graphql/sdk.ts:
+    plugins:
+      - typescript-graphql-request
+    preset: import-types
+    presetConfig:
+      typesPath: ./operations
     hooks:
       afterOneFileWrite:
         - prettier --write

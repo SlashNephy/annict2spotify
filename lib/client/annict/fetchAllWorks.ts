@@ -1,6 +1,6 @@
 import { GraphQLClient } from 'graphql-request'
 
-import { getSdk } from '../../../graphql/operations'
+import { getSdk } from '../../../graphql/sdk'
 
 import type { ViewerWorksQuery } from '../../../graphql/operations'
 import type { StatusState, Work } from '../../../graphql/types'
