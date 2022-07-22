@@ -22,7 +22,7 @@
     "generate:prisma": "prisma generate"
   },
   "dependencies": {
-    "@kawaiioverflow/arm": "0.97.0",
+    "@kawaiioverflow/arm": "0.98.0",
     "@mantine/core": "4.2.12",
     "@mantine/hooks": "4.2.12",
     "@mantine/next": "4.2.12",
