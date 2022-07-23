@@ -2590,7 +2590,7 @@ __metadata:
     levenshtein-edit-distance: 3.0.0
     next: 12.2.2
     next-auth: 4.10.0
-    node-fetch: 3.2.8
+    node-fetch: 3.2.9
     prettier: 2.7.1
     prisma: 4.0.0
     react: 18.2.0
@@ -6514,14 +6514,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:3.2.8":
-  version: 3.2.8
-  resolution: "node-fetch@npm:3.2.8"
+"node-fetch@npm:3.2.9":
+  version: 3.2.9
+  resolution: "node-fetch@npm:3.2.9"
   dependencies:
     data-uri-to-buffer: ^4.0.0
     fetch-blob: ^3.1.4
     formdata-polyfill: ^4.0.10
-  checksum: 2f7fc3e59fbede43a273e988d2f2a3dd68160618114e32ad537477db253808b65221f1dbfd666b8fb33ff07bf1de9d6448035b0f8ada5ef876c5afec93b27318
+  checksum: ba421350b2dbab67d8068f9d24f30ef8b9a37a3f83388d2efaf79628de754c85df81829c009579ea5562a2b11d9f07ecd21d27b5b8bed0cb393b92abe4817a75
   languageName: node
   linkType: hard
 
