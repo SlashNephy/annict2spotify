@@ -1940,9 +1940,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/client@npm:4.1.0":
-  version: 4.1.0
-  resolution: "@prisma/client@npm:4.1.0"
+"@prisma/client@npm:4.1.1":
+  version: 4.1.1
+  resolution: "@prisma/client@npm:4.1.1"
   dependencies:
     "@prisma/engines-version": 4.1.0-48.8d8414deb360336e4698a65aa45a1fbaf1ce13d8
   peerDependencies:
@@ -1950,7 +1950,7 @@ __metadata:
   peerDependenciesMeta:
     prisma:
       optional: true
-  checksum: bd722305284c633f9c1f8c92efb4db47ab8d47ce12384ed75b99880333f017a69f5ce65d546b306a0fe3a21e9d068e287ce96b4421c7b657e5b1c949673f8179
+  checksum: 0251ebba98c5212e5d2fabfadac945c5977b6e48c1baeaa5d962cd2d486524304e14f320870df879c7cc83de2783d0dd3fee9c63bcdd300bd88d2b5f8f461ed0
   languageName: node
   linkType: hard
 
@@ -1961,10 +1961,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/engines@npm:4.1.0":
-  version: 4.1.0
-  resolution: "@prisma/engines@npm:4.1.0"
-  checksum: b549d20b18d224388f267d92e9a53e4570064c74eff02bb7f2259cefdf060785a65c49afb5d6f897a3ab907a50425b0dff83ed06018ce5d465f0583a9dc4b893
+"@prisma/engines@npm:4.1.1":
+  version: 4.1.1
+  resolution: "@prisma/engines@npm:4.1.1"
+  checksum: 23877091007c288065b002cedc70273bc1a5eb601e3bae767549521aeffbd58775f079ba61fd9516546befe0a6c50db2fb2469f33b1e2ee847f5b1056ac4a07a
   languageName: node
   linkType: hard
 
@@ -2683,7 +2683,7 @@ __metadata:
     "@mantine/hooks": 4.2.12
     "@mantine/next": 4.2.12
     "@mantine/notifications": 4.2.12
-    "@prisma/client": 4.1.0
+    "@prisma/client": 4.1.1
     "@slashnephy/eslint-config": 0.1.7
     "@slashnephy/prettier-config": 0.1.1
     "@types/jsdom": 20.0.0
@@ -2703,7 +2703,7 @@ __metadata:
     next-auth: 4.10.3
     node-fetch: 3.2.9
     prettier: 2.7.1
-    prisma: 4.1.0
+    prisma: 4.1.1
     react: 18.2.0
     react-dom: 18.2.0
     react-query: 3.39.2
@@ -7207,15 +7207,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prisma@npm:4.1.0":
-  version: 4.1.0
-  resolution: "prisma@npm:4.1.0"
+"prisma@npm:4.1.1":
+  version: 4.1.1
+  resolution: "prisma@npm:4.1.1"
   dependencies:
-    "@prisma/engines": 4.1.0
+    "@prisma/engines": 4.1.1
   bin:
     prisma: build/index.js
     prisma2: build/index.js
-  checksum: c566f03e8d0547c42fa8fe67f772c477dc68993654347434aac5317a2a1799470dedabdbc428a7d48375f8930e0fcd6c41e9a0d85686315ff7bfcdf3f73a9d56
+  checksum: fdaa0cb464e00700539eced334f743fbc669336076cbe12c3a7bbd043c546baa9792064a216ae2ca061c5cb05d720b8fc6e2c6f7e434ab3d1d63ec9f25fa525f
   languageName: node
   linkType: hard
 
