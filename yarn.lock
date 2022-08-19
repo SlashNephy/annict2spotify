@@ -2688,7 +2688,7 @@ __metadata:
     "@types/spotify-web-api-node": 5.0.7
     cancelable-promise: 4.3.0
     concurrently: 7.3.0
-    date-fns: 2.29.1
+    date-fns: 2.29.2
     eslint: 8.22.0
     graphql: 16.6.0
     graphql-request: 4.3.0
@@ -3643,10 +3643,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"date-fns@npm:2.29.1":
-  version: 2.29.1
-  resolution: "date-fns@npm:2.29.1"
-  checksum: 9d07f77dffc1eb8c213391bde39f2963ffe7c0019d9edde14487882d627224f3a39b963e6e99d0cc58afff220a6a1a7e8864d2789958f4eaa77714de94d4d076
+"date-fns@npm:2.29.2":
+  version: 2.29.2
+  resolution: "date-fns@npm:2.29.2"
+  checksum: 08bebcceb0a5dbadae4c55e6592b9d5c07dbd7833433c7e9a1d4a424300db32589b8b48e5979b32863c9b00a48d9bab6663e580c2a4f9f203d46cbf9113b5664
   languageName: node
   linkType: hard
 
