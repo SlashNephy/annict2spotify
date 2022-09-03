@@ -2120,9 +2120,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:0.1.12":
-  version: 0.1.12
-  resolution: "@slashnephy/eslint-config@npm:0.1.12"
+"@slashnephy/eslint-config@npm:0.1.14":
+  version: 0.1.14
+  resolution: "@slashnephy/eslint-config@npm:0.1.14"
   dependencies:
     "@typescript-eslint/eslint-plugin": 5.36.1
     "@typescript-eslint/parser": 5.33.0
@@ -2136,16 +2136,17 @@ __metadata:
     eslint-plugin-jest: 26.8.2
     eslint-plugin-jest-formatting: 3.1.0
     eslint-plugin-node: 11.1.0
-    eslint-plugin-promise: 6.0.0
+    eslint-plugin-promise: 6.0.1
     eslint-plugin-react: 7.30.1
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-unused-imports: 2.0.0
+    eslint-plugin-userscripts: 0.2.9
     eslint-plugin-xss: 0.1.12
   peerDependencies:
     eslint: ^8
     prettier: ^2
     typescript: ^4
-  checksum: fb71e7f7278c8c56db8eac85cdf54226b19d979827a10c76722feb46f791b6968be77a8e43a8a5540bb30a6ecbc631a2ec64850127cd457d4bb248f06fae28a6
+  checksum: c0cec0989aba3fb33419baf6af3cc5edc130dc3eaddbc85fc153bb003d55f561278991e11654e1917d5437c44145807cdca9e0d51c326ed1450e361898144a2a
   languageName: node
   linkType: hard
 
@@ -2808,7 +2809,7 @@ __metadata:
     "@mantine/next": 4.2.12
     "@mantine/notifications": 4.2.12
     "@prisma/client": 4.2.1
-    "@slashnephy/eslint-config": 0.1.12
+    "@slashnephy/eslint-config": 0.1.14
     "@slashnephy/prettier-config": 0.1.1
     "@types/jsdom": 20.0.0
     "@types/node": 17.0.31
@@ -4467,12 +4468,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-promise@npm:6.0.0":
-  version: 6.0.0
-  resolution: "eslint-plugin-promise@npm:6.0.0"
+"eslint-plugin-promise@npm:6.0.1":
+  version: 6.0.1
+  resolution: "eslint-plugin-promise@npm:6.0.1"
   peerDependencies:
     eslint: ^7.0.0 || ^8.0.0
-  checksum: 7e761507c51267b77e4ad710e7c8938aa4f8f69b975886034e57497a1816e9527eda364e25aac03d1b4e0df2e738ba98e49ad075d028824fcfea533a1419751c
+  checksum: c1bb3c2e591787e97133dcaf764f908420a3a1959a3132e199db8f14d70dfa79fc9caf991ca60a4b60ae5f1f9823bc96c2e52304828a4278ef2f3964fe121de9
   languageName: node
   linkType: hard
 
@@ -4554,6 +4555,18 @@ __metadata:
     "@typescript-eslint/eslint-plugin":
       optional: true
   checksum: 8aa1e03e75da2a62a354065e0cb8fe370118c6f8d9720a32fe8c1da937de6adb81a4fed7d0d391d115ac9453b49029fb19f970d180a2cf3dba451fd4c20f0dc4
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-userscripts@npm:0.2.9":
+  version: 0.2.9
+  resolution: "eslint-plugin-userscripts@npm:0.2.9"
+  dependencies:
+    requireindex: ~1.2.0
+    semver: ^7.3.5
+  peerDependencies:
+    eslint: ">=6.0.0 <9"
+  checksum: 36c946251f13d41969dfc44bf99ff2ba581d485926ed0be161e914f0cdf87fcb815249e06faa23838815dad812d05bc75ac9312fd3f688f367ec3b9ce0418737
   languageName: node
   linkType: hard
 
@@ -7786,6 +7799,13 @@ __metadata:
   version: 1.1.0
   resolution: "requireindex@npm:1.1.0"
   checksum: 397057d97d7f753a3851abf0d6db94c295bd8254536f71f622b896ba08ea8c0d3e3771c8b009a557e6ce602f4245c0588836cdf59c4ce588fff721a7b855d323
+  languageName: node
+  linkType: hard
+
+"requireindex@npm:~1.2.0":
+  version: 1.2.0
+  resolution: "requireindex@npm:1.2.0"
+  checksum: 50d8b10a1ff1fdf6aea7a1870bc7bd238b0fb1917d8d7ca17fd03afc38a65dcd7a8a4eddd031f89128b5f0065833d5c92c4fef67f2c04e8624057fe626c9cf94
   languageName: node
   linkType: hard
 
