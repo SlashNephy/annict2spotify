@@ -2807,7 +2807,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     react-query: 3.39.2
-    react-render-if-visible: 2.1.0
+    react-render-if-visible: 2.1.1
     spotify-web-api-node: 5.0.2
     tabler-icons-react: 1.54.0
     typescript: 4.8.3
@@ -7732,13 +7732,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-render-if-visible@npm:2.1.0":
-  version: 2.1.0
-  resolution: "react-render-if-visible@npm:2.1.0"
+"react-render-if-visible@npm:2.1.1":
+  version: 2.1.1
+  resolution: "react-render-if-visible@npm:2.1.1"
   peerDependencies:
     react: ">= 16.8.0 < 19"
     react-dom: ">= 16.8.0 < 19"
-  checksum: 6d3e313a19ba6871511e98eea253cf4c2ba99c87ed99507fb7b188fa589686555a8412bacb9599f988f591a8ae3253edf079a4870f0acf79fb6767c39c80eed2
+  checksum: 736bbf26c2900cd6a649b31884fefc22c71f08bbf47a95550d132f87bf17b53e718a38fc27b898489c58959e4babfa97979ab7268bce5b30d6b19b228305fbea
   languageName: node
   linkType: hard
 
