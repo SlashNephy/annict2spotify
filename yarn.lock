@@ -1014,17 +1014,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/import-types-preset@npm:2.2.3":
-  version: 2.2.3
-  resolution: "@graphql-codegen/import-types-preset@npm:2.2.3"
+"@graphql-codegen/import-types-preset@npm:2.2.4":
+  version: 2.2.4
+  resolution: "@graphql-codegen/import-types-preset@npm:2.2.4"
   dependencies:
     "@graphql-codegen/add": ^3.2.1
     "@graphql-codegen/plugin-helpers": ^2.6.2
-    "@graphql-codegen/visitor-plugin-common": 2.12.1
+    "@graphql-codegen/visitor-plugin-common": 2.12.2
     tslib: ~2.4.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
-  checksum: 6c4e0d0a43cc85f49d235bd14a7823cab99dfb8cafef8c54c89c240b25bf9fa31bc6fc8a826fbec6cb8855bb91b42d0e63022ff590206a87bf4126ee88a8f587
+  checksum: d2dccee4d4906fd0de1332d2b06fa37d425477c40010dd528b62a36c2f02944859685a94fd3b05c1cb6cb62ac2f46ab0b1a73480c54b4dbb22ead75a089591ce
   languageName: node
   linkType: hard
 
@@ -2919,7 +2919,7 @@ __metadata:
   resolution: "annict2spotify@workspace:."
   dependencies:
     "@graphql-codegen/cli": 2.13.6
-    "@graphql-codegen/import-types-preset": 2.2.3
+    "@graphql-codegen/import-types-preset": 2.2.4
     "@graphql-codegen/typescript": 2.7.4
     "@graphql-codegen/typescript-graphql-request": 4.5.5
     "@graphql-codegen/typescript-operations": 2.5.3
