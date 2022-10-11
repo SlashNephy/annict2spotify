@@ -1104,7 +1104,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript@npm:2.7.3, @graphql-codegen/typescript@npm:^2.7.3":
+"@graphql-codegen/typescript@npm:2.7.4":
+  version: 2.7.4
+  resolution: "@graphql-codegen/typescript@npm:2.7.4"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    "@graphql-codegen/schema-ast": ^2.5.1
+    "@graphql-codegen/visitor-plugin-common": 2.12.2
+    auto-bind: ~4.0.0
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 91ce69d19eead417d4ba07a59f4be19fd50a28c4bd3800f8cd69efa7e2afb05cea6e15b8d58086b67c366970a6c58f0c5179a46a9f07c7f135f642a9d6af3583
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/typescript@npm:^2.7.3":
   version: 2.7.3
   resolution: "@graphql-codegen/typescript@npm:2.7.3"
   dependencies:
@@ -1136,6 +1151,26 @@ __metadata:
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
   checksum: 846d1c698b12863a25d36da761ff7c1904405e6a8ead450f95658db407bc007582eb9328f4ba57fe33129ff3e6ebce2b55347125c0bf980370480ffd47299d2e
+  languageName: node
+  linkType: hard
+
+"@graphql-codegen/visitor-plugin-common@npm:2.12.2":
+  version: 2.12.2
+  resolution: "@graphql-codegen/visitor-plugin-common@npm:2.12.2"
+  dependencies:
+    "@graphql-codegen/plugin-helpers": ^2.6.2
+    "@graphql-tools/optimize": ^1.3.0
+    "@graphql-tools/relay-operation-optimizer": ^6.5.0
+    "@graphql-tools/utils": ^8.8.0
+    auto-bind: ~4.0.0
+    change-case-all: 1.0.14
+    dependency-graph: ^0.11.0
+    graphql-tag: ^2.11.0
+    parse-filepath: ^1.0.2
+    tslib: ~2.4.0
+  peerDependencies:
+    graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
+  checksum: 325b6a2bbd297c7beff00963f4f375d2990956287d4e4976864875340728abf1bdaa9891bbd9fc2625d783689f2655befd212a03c521d3661e16dcea0e0a6de4
   languageName: node
   linkType: hard
 
@@ -2885,7 +2920,7 @@ __metadata:
   dependencies:
     "@graphql-codegen/cli": 2.13.6
     "@graphql-codegen/import-types-preset": 2.2.3
-    "@graphql-codegen/typescript": 2.7.3
+    "@graphql-codegen/typescript": 2.7.4
     "@graphql-codegen/typescript-graphql-request": 4.5.5
     "@graphql-codegen/typescript-operations": 2.5.3
     "@kawaiioverflow/arm": 0.102.0
