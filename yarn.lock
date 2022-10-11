@@ -1073,19 +1073,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@graphql-codegen/typescript-graphql-request@npm:4.5.5":
-  version: 4.5.5
-  resolution: "@graphql-codegen/typescript-graphql-request@npm:4.5.5"
+"@graphql-codegen/typescript-graphql-request@npm:4.5.6":
+  version: 4.5.6
+  resolution: "@graphql-codegen/typescript-graphql-request@npm:4.5.6"
   dependencies:
     "@graphql-codegen/plugin-helpers": ^2.7.1
-    "@graphql-codegen/visitor-plugin-common": 2.12.1
+    "@graphql-codegen/visitor-plugin-common": 2.12.2
     auto-bind: ~4.0.0
     tslib: ~2.4.0
   peerDependencies:
     graphql: ^0.8.0 || ^0.9.0 || ^0.10.0 || ^0.11.0 || ^0.12.0 || ^0.13.0 || ^14.0.0 || ^15.0.0 || ^16.0.0
     graphql-request: ^3.4.0 || ^4.0.0 || ^5.0.0
     graphql-tag: ^2.0.0
-  checksum: e7e5b3843586eae85321428fa8ea686d637533cd914200a9eaad58fb8805bd3731a8c59b137b4b010b2a51ec5bfeb01567db65dda38dc5d56f459c30d49691b3
+  checksum: 96148bdac0ac2d10d49804d1f2121718e251cfb7ebf9cd83afe1a7d6a4c7e2ce137aed651ee8d3c4ec11755afbd13ef1f011ada5cef575ff9b86f92e4ea4d38a
   languageName: node
   linkType: hard
 
@@ -2921,7 +2921,7 @@ __metadata:
     "@graphql-codegen/cli": 2.13.6
     "@graphql-codegen/import-types-preset": 2.2.4
     "@graphql-codegen/typescript": 2.7.4
-    "@graphql-codegen/typescript-graphql-request": 4.5.5
+    "@graphql-codegen/typescript-graphql-request": 4.5.6
     "@graphql-codegen/typescript-operations": 2.5.3
     "@kawaiioverflow/arm": 0.102.0
     "@mantine/core": 4.2.12
