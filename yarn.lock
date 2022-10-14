@@ -2246,9 +2246,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:0.2.6":
-  version: 0.2.6
-  resolution: "@slashnephy/eslint-config@npm:0.2.6"
+"@slashnephy/eslint-config@npm:0.2.7":
+  version: 0.2.7
+  resolution: "@slashnephy/eslint-config@npm:0.2.7"
   dependencies:
     "@typescript-eslint/eslint-plugin": 5.37.0
     "@typescript-eslint/parser": 5.37.0
@@ -2259,7 +2259,7 @@ __metadata:
     eslint-plugin-editorconfig: 4.0.2
     eslint-plugin-eslint-comments: 3.2.0
     eslint-plugin-import: 2.26.0
-    eslint-plugin-jest: 27.0.4
+    eslint-plugin-jest: 27.1.1
     eslint-plugin-jest-formatting: 3.1.0
     eslint-plugin-json: 3.1.0
     eslint-plugin-no-void-return-type: 1.0.2
@@ -2276,7 +2276,7 @@ __metadata:
     eslint: ^8
     prettier: ^2
     typescript: ^4
-  checksum: cb7d93efe85e4df4d467ac9335df882e6ea1b12b68e387cf8014b927a6e8548c39f40207ba643704c1ffb7760726919bffcb73fe121166735369d479b197b083
+  checksum: 4bd052aa227e3dde15797986ce4938d7ba3c569de5d87d4d3ba8311f89c227bc55f82160c218d5428dd3cbf0e8bf8538648041827c3fead21fb7cfeb1c767656
   languageName: node
   linkType: hard
 
@@ -2869,7 +2869,7 @@ __metadata:
     "@mantine/next": 4.2.12
     "@mantine/notifications": 4.2.12
     "@prisma/client": 4.4.0
-    "@slashnephy/eslint-config": 0.2.6
+    "@slashnephy/eslint-config": 0.2.7
     "@slashnephy/prettier-config": 0.1.1
     "@types/jsdom": 20.0.0
     "@types/node": 17.0.31
@@ -4505,9 +4505,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:27.0.4":
-  version: 27.0.4
-  resolution: "eslint-plugin-jest@npm:27.0.4"
+"eslint-plugin-jest@npm:27.1.1":
+  version: 27.1.1
+  resolution: "eslint-plugin-jest@npm:27.1.1"
   dependencies:
     "@typescript-eslint/utils": ^5.10.0
   peerDependencies:
@@ -4518,7 +4518,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: 8408d8a53bae946527ac4120865c29b3468cf58d8e5ff3b9c75c5303bb5aa451ac7e04329fc004cf6302f84431e6c6c1f2ba9009b0150d1718df58ea490ed3f5
+  checksum: 215a60d0c9ca641f3c1c7c5e4ff78093ad80c5f0ee22f44c50b9c8625ec0624ec4f47bf281684157f6231a4c480a4ca40bafad4ac6438a2105bb8527920e341f
   languageName: node
   linkType: hard
 
