@@ -2876,7 +2876,7 @@ __metadata:
     "@types/react": 18.0.21
     "@types/react-dom": 18.0.6
     "@types/spotify-web-api-node": 5.0.7
-    cancelable-promise: 4.3.0
+    cancelable-promise: 4.3.1
     concurrently: 7.4.0
     date-fns: 2.29.3
     eslint: 8.26.0
@@ -3341,10 +3341,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cancelable-promise@npm:4.3.0":
-  version: 4.3.0
-  resolution: "cancelable-promise@npm:4.3.0"
-  checksum: 309bd8cdffd18c136937a71f998b6375239602532b36ff961fdf63e182039e3b05559676e44e37d238a1e90a0cd7e85e35e5ccf89eac41619a84211be38315cb
+"cancelable-promise@npm:4.3.1":
+  version: 4.3.1
+  resolution: "cancelable-promise@npm:4.3.1"
+  checksum: 53a7c904b1dfa1c39b7049ecdd2586cea2a53678422918323d884f59b56319fad2c8c5e1bf29a5e88faa4eb27e23cdb2166abea121ef2ead38793bde7c54379f
   languageName: node
   linkType: hard
 

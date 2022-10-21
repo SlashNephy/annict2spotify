@@ -28,7 +28,7 @@
     "@mantine/next": "4.2.12",
     "@mantine/notifications": "4.2.12",
     "@prisma/client": "4.4.0",
-    "cancelable-promise": "4.3.0",
+    "cancelable-promise": "4.3.1",
     "date-fns": "2.29.3",
     "graphql-request": "4.3.0",
     "jsdom": "20.0.1",
