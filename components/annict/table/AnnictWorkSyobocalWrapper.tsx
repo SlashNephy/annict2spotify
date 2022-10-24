@@ -1,11 +1,12 @@
 import { SimpleGrid } from '@mantine/core'
-import React from 'react'
+import React, { useMemo } from 'react'
+import { useQuery } from 'react-query'
 
-import { annict2syobocal } from '../../../lib/client/arm'
 import { AnnictWorkSongs } from './AnnictWorkSongs'
 import { AnnictWorkSyobocalLink } from './AnnictWorkSyobocalLink'
 
 import type { Work } from '../../../graphql/types'
+import type { ArmEntry } from '../../../lib/client/arm'
 import type { Setter } from '../../type'
 import type { SyobocalSong } from '@prisma/client'
 
@@ -13,8 +14,16 @@ export const AnnictWorkSyobocalWrapper: React.FC<{
   work: Work
   setSongs: Setter<Map<number, SyobocalSong[]>>
 }> = ({ work, setSongs }) => {
-  const tid = annict2syobocal(work.annictId) ?? work.syobocalTid
-  if (!tid) {
+  const { data: arm } = useQuery<ArmEntry[]>(['arm'], async () => {
+    const response = await fetch('https://raw.githubusercontent.com/SlashNephy/arm-supplementary/master/dist/arm.json')
+    return await response.json()
+  })
+
+  const tid = useMemo(() => {
+    return arm?.find((arm) => arm.annict_id === work.annictId)?.syobocal_tid ?? work.syobocalTid
+  }, [arm, work])
+
+  if (typeof tid !== 'number') {
     return <span>-</span>
   }
 
