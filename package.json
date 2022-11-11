@@ -31,7 +31,7 @@
     "date-fns": "2.29.3",
     "graphql-request": "4.3.0",
     "jsdom": "20.0.2",
-    "levenshtein-edit-distance": "3.0.0",
+    "levenshtein-edit-distance": "3.0.1",
     "next": "12.3.2",
     "next-auth": "4.15.0",
     "node-fetch": "3.2.10",

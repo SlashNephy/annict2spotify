@@ -2931,7 +2931,7 @@ __metadata:
     graphql: 16.6.0
     graphql-request: 4.3.0
     jsdom: 20.0.2
-    levenshtein-edit-distance: 3.0.0
+    levenshtein-edit-distance: 3.0.1
     next: 12.3.2
     next-auth: 4.15.0
     node-fetch: 3.2.10
@@ -6473,12 +6473,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"levenshtein-edit-distance@npm:3.0.0":
-  version: 3.0.0
-  resolution: "levenshtein-edit-distance@npm:3.0.0"
+"levenshtein-edit-distance@npm:3.0.1":
+  version: 3.0.1
+  resolution: "levenshtein-edit-distance@npm:3.0.1"
   bin:
     levenshtein-edit-distance: cli.js
-  checksum: 8101a86c33e09e8708b1a23d2c16b2ac7e85bf884fbb9626cac011ce89b6db4ea6c85b0915420f00e9096452e70dcf704b257a5f28efc6f4a1af16e118c790e0
+  checksum: f974b9977749a12e4c787d0c9fd94edddadc1e94ea6c50ab6b9b317b0a1601e8cd08d56b84a1b7b17f45ace849200a65834a05c5f4ee1717f9bd23f884765e76
   languageName: node
   linkType: hard
 
