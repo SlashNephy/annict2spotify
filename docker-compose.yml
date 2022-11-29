@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     # https://hub.docker.com/_/postgres
-    image: postgres:14.5-bullseye
+    image: postgres:14.6-bullseye
     restart: always
     environment:
       POSTGRES_USER: ${DATABASE_USER}
