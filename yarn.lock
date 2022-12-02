@@ -2181,10 +2181,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@prisma/engines@npm:4.7.0":
-  version: 4.7.0
-  resolution: "@prisma/engines@npm:4.7.0"
-  checksum: 6cd5bae7fc589110f5bcdb2b4c0ee4a3bf9a8a149b3ee82407ab98d040c8f5bbeeb651f9c25057015b5ebf87286df828f8335762e368fc70911bc1e367586009
+"@prisma/engines@npm:4.7.1":
+  version: 4.7.1
+  resolution: "@prisma/engines@npm:4.7.1"
+  checksum: 1660f1d5a6188a9cb9aa5186111910f37b1bc02f09be10336a41e0ec61a18a4193e0ff424077dafb1bf1392a435fc89cec47526a58784a7bdc6c8278adf147a4
   languageName: node
   linkType: hard
 
@@ -2938,7 +2938,7 @@ __metadata:
     next-auth: 4.17.0
     node-fetch: 3.3.0
     prettier: 2.8.0
-    prisma: 4.7.0
+    prisma: 4.7.1
     react: 18.2.0
     react-dom: 18.2.0
     react-query: 3.39.2
@@ -7891,15 +7891,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prisma@npm:4.7.0":
-  version: 4.7.0
-  resolution: "prisma@npm:4.7.0"
+"prisma@npm:4.7.1":
+  version: 4.7.1
+  resolution: "prisma@npm:4.7.1"
   dependencies:
-    "@prisma/engines": 4.7.0
+    "@prisma/engines": 4.7.1
   bin:
     prisma: build/index.js
     prisma2: build/index.js
-  checksum: 8ea308546055b37975cefe305366ef93e9bb3afe9dd7d457a151f41675fde405c60cc65b9e3c94cdc83a9fb9e504944f74746374874b2280f1f6d28be482dc69
+  checksum: eb7046a5928f33e484bb2a100f49b613a37bdd83d72aa7e87a4edb38a235b7c44bb9c89bc9116af60950554da06d6ef7c581dd0c637ba2798810485d04da29d4
   languageName: node
   linkType: hard
 
