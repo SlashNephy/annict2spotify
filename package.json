@@ -56,7 +56,7 @@
     "@types/react-dom": "18.0.9",
     "@types/spotify-web-api-node": "5.0.7",
     "concurrently": "7.6.0",
-    "eslint": "8.28.0",
+    "eslint": "8.29.0",
     "graphql": "16.6.0",
     "prettier": "2.8.0",
     "prisma": "4.7.1",
