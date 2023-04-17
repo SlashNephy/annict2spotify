@@ -2780,14 +2780,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:18.0.35":
-  version: 18.0.35
-  resolution: "@types/react@npm:18.0.35"
+"@types/react@npm:18.0.36":
+  version: 18.0.36
+  resolution: "@types/react@npm:18.0.36"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: e65670397216e037b150a509ec08189140b4c20b82b612ac00b2a7133202be2d1def1e7ee69617b2df06ab4c00c43c4ee23e84788ad661aea9664da2f27c518a
+  checksum: ae4fc685a0a71b27d65e30f2a2c4a37d1763e2eb5920c7e433f1d841ac79bd82b62db749bad7573ae911d6145c78196791f61ad4280ba54c07f0c562db7b7cda
   languageName: node
   linkType: hard
 
@@ -3339,7 +3339,7 @@ __metadata:
     "@slashnephy/prettier-config": 0.1.16
     "@types/jsdom": 20.0.1
     "@types/node": 18.15.11
-    "@types/react": 18.0.35
+    "@types/react": 18.0.36
     "@types/react-dom": 18.0.11
     "@types/spotify-web-api-node": 5.0.7
     cancelable-promise: 4.3.1
