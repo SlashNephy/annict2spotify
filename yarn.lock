@@ -2618,9 +2618,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:0.4.16":
-  version: 0.4.16
-  resolution: "@slashnephy/eslint-config@npm:0.4.16"
+"@slashnephy/eslint-config@npm:0.4.17":
+  version: 0.4.17
+  resolution: "@slashnephy/eslint-config@npm:0.4.17"
   dependencies:
     "@emotion/eslint-plugin": 11.10.0
     "@typescript-eslint/eslint-plugin": 5.58.0
@@ -2655,7 +2655,7 @@ __metadata:
     typescript: 4.9.5
   peerDependencies:
     eslint: ">= 8"
-  checksum: f2f392f7f4d389d16d19706724c92504f3a6171105733c1acfde874ff327f656483a49066d35a63cad8241cc71c828675337601019929de8acfdd73cb76b3d41
+  checksum: d9f954ac71879cc574bfaa711deb6663da8ef61bb263757c4e6ff5ca846b5dc78e5b0dda5ea7bc6c7df86968ef4af6652f0093b288a3a5d6b657a1b8f0079d7d
   languageName: node
   linkType: hard
 
@@ -3335,7 +3335,7 @@ __metadata:
     "@mantine/next": 4.2.12
     "@mantine/notifications": 4.2.12
     "@prisma/client": 4.6.1
-    "@slashnephy/eslint-config": 0.4.16
+    "@slashnephy/eslint-config": 0.4.17
     "@slashnephy/prettier-config": 0.1.16
     "@types/jsdom": 20.0.1
     "@types/node": 18.15.13
