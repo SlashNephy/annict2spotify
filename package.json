@@ -52,7 +52,7 @@
     "@slashnephy/prettier-config": "0.1.16",
     "@types/jsdom": "20.0.1",
     "@types/node": "18.16.5",
-    "@types/react": "18.2.5",
+    "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@types/spotify-web-api-node": "5.0.7",
     "concurrently": "8.0.1",
