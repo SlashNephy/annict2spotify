@@ -2634,9 +2634,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:1.0.3":
-  version: 1.0.3
-  resolution: "@slashnephy/eslint-config@npm:1.0.3"
+"@slashnephy/eslint-config@npm:1.0.5":
+  version: 1.0.5
+  resolution: "@slashnephy/eslint-config@npm:1.0.5"
   dependencies:
     "@emotion/eslint-plugin": 11.11.0
     "@next/eslint-plugin-next": 13.4.12
@@ -2667,9 +2667,9 @@ __metadata:
     eslint-plugin-react: 7.33.0
     eslint-plugin-react-hooks: 4.6.0
     eslint-plugin-react-refresh: 0.4.3
-    eslint-plugin-storybook: 0.6.12
+    eslint-plugin-storybook: 0.6.13
     eslint-plugin-tsdoc: 0.2.17
-    eslint-plugin-unused-imports: 2.0.0
+    eslint-plugin-unused-imports: 3.0.0
     eslint-plugin-userscripts: 0.3.0
     eslint-plugin-vitest: 0.2.2
     eslint-plugin-xss: 0.1.12
@@ -2678,7 +2678,7 @@ __metadata:
     yaml-eslint-parser: 1.2.2
   peerDependencies:
     eslint: ^8
-  checksum: a4d10fa75ee598642d8e9ba2f72143424a3647af71ac6fb91e3e544dad739780c6a1319d61002be10d3a7c13f39bfffdef9441f9608f607cc161e46893d6062b
+  checksum: 3c3149c928d2fba9ee064cc4541f234e8d347b43dd653ae3a586987d1bb9ccf4bbdb252a67f99545af4cd731271dbde0141986d7a9c664fcea5b773a6e9a22b4
   languageName: node
   linkType: hard
 
@@ -3509,7 +3509,7 @@ __metadata:
     "@mantine/next": 4.2.12
     "@mantine/notifications": 4.2.12
     "@prisma/client": 4.6.1
-    "@slashnephy/eslint-config": 1.0.3
+    "@slashnephy/eslint-config": 1.0.5
     "@slashnephy/prettier-config": 0.1.26
     "@types/jsdom": 20.0.1
     "@types/node": 18.16.7
@@ -5626,9 +5626,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-storybook@npm:0.6.12":
-  version: 0.6.12
-  resolution: "eslint-plugin-storybook@npm:0.6.12"
+"eslint-plugin-storybook@npm:0.6.13":
+  version: 0.6.13
+  resolution: "eslint-plugin-storybook@npm:0.6.13"
   dependencies:
     "@storybook/csf": ^0.0.1
     "@typescript-eslint/utils": ^5.45.0
@@ -5636,7 +5636,7 @@ __metadata:
     ts-dedent: ^2.2.0
   peerDependencies:
     eslint: ">=6"
-  checksum: 8e0e160c71216019c291a5a03b797b5359076067d16ea03b3dec63594093d45398f028d15c47eb89f2ddb6e8db18cc7e376b02d921dacc4fb31bbc8da46363c8
+  checksum: 4d7bebd19bbebcdc36042e1e796dfd25fbde5f9d3a3d551a4d75fe1f41f537412f53fcf6b5e544386c5e0e2ce7af30efdabeb9169df27333e3e793a26fe2f008
   languageName: node
   linkType: hard
 
@@ -5650,18 +5650,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-unused-imports@npm:2.0.0":
-  version: 2.0.0
-  resolution: "eslint-plugin-unused-imports@npm:2.0.0"
+"eslint-plugin-unused-imports@npm:3.0.0":
+  version: 3.0.0
+  resolution: "eslint-plugin-unused-imports@npm:3.0.0"
   dependencies:
     eslint-rule-composer: ^0.3.0
   peerDependencies:
-    "@typescript-eslint/eslint-plugin": ^5.0.0
+    "@typescript-eslint/eslint-plugin": ^6.0.0
     eslint: ^8.0.0
   peerDependenciesMeta:
     "@typescript-eslint/eslint-plugin":
       optional: true
-  checksum: 8aa1e03e75da2a62a354065e0cb8fe370118c6f8d9720a32fe8c1da937de6adb81a4fed7d0d391d115ac9453b49029fb19f970d180a2cf3dba451fd4c20f0dc4
+  checksum: 51666f62cc8dccba2895ced83f3c1e0b78b68c357e17360e156c4db548bfdeda34cbd8725192fb4903f22d5069400fb22ded6039631df01ee82fd618dc307247
   languageName: node
   linkType: hard
 
