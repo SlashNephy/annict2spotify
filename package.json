@@ -48,7 +48,7 @@
     "@graphql-codegen/typescript": "3.0.4",
     "@graphql-codegen/typescript-graphql-request": "4.5.9",
     "@graphql-codegen/typescript-operations": "3.0.4",
-    "@slashnephy/eslint-config": "2.0.32",
+    "@slashnephy/eslint-config": "2.0.33",
     "@slashnephy/prettier-config": "1.0.21",
     "@types/jsdom": "20.0.1",
     "@types/node": "18.16.7",
