@@ -2667,12 +2667,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/prettier-config@npm:1.0.24":
-  version: 1.0.24
-  resolution: "@slashnephy/prettier-config@npm:1.0.24"
+"@slashnephy/prettier-config@npm:1.0.25":
+  version: 1.0.25
+  resolution: "@slashnephy/prettier-config@npm:1.0.25"
   peerDependencies:
     prettier: ^3
-  checksum: 93d9c253462ea68d54767b1e6552f62c416fcfbbff07fb4be06eabb6279adeb8d3169109998f48b87d657c9f74c2de4286b90f5e4f5b92a888c8bfa60809e1b3
+  checksum: 43bcfce7694d1ee0105873709cec0a150d7b90a9a7da5a6cc307b7f62a06e18eb619935ddc3bd4af85849f9cd67d3a9ae627ccc946e94023450ea6b4291c2d77
   languageName: node
   linkType: hard
 
@@ -3431,7 +3431,7 @@ __metadata:
     "@mantine/notifications": 4.2.12
     "@prisma/client": 4.6.1
     "@slashnephy/eslint-config": 2.0.37
-    "@slashnephy/prettier-config": 1.0.24
+    "@slashnephy/prettier-config": 1.0.25
     "@types/jsdom": 20.0.1
     "@types/node": 18.16.7
     "@types/react": 18.2.6
