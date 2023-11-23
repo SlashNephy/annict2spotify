@@ -2626,9 +2626,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:2.0.64":
-  version: 2.0.64
-  resolution: "@slashnephy/eslint-config@npm:2.0.64"
+"@slashnephy/eslint-config@npm:2.0.65":
+  version: 2.0.65
+  resolution: "@slashnephy/eslint-config@npm:2.0.65"
   dependencies:
     "@emotion/eslint-plugin": 11.11.0
     "@next/eslint-plugin-next": 13.5.6
@@ -2668,11 +2668,11 @@ __metadata:
     eslint-plugin-vitest: 0.3.10
     eslint-plugin-xss: 0.1.12
     eslint-plugin-yml: 1.10.0
-    typescript: 5.2.2
+    typescript: 5.3.2
     yaml-eslint-parser: 1.2.2
   peerDependencies:
     eslint: ^8
-  checksum: 1b7d1975b586bb92163972ec27ce41c3f6dcf10916c0855421788685f64c7a9e833c800c3010be824ea47fdb3cc61d789d913fa1632baf61fe045f6a427a5f32
+  checksum: 05f5db8a019c0a43b18ea29527b11e3c94053c02dfe5cd654977f5e5047f1e150c8a93e2d18b884be7ed2685cf78acdb5e07af4919d7f3b92c1cd3bfa5b01a8b
   languageName: node
   linkType: hard
 
@@ -3501,7 +3501,7 @@ __metadata:
     "@mantine/next": 4.2.12
     "@mantine/notifications": 4.2.12
     "@prisma/client": 4.6.1
-    "@slashnephy/eslint-config": 2.0.64
+    "@slashnephy/eslint-config": 2.0.65
     "@slashnephy/prettier-config": 1.0.46
     "@types/jsdom": 20.0.1
     "@types/node": 18.16.7
@@ -10824,13 +10824,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@npm:5.2.2":
-  version: 5.2.2
-  resolution: "typescript@npm:5.2.2"
+"typescript@npm:5.3.2":
+  version: 5.3.2
+  resolution: "typescript@npm:5.3.2"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 7912821dac4d962d315c36800fe387cdc0a6298dba7ec171b350b4a6e988b51d7b8f051317786db1094bd7431d526b648aba7da8236607febb26cf5b871d2d3c
+  checksum: d92534dda639eb825db013203404c1fabca8ac630564283c9e7dc9e64fd9c9346c2de95ecebdf3e6e8c1c32941bca1cfe0da37877611feb9daf8feeaea58d230
   languageName: node
   linkType: hard
 
@@ -10844,13 +10844,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@5.2.2#~builtin<compat/typescript>":
-  version: 5.2.2
-  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=ad5954"
+"typescript@patch:typescript@5.3.2#~builtin<compat/typescript>":
+  version: 5.3.2
+  resolution: "typescript@patch:typescript@npm%3A5.3.2#~builtin<compat/typescript>::version=5.3.2&hash=ad5954"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 07106822b4305de3f22835cbba949a2b35451cad50888759b6818421290ff95d522b38ef7919e70fb381c5fe9c1c643d7dea22c8b31652a717ddbd57b7f4d554
+  checksum: c034461079fbfde3cb584ddee52afccb15b6e32a0ce186d0b2719968786f7ca73e1b07f71fac4163088790b16811c6ccf79680de190664ef66ff0ba9c1fe4a23
   languageName: node
   linkType: hard
 
