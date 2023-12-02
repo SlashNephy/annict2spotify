@@ -14,7 +14,7 @@ services:
       - db:/var/lib/postgresql
 
   app:
-    image: node:20.1.0-bullseye-slim@sha256:bc5812b018fa74ea7dbe759cb6c0b456ff96a5c2bc8765e132438f6a75cd6946
+    image: node:21.3.0-bullseye-slim@sha256:10235f11a217783f6a796724a3a0be525db0feee8a3e46f197e0c3a11702bbc3
     restart: always
     depends_on:
       - db
