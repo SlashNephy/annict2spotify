@@ -2633,9 +2633,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@slashnephy/eslint-config@npm:2.0.95":
-  version: 2.0.95
-  resolution: "@slashnephy/eslint-config@npm:2.0.95"
+"@slashnephy/eslint-config@npm:2.0.96":
+  version: 2.0.96
+  resolution: "@slashnephy/eslint-config@npm:2.0.96"
   dependencies:
     "@emotion/eslint-plugin": 11.11.0
     "@next/eslint-plugin-next": 13.5.6
@@ -2659,7 +2659,7 @@ __metadata:
     eslint-plugin-jest-formatting: 3.1.0
     eslint-plugin-json: 3.1.0
     eslint-plugin-jsx-a11y: 6.8.0
-    eslint-plugin-n: 16.5.0
+    eslint-plugin-n: 16.6.0
     eslint-plugin-no-void-return-type: 1.0.2
     eslint-plugin-node: 11.1.0
     eslint-plugin-package-json: 0.1.5
@@ -2679,7 +2679,7 @@ __metadata:
     yaml-eslint-parser: 1.2.2
   peerDependencies:
     eslint: ^8
-  checksum: acd842e3f480a4eee152e69ae805879d0e42590c4796d4a00300dd02019e005b38878433baf7de29d2dd12f6805aecf7b4d49b49e45455a25745c429a7500c01
+  checksum: cae93423749210af482f0b6223449ca942b303421d5a1b39404f04918436ffa67b2d61b3de01e196a003121f011c4cd9e0d320f48be061e7695cc7c5ffc72265
   languageName: node
   linkType: hard
 
@@ -3447,7 +3447,7 @@ __metadata:
     "@mantine/next": 4.2.12
     "@mantine/notifications": 4.2.12
     "@prisma/client": 4.6.1
-    "@slashnephy/eslint-config": 2.0.95
+    "@slashnephy/eslint-config": 2.0.96
     "@slashnephy/prettier-config": 1.0.71
     "@types/jsdom": 20.0.1
     "@types/node": 18.16.7
@@ -5638,14 +5638,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:16.5.0":
-  version: 16.5.0
-  resolution: "eslint-plugin-n@npm:16.5.0"
+"eslint-plugin-n@npm:16.6.0":
+  version: 16.6.0
+  resolution: "eslint-plugin-n@npm:16.6.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.4.0
     builtins: ^5.0.1
     eslint-plugin-es-x: ^7.5.0
     get-tsconfig: ^4.7.0
+    globals: ^13.24.0
     ignore: ^5.2.4
     is-builtin-module: ^3.2.1
     is-core-module: ^2.12.1
@@ -5654,7 +5655,7 @@ __metadata:
     semver: ^7.5.3
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: 5914ae71e10d8ac48aefc7090c79e10a7628f81c9dcdce72035f6c9f126b176141fc3d5951de0ff215056cdd588e843427a4ace4089ee31405fee6c48569bd98
+  checksum: c2b95a57b447aa35ed8b88e8b4693bb2c6165dacedc1d7d915f123ae84e4f7f795a21a6bcb848629628f684e159a01dbbc91044f4112dad1a1a10035f643a442
   languageName: node
   linkType: hard
 
@@ -6579,6 +6580,15 @@ __metadata:
   dependencies:
     type-fest: ^0.20.2
   checksum: a000dbd00bcf28f0941d8a29c3522b1c3b8e4bfe4e60e262c477a550c3cbbe8dbe2925a6905f037acd40f9a93c039242e1f7079c76b0fd184bc41dcc3b5c8e2e
+  languageName: node
+  linkType: hard
+
+"globals@npm:^13.24.0":
+  version: 13.24.0
+  resolution: "globals@npm:13.24.0"
+  dependencies:
+    type-fest: ^0.20.2
+  checksum: 56066ef058f6867c04ff203b8a44c15b038346a62efbc3060052a1016be9f56f4cf0b2cd45b74b22b81e521a889fc7786c73691b0549c2f3a6e825b3d394f43c
   languageName: node
   linkType: hard
 
