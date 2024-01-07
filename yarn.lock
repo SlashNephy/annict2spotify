@@ -2889,12 +2889,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/spotify-web-api-node@npm:5.0.7":
-  version: 5.0.7
-  resolution: "@types/spotify-web-api-node@npm:5.0.7"
+"@types/spotify-web-api-node@npm:5.0.11":
+  version: 5.0.11
+  resolution: "@types/spotify-web-api-node@npm:5.0.11"
   dependencies:
     "@types/spotify-api": "*"
-  checksum: fe8c1b2825cac1efe95ced64879bd2eaf96ae59732d1eddb7ea967d0e924f5aceccca635d4d7f1ad4c875cbe3ddecfb96844db27bbad3698689173e186bb0326
+  checksum: e3bbaae1a7e0a760121cde98c575b1c638460306021657f9547e74b8ad34ca276579b9c1f44fc99a41a56882ccda7a98a55a6c797705be890e4499f5423d0f29
   languageName: node
   linkType: hard
 
@@ -3546,7 +3546,7 @@ __metadata:
     "@types/node": 18.16.7
     "@types/react": 18.2.6
     "@types/react-dom": 18.2.4
-    "@types/spotify-web-api-node": 5.0.7
+    "@types/spotify-web-api-node": 5.0.11
     cancelable-promise: 4.3.1
     concurrently: 8.0.1
     date-fns: 2.29.3
