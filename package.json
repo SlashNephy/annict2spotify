@@ -58,7 +58,7 @@
     "concurrently": "8.0.1",
     "eslint": "8.40.0",
     "graphql": "16.8.1",
-    "prettier": "2.8.8",
+    "prettier": "3.3.3",
     "prisma": "4.7.1",
     "typescript": "5.0.4"
   },
