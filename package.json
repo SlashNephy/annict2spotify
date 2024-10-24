@@ -33,7 +33,7 @@
     "jsdom": "20.0.3",
     "levenshtein-edit-distance": "3.0.1",
     "next": "12.3.4",
-    "next-auth": "4.24.5",
+    "next-auth": "4.24.10",
     "node-fetch": "3.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
