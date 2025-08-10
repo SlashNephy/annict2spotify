@@ -2747,14 +2747,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jsdom@npm:20.0.1":
-  version: 20.0.1
-  resolution: "@types/jsdom@npm:20.0.1"
+"@types/jsdom@npm:21.1.7":
+  version: 21.1.7
+  resolution: "@types/jsdom@npm:21.1.7"
   dependencies:
     "@types/node": "*"
     "@types/tough-cookie": "*"
     parse5: ^7.0.0
-  checksum: d55402c5256ef451f93a6e3d3881f98339fe73a5ac2030588df056d6835df8367b5a857b48d27528289057e26dcdd3f502edc00cb877c79174cb3a4c7f2198c1
+  checksum: b7465d5a471ed4e68a54e2639c534d364134674598687be69645736731215e7407fe37a4af66dc616ef03be9c5515cb355df2eda5c8080146c05bd569ea8810d
   languageName: node
   linkType: hard
 
@@ -3542,7 +3542,7 @@ __metadata:
     "@prisma/client": 4.6.1
     "@slashnephy/eslint-config": 2.1.3
     "@slashnephy/prettier-config": 1.0.73
-    "@types/jsdom": 20.0.1
+    "@types/jsdom": 21.1.7
     "@types/node": 18.16.7
     "@types/react": 18.2.6
     "@types/react-dom": 18.2.4
